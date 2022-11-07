@@ -35,7 +35,7 @@ const chain: Chain = {
       {
         address: 'https://rest.coolcat.space/',
         provider: 'Digital Kitchen'
-      },
+      }
     ],
     grpc: []
   },

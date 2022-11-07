@@ -4,7 +4,8 @@ const assets: AssetList = {
   chain_name: 'coolcat',
   assets: [
     {
-      description: 'CoolCat - The Interchain Gaming Hub. $CCAT is the native token for use in the CoolCat Network.',
+      description:
+        'CoolCat - The Interchain Gaming Hub. $CCAT is the native token for use in the CoolCat Network.',
       denom_units: [
         {
           denom: 'uccat',
