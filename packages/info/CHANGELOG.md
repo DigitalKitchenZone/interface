@@ -5,12 +5,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2022-11-07)
 
-**Note:** Version bump only for package @coolcatchain/chain
-
-
-
-
-
-## 0.0.2 (2022-11-07)
-
-**Note:** Version bump only for package @coolcatchain/chain-data
+**Note:** Version bump only for package @coolcatchain/info
