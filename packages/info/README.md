@@ -3,7 +3,7 @@
 Chain Registry info for CoolCat, including assets.
 
 ```
-yarn add @coolcatchain/chain
+yarn add @coolcatchain/info
 ```
 
 ```js
