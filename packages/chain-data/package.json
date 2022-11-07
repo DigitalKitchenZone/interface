@@ -1,5 +1,5 @@
 {
-  "name": "chain-data",
+  "name": "@coolcatchain/chain-data",
   "version": "0.0.1",
   "description": "An interface to connect any TypeScript application to the CoolCat network.",
   "author": "Marius Modlich <marius@digitalkitchen.zone>",
