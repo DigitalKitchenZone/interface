@@ -1,6 +1,6 @@
 {
   "name": "@coolcatchain/chain-info",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Chain Registry data for CoolCat",
   "author": "Marius Modlich <marius@digitalkitchen.zone>",
   "homepage": "https://github.com/DigitalKitchenLabs/interface",
