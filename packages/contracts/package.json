@@ -1,9 +1,9 @@
 {
   "name": "@coolcatchain/contracts",
   "version": "0.0.0",
-  "description": "Stargaze contracts",
-  "author": "Dan Lynch <pyramation@gmail.com>",
-  "homepage": "https://github.com/cosmology-tech/stargazejs#readme",
+  "description": "CoolCat contracts",
+  "author": "Marius Modlich <marius@digitalkitchen.zone>",
+  "homepage": "https://github.com/DigitalKitchenLabs/interface#readme",
   "license": "SEE LICENSE IN LICENSE",
   "main": "main/index.js",
   "typings": "types/index.d.ts",
@@ -33,11 +33,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cosmology-tech/stargazejs"
+    "url": "https://github.com/DigitalKitchenLabs/interface"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/cosmology-tech/stargazejs/issues"
+    "url": "https://github.com/DigitalKitchenLabs/interface/issues"
   },
   "devDependencies": {
     "@babel/cli": "7.19.3",

@@ -1,6 +1,6 @@
 # @coolcatchain/interface
 
-Typescript libraries for the Stargaze ecosystem.
+Typescript libraries for the CoolCat network.
 
 ## Packages
 
