@@ -1,6 +1,6 @@
 {
   "name": "chain-data",
-  "version": "1.0.1-alpha.0",
+  "version": "0.0.1",
   "description": "An interface to connect any TypeScript application to the CoolCat network.",
   "author": "Marius Modlich <marius@digitalkitchen.zone>",
   "homepage": "https://github.com/DigitalKitchenLabs/interface#readme",
