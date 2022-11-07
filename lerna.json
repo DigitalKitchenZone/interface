@@ -9,7 +9,7 @@
   "packages": [
     "packages/*"
   ],
-  "version": "independent",
+  "version": "0.1.0",
   "registry": "https://registry.npmjs.org",
   "command": {
     "create": {
