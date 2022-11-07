@@ -2,7 +2,7 @@
 
 Chain Registry info for CoolCat, including assets.
 
-```
+```sh
 yarn add @coolcatchain/info
 ```
 
@@ -10,7 +10,7 @@ yarn add @coolcatchain/info
 import { chain, assets } from '@coolcatchain/chain';
 ```
 
-### assets
+## assets
 
 ```js
 console.log(assets);
