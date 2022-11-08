@@ -5,9 +5,7 @@
 */
 
 export interface AddressOfResponse {
-  contract_address?: string | null;
   owner: string;
-  validator_address?: string | null;
   [k: string]: unknown;
 }
 export type Expiration = {
@@ -21,17 +19,6 @@ export type Expiration = {
 };
 export type Timestamp = Uint64;
 export type Uint64 = string;
-export type Logo = {
-  url: string;
-} | {
-  embedded: EmbeddedLogo;
-};
-export type EmbeddedLogo = {
-  svg: Binary;
-} | {
-  png: Binary;
-};
-export type Binary = string;
 export interface AllNftInfoResponse {
   access: OwnerOfResponse;
   info: NftInfoResponseForMetadata;
@@ -53,20 +40,13 @@ export interface NftInfoResponseForMetadata {
   [k: string]: unknown;
 }
 export interface Metadata {
-  contract_address?: string | null;
-  discord_id?: string | null;
+  banner?: string | null;
+  bio?: string | null;
+  discord?: string | null;
   email?: string | null;
-  external_url?: string | null;
-  image?: string | null;
-  image_data?: Logo | null;
-  keybase_id?: string | null;
-  parent_token_id?: string | null;
-  pgp_public_key?: string | null;
-  public_bio?: string | null;
   public_name?: string | null;
-  telegram_id?: string | null;
-  twitter_id?: string | null;
-  validator_operator_address?: string | null;
+  telegram?: string | null;
+  twitter?: string | null;
   [k: string]: unknown;
 }
 export type Uint128 = string;
@@ -94,11 +74,6 @@ export type ExecuteMsg = {
     [k: string]: unknown;
   };
 } | {
-  update_primary_alias: {
-    token_id: string;
-    [k: string]: unknown;
-  };
-} | {
   update_metadata: UpdateMetadataMsg;
 } | {
   burn: {
@@ -112,45 +87,6 @@ export type ExecuteMsg = {
   };
 } | {
   mint: MintMsgForMetadata;
-} | {
-  mint_path: MintMsgForMetadata;
-} | {
-  transfer_nft: {
-    recipient: string;
-    token_id: string;
-    [k: string]: unknown;
-  };
-} | {
-  send_nft: {
-    contract: string;
-    msg: Binary;
-    token_id: string;
-    [k: string]: unknown;
-  };
-} | {
-  approve: {
-    expires?: Expiration | null;
-    spender: string;
-    token_id: string;
-    [k: string]: unknown;
-  };
-} | {
-  revoke: {
-    spender: string;
-    token_id: string;
-    [k: string]: unknown;
-  };
-} | {
-  approve_all: {
-    expires?: Expiration | null;
-    operator: string;
-    [k: string]: unknown;
-  };
-} | {
-  revoke_all: {
-    operator: string;
-    [k: string]: unknown;
-  };
 };
 export interface UpdateMintingFeesMsg {
   base_mint_fee?: Uint128 | null;
@@ -220,10 +156,6 @@ export interface NumTokensResponse {
   count: number;
   [k: string]: unknown;
 }
-export interface OperatorsResponse {
-  operators: Approval[];
-  [k: string]: unknown;
-}
 export interface PrimaryAliasResponse {
   username: string;
   [k: string]: unknown;
@@ -271,13 +203,6 @@ export type QueryMsg = {
     [k: string]: unknown;
   };
 } | {
-  base_tokens: {
-    limit?: number | null;
-    owner: string;
-    start_after?: string | null;
-    [k: string]: unknown;
-  };
-} | {
   all_tokens: {
     limit?: number | null;
     start_after?: string | null;
@@ -285,41 +210,6 @@ export type QueryMsg = {
   };
 } | {
   admin_address: {
-    [k: string]: unknown;
-  };
-} | {
-  is_contract: {
-    token_id: string;
-    [k: string]: unknown;
-  };
-} | {
-  get_parent_id: {
-    token_id: string;
-    [k: string]: unknown;
-  };
-} | {
-  get_parent_info: {
-    token_id: string;
-    [k: string]: unknown;
-  };
-} | {
-  get_full_path: {
-    token_id: string;
-    [k: string]: unknown;
-  };
-} | {
-  paths: {
-    limit?: number | null;
-    owner: string;
-    start_after?: string | null;
-    [k: string]: unknown;
-  };
-} | {
-  paths_for_token: {
-    limit?: number | null;
-    owner: string;
-    start_after?: string | null;
-    token_id: string;
     [k: string]: unknown;
   };
 } | {
