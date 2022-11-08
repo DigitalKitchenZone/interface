@@ -76,7 +76,9 @@
     "@cosmjs/cosmwasm-stargate": "^0.29.1",
     "@cosmjs/proto-signing": "0.29.1",
     "@cosmjs/stargate": "0.29.1",
-    "cosmwasm": "1.1.1"
+    "@tanstack/react-query": "4.14.5",
+    "cosmwasm": "1.1.1",
+    "recoil": "0.7.6"
   },
   "gitHead": "0a94ff6736ad5d4fdf1594dcd0d714a5b7e408ad"
 }

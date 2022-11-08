@@ -8,7 +8,7 @@ import { Coin } from "@cosmjs/amino";
 import { MsgExecuteContractEncodeObject } from "cosmwasm";
 import { MsgExecuteContract } from "cosmjs-types/cosmwasm/wasm/v1/tx";
 import { toUtf8 } from "@cosmjs/encoding";
-import { AddressOfResponse, Expiration, Timestamp, Uint64, AllNftInfoResponse, OwnerOfResponse, Approval, NftInfoResponseForMetadata, Metadata, Uint128, ContractInfoResponse, SurchargeInfo, ExecuteMsg, UpdateMintingFeesMsg, UpdateMetadataMsg, MintMsgForMetadata, InstantiateMsg, ListUserInfoResponse, UserInfo, MigrateMsg, MinterResponse, MintingFeesResponse, NftInfoResponse, NumTokensResponse, PrimaryAliasResponse, QueryMsg, TokensResponse } from "./Profiles.types";
+import { AddressOfResponse, AdminAddressResponse, Expiration, Timestamp, Uint64, AllNftInfoResponse, OwnerOfResponse, Approval, NftInfoResponseForMetadata, Metadata, AllTokensResponse, Uint128, ContractInfoResponse, SurchargeInfo, ExecuteMsg, UpdateMintingFeesMsg, UpdateMetadataMsg, MintMsgForMetadata, InstantiateMsg, ListUserInfoResponse, UserInfo, MigrateMsg, MinterResponse, MintingFeesResponse, NftInfoResponse, NumTokensResponse, PrimaryAliasResponse, QueryMsg, TokensResponse } from "./Profiles.types";
 export interface ProfilesMessage {
   contractAddress: string;
   sender: string;

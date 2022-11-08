@@ -6,7 +6,7 @@
 
 import { CosmWasmClient, SigningCosmWasmClient, ExecuteResult } from "@cosmjs/cosmwasm-stargate";
 import { Coin, StdFee } from "@cosmjs/amino";
-import { AddressOfResponse, Expiration, Timestamp, Uint64, AllNftInfoResponse, OwnerOfResponse, Approval, NftInfoResponseForMetadata, Metadata, Uint128, ContractInfoResponse, SurchargeInfo, ExecuteMsg, UpdateMintingFeesMsg, UpdateMetadataMsg, MintMsgForMetadata, InstantiateMsg, ListUserInfoResponse, UserInfo, MigrateMsg, MinterResponse, MintingFeesResponse, NftInfoResponse, NumTokensResponse, PrimaryAliasResponse, QueryMsg, TokensResponse } from "./Profiles.types";
+import { AddressOfResponse, AdminAddressResponse, Expiration, Timestamp, Uint64, AllNftInfoResponse, OwnerOfResponse, Approval, NftInfoResponseForMetadata, Metadata, AllTokensResponse, Uint128, ContractInfoResponse, SurchargeInfo, ExecuteMsg, UpdateMintingFeesMsg, UpdateMetadataMsg, MintMsgForMetadata, InstantiateMsg, ListUserInfoResponse, UserInfo, MigrateMsg, MinterResponse, MintingFeesResponse, NftInfoResponse, NumTokensResponse, PrimaryAliasResponse, QueryMsg, TokensResponse } from "./Profiles.types";
 export interface ProfilesReadOnlyInterface {
   contractAddress: string;
   primaryAlias: ({
@@ -55,8 +55,9 @@ export interface ProfilesReadOnlyInterface {
   }: {
     limit?: number;
     startAfter?: string;
-  }) => Promise<TokensResponse>;
-  listInfoByAlias: ({
+  }) => Promise<AllTokensResponse>;
+  adminAddress: () => Promise<AdminAddressResponse>;
+  listUserInfo: ({
     aliases
   }: {
     aliases: string[];
@@ -78,7 +79,8 @@ export class ProfilesQueryClient implements ProfilesReadOnlyInterface {
     this.allNftInfo = this.allNftInfo.bind(this);
     this.tokens = this.tokens.bind(this);
     this.allTokens = this.allTokens.bind(this);
-    this.listInfoByAlias = this.listInfoByAlias.bind(this);
+    this.adminAddress = this.adminAddress.bind(this);
+    this.listUserInfo = this.listUserInfo.bind(this);
   }
 
   primaryAlias = async ({
@@ -175,7 +177,7 @@ export class ProfilesQueryClient implements ProfilesReadOnlyInterface {
   }: {
     limit?: number;
     startAfter?: string;
-  }): Promise<TokensResponse> => {
+  }): Promise<AllTokensResponse> => {
     return this.client.queryContractSmart(this.contractAddress, {
       all_tokens: {
         limit,
@@ -183,13 +185,18 @@ export class ProfilesQueryClient implements ProfilesReadOnlyInterface {
       }
     });
   };
-  listInfoByAlias = async ({
+  adminAddress = async (): Promise<AdminAddressResponse> => {
+    return this.client.queryContractSmart(this.contractAddress, {
+      admin_address: {}
+    });
+  };
+  listUserInfo = async ({
     aliases
   }: {
     aliases: string[];
   }): Promise<ListUserInfoResponse> => {
     return this.client.queryContractSmart(this.contractAddress, {
-      list_info_by_alias: {
+      list_user_info: {
         aliases
       }
     });

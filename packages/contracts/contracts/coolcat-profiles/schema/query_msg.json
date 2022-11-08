@@ -227,10 +227,10 @@
       "description": "Returns token info for a list of token IDs Includes owner and token metadata",
       "type": "object",
       "required": [
-        "list_info_by_alias"
+        "list_user_info"
       ],
       "properties": {
-        "list_info_by_alias": {
+        "list_user_info": {
           "type": "object",
           "required": [
             "aliases"

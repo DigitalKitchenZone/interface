@@ -8,6 +8,10 @@ export interface AddressOfResponse {
   owner: string;
   [k: string]: unknown;
 }
+export interface AdminAddressResponse {
+  minter: string;
+  [k: string]: unknown;
+}
 export type Expiration = {
   at_height: number;
 } | {
@@ -47,6 +51,10 @@ export interface Metadata {
   public_name?: string | null;
   telegram?: string | null;
   twitter?: string | null;
+  [k: string]: unknown;
+}
+export interface AllTokensResponse {
+  tokens: string[];
   [k: string]: unknown;
 }
 export type Uint128 = string;
@@ -213,7 +221,7 @@ export type QueryMsg = {
     [k: string]: unknown;
   };
 } | {
-  list_info_by_alias: {
+  list_user_info: {
     aliases: string[];
     [k: string]: unknown;
   };

@@ -49,17 +49,6 @@ const contracts = [
 codegen({
   contracts,
   outPath: join(__dirname, '../src/codegen'),
-    reactQuery: {
-      enabled: true,
-      optionalClient: true,
-      version: 'v4',
-      mutations: true,
-      queryKeys: true,
-      queryFactory: true,
-    },
-    recoil: {
-      enabled: true
-  },
   options: {
     bundle: {
       enabled: true,
@@ -72,7 +61,7 @@ codegen({
     },
     client: {
       enabled: true,
-      execExtendsQuery: true
+      execExtendsQuery: false
     },
     messageComposer: {
       enabled: true
