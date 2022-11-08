@@ -21,7 +21,7 @@ telescope({
     prototypes: {
       includePackageVar: false,
       typingsFormat: {
-        useDeepPartial: false,
+        useDeepPartial: true,
         useExact: false,
         timestamp: 'timestamp',
         duration: 'duration'
@@ -40,7 +40,8 @@ telescope({
     },
     rpcClients: {
       enabled: true,
-      camelCase: true
+      camelCase: true,
+      extensions: true
     }
   }
 })

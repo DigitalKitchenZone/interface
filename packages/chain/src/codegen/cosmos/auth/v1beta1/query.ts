@@ -2,7 +2,7 @@ import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } fr
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import { Params, ParamsSDKType } from "./auth";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /**
  * QueryAccountsRequest is the request type for the Query/Accounts RPC method.
  * 
@@ -213,7 +213,7 @@ export const QueryAccountsRequest = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryAccountsRequest>): QueryAccountsRequest {
+  fromPartial(object: DeepPartial<QueryAccountsRequest>): QueryAccountsRequest {
     const message = createBaseQueryAccountsRequest();
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
@@ -287,7 +287,7 @@ export const QueryAccountsResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryAccountsResponse>): QueryAccountsResponse {
+  fromPartial(object: DeepPartial<QueryAccountsResponse>): QueryAccountsResponse {
     const message = createBaseQueryAccountsResponse();
     message.accounts = object.accounts?.map(e => Any.fromPartial(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
@@ -345,7 +345,7 @@ export const QueryAccountRequest = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryAccountRequest>): QueryAccountRequest {
+  fromPartial(object: DeepPartial<QueryAccountRequest>): QueryAccountRequest {
     const message = createBaseQueryAccountRequest();
     message.address = object.address ?? "";
     return message;
@@ -389,7 +389,7 @@ export const QueryModuleAccountsRequest = {
     return obj;
   },
 
-  fromPartial(_: Partial<QueryModuleAccountsRequest>): QueryModuleAccountsRequest {
+  fromPartial(_: DeepPartial<QueryModuleAccountsRequest>): QueryModuleAccountsRequest {
     const message = createBaseQueryModuleAccountsRequest();
     return message;
   }
@@ -445,7 +445,7 @@ export const QueryParamsResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryParamsResponse>): QueryParamsResponse {
+  fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse {
     const message = createBaseQueryParamsResponse();
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
@@ -502,7 +502,7 @@ export const QueryAccountResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryAccountResponse>): QueryAccountResponse {
+  fromPartial(object: DeepPartial<QueryAccountResponse>): QueryAccountResponse {
     const message = createBaseQueryAccountResponse();
     message.account = object.account !== undefined && object.account !== null ? Any.fromPartial(object.account) : undefined;
     return message;
@@ -546,7 +546,7 @@ export const QueryParamsRequest = {
     return obj;
   },
 
-  fromPartial(_: Partial<QueryParamsRequest>): QueryParamsRequest {
+  fromPartial(_: DeepPartial<QueryParamsRequest>): QueryParamsRequest {
     const message = createBaseQueryParamsRequest();
     return message;
   }
@@ -608,7 +608,7 @@ export const QueryModuleAccountsResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryModuleAccountsResponse>): QueryModuleAccountsResponse {
+  fromPartial(object: DeepPartial<QueryModuleAccountsResponse>): QueryModuleAccountsResponse {
     const message = createBaseQueryModuleAccountsResponse();
     message.accounts = object.accounts?.map(e => Any.fromPartial(e)) || [];
     return message;
@@ -652,7 +652,7 @@ export const Bech32PrefixRequest = {
     return obj;
   },
 
-  fromPartial(_: Partial<Bech32PrefixRequest>): Bech32PrefixRequest {
+  fromPartial(_: DeepPartial<Bech32PrefixRequest>): Bech32PrefixRequest {
     const message = createBaseBech32PrefixRequest();
     return message;
   }
@@ -708,7 +708,7 @@ export const Bech32PrefixResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<Bech32PrefixResponse>): Bech32PrefixResponse {
+  fromPartial(object: DeepPartial<Bech32PrefixResponse>): Bech32PrefixResponse {
     const message = createBaseBech32PrefixResponse();
     message.bech32Prefix = object.bech32Prefix ?? "";
     return message;
@@ -765,7 +765,7 @@ export const AddressBytesToStringRequest = {
     return obj;
   },
 
-  fromPartial(object: Partial<AddressBytesToStringRequest>): AddressBytesToStringRequest {
+  fromPartial(object: DeepPartial<AddressBytesToStringRequest>): AddressBytesToStringRequest {
     const message = createBaseAddressBytesToStringRequest();
     message.addressBytes = object.addressBytes ?? new Uint8Array();
     return message;
@@ -822,7 +822,7 @@ export const AddressBytesToStringResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<AddressBytesToStringResponse>): AddressBytesToStringResponse {
+  fromPartial(object: DeepPartial<AddressBytesToStringResponse>): AddressBytesToStringResponse {
     const message = createBaseAddressBytesToStringResponse();
     message.addressString = object.addressString ?? "";
     return message;
@@ -879,7 +879,7 @@ export const AddressStringToBytesRequest = {
     return obj;
   },
 
-  fromPartial(object: Partial<AddressStringToBytesRequest>): AddressStringToBytesRequest {
+  fromPartial(object: DeepPartial<AddressStringToBytesRequest>): AddressStringToBytesRequest {
     const message = createBaseAddressStringToBytesRequest();
     message.addressString = object.addressString ?? "";
     return message;
@@ -936,7 +936,7 @@ export const AddressStringToBytesResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<AddressStringToBytesResponse>): AddressStringToBytesResponse {
+  fromPartial(object: DeepPartial<AddressStringToBytesResponse>): AddressStringToBytesResponse {
     const message = createBaseAddressStringToBytesResponse();
     message.addressBytes = object.addressBytes ?? new Uint8Array();
     return message;

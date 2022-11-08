@@ -1,6 +1,6 @@
 import { Plan, PlanSDKType, ModuleVersion, ModuleVersionSDKType } from "./upgrade";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, Long, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { DeepPartial, isSet, Long, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /**
  * QueryCurrentPlanRequest is the request type for the Query/CurrentPlan RPC
  * method.
@@ -238,7 +238,7 @@ export const QueryCurrentPlanRequest = {
     return obj;
   },
 
-  fromPartial(_: Partial<QueryCurrentPlanRequest>): QueryCurrentPlanRequest {
+  fromPartial(_: DeepPartial<QueryCurrentPlanRequest>): QueryCurrentPlanRequest {
     const message = createBaseQueryCurrentPlanRequest();
     return message;
   }
@@ -294,7 +294,7 @@ export const QueryCurrentPlanResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryCurrentPlanResponse>): QueryCurrentPlanResponse {
+  fromPartial(object: DeepPartial<QueryCurrentPlanResponse>): QueryCurrentPlanResponse {
     const message = createBaseQueryCurrentPlanResponse();
     message.plan = object.plan !== undefined && object.plan !== null ? Plan.fromPartial(object.plan) : undefined;
     return message;
@@ -351,7 +351,7 @@ export const QueryAppliedPlanRequest = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryAppliedPlanRequest>): QueryAppliedPlanRequest {
+  fromPartial(object: DeepPartial<QueryAppliedPlanRequest>): QueryAppliedPlanRequest {
     const message = createBaseQueryAppliedPlanRequest();
     message.name = object.name ?? "";
     return message;
@@ -408,7 +408,7 @@ export const QueryAppliedPlanResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryAppliedPlanResponse>): QueryAppliedPlanResponse {
+  fromPartial(object: DeepPartial<QueryAppliedPlanResponse>): QueryAppliedPlanResponse {
     const message = createBaseQueryAppliedPlanResponse();
     message.height = object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     return message;
@@ -465,7 +465,7 @@ export const QueryUpgradedConsensusStateRequest = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryUpgradedConsensusStateRequest>): QueryUpgradedConsensusStateRequest {
+  fromPartial(object: DeepPartial<QueryUpgradedConsensusStateRequest>): QueryUpgradedConsensusStateRequest {
     const message = createBaseQueryUpgradedConsensusStateRequest();
     message.lastHeight = object.lastHeight !== undefined && object.lastHeight !== null ? Long.fromValue(object.lastHeight) : Long.ZERO;
     return message;
@@ -522,7 +522,7 @@ export const QueryUpgradedConsensusStateResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryUpgradedConsensusStateResponse>): QueryUpgradedConsensusStateResponse {
+  fromPartial(object: DeepPartial<QueryUpgradedConsensusStateResponse>): QueryUpgradedConsensusStateResponse {
     const message = createBaseQueryUpgradedConsensusStateResponse();
     message.upgradedConsensusState = object.upgradedConsensusState ?? new Uint8Array();
     return message;
@@ -579,7 +579,7 @@ export const QueryModuleVersionsRequest = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryModuleVersionsRequest>): QueryModuleVersionsRequest {
+  fromPartial(object: DeepPartial<QueryModuleVersionsRequest>): QueryModuleVersionsRequest {
     const message = createBaseQueryModuleVersionsRequest();
     message.moduleName = object.moduleName ?? "";
     return message;
@@ -642,7 +642,7 @@ export const QueryModuleVersionsResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryModuleVersionsResponse>): QueryModuleVersionsResponse {
+  fromPartial(object: DeepPartial<QueryModuleVersionsResponse>): QueryModuleVersionsResponse {
     const message = createBaseQueryModuleVersionsResponse();
     message.moduleVersions = object.moduleVersions?.map(e => ModuleVersion.fromPartial(e)) || [];
     return message;
@@ -686,7 +686,7 @@ export const QueryAuthorityRequest = {
     return obj;
   },
 
-  fromPartial(_: Partial<QueryAuthorityRequest>): QueryAuthorityRequest {
+  fromPartial(_: DeepPartial<QueryAuthorityRequest>): QueryAuthorityRequest {
     const message = createBaseQueryAuthorityRequest();
     return message;
   }
@@ -742,7 +742,7 @@ export const QueryAuthorityResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryAuthorityResponse>): QueryAuthorityResponse {
+  fromPartial(object: DeepPartial<QueryAuthorityResponse>): QueryAuthorityResponse {
     const message = createBaseQueryAuthorityResponse();
     message.address = object.address ?? "";
     return message;

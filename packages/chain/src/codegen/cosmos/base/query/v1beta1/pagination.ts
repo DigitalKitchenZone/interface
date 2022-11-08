@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { Long, isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "../../../../helpers";
 /**
  * PageRequest is to be embedded in gRPC request messages for efficient
  * pagination. Ex:
@@ -234,7 +234,7 @@ export const PageRequest = {
     return obj;
   },
 
-  fromPartial(object: Partial<PageRequest>): PageRequest {
+  fromPartial(object: DeepPartial<PageRequest>): PageRequest {
     const message = createBasePageRequest();
     message.key = object.key ?? new Uint8Array();
     message.offset = object.offset !== undefined && object.offset !== null ? Long.fromValue(object.offset) : Long.UZERO;
@@ -306,7 +306,7 @@ export const PageResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<PageResponse>): PageResponse {
+  fromPartial(object: DeepPartial<PageResponse>): PageResponse {
     const message = createBasePageResponse();
     message.nextKey = object.nextKey ?? new Uint8Array();
     message.total = object.total !== undefined && object.total !== null ? Long.fromValue(object.total) : Long.UZERO;

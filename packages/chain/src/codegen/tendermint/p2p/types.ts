@@ -1,6 +1,6 @@
 import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp";
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet, bytesFromBase64, base64FromBytes, fromJsonTimestamp, fromTimestamp } from "../../helpers";
+import { Long, isSet, DeepPartial, bytesFromBase64, base64FromBytes, fromJsonTimestamp, fromTimestamp } from "../../helpers";
 export interface ProtocolVersion {
   p2p: Long;
   block: Long;
@@ -133,7 +133,7 @@ export const ProtocolVersion = {
     return obj;
   },
 
-  fromPartial(object: Partial<ProtocolVersion>): ProtocolVersion {
+  fromPartial(object: DeepPartial<ProtocolVersion>): ProtocolVersion {
     const message = createBaseProtocolVersion();
     message.p2p = object.p2p !== undefined && object.p2p !== null ? Long.fromValue(object.p2p) : Long.UZERO;
     message.block = object.block !== undefined && object.block !== null ? Long.fromValue(object.block) : Long.UZERO;
@@ -269,7 +269,7 @@ export const NodeInfo = {
     return obj;
   },
 
-  fromPartial(object: Partial<NodeInfo>): NodeInfo {
+  fromPartial(object: DeepPartial<NodeInfo>): NodeInfo {
     const message = createBaseNodeInfo();
     message.protocolVersion = object.protocolVersion !== undefined && object.protocolVersion !== null ? ProtocolVersion.fromPartial(object.protocolVersion) : undefined;
     message.nodeId = object.nodeId ?? "";
@@ -344,7 +344,7 @@ export const NodeInfoOther = {
     return obj;
   },
 
-  fromPartial(object: Partial<NodeInfoOther>): NodeInfoOther {
+  fromPartial(object: DeepPartial<NodeInfoOther>): NodeInfoOther {
     const message = createBaseNodeInfoOther();
     message.txIndex = object.txIndex ?? "";
     message.rpcAddress = object.rpcAddress ?? "";
@@ -430,7 +430,7 @@ export const PeerInfo = {
     return obj;
   },
 
-  fromPartial(object: Partial<PeerInfo>): PeerInfo {
+  fromPartial(object: DeepPartial<PeerInfo>): PeerInfo {
     const message = createBasePeerInfo();
     message.id = object.id ?? "";
     message.addressInfo = object.addressInfo?.map(e => PeerAddressInfo.fromPartial(e)) || [];
@@ -522,7 +522,7 @@ export const PeerAddressInfo = {
     return obj;
   },
 
-  fromPartial(object: Partial<PeerAddressInfo>): PeerAddressInfo {
+  fromPartial(object: DeepPartial<PeerAddressInfo>): PeerAddressInfo {
     const message = createBasePeerAddressInfo();
     message.address = object.address ?? "";
     message.lastDialSuccess = object.lastDialSuccess !== undefined && object.lastDialSuccess !== null ? Timestamp.fromPartial(object.lastDialSuccess) : undefined;

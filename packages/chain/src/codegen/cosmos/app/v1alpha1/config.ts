@@ -1,6 +1,6 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { isSet } from "../../../helpers";
+import { DeepPartial, isSet } from "../../../helpers";
 /**
  * Config represents the configuration for a Cosmos SDK ABCI app.
  * It is intended that all state machine logic including the version of
@@ -131,7 +131,7 @@ export const Config = {
     return obj;
   },
 
-  fromPartial(object: Partial<Config>): Config {
+  fromPartial(object: DeepPartial<Config>): Config {
     const message = createBaseConfig();
     message.modules = object.modules?.map(e => ModuleConfig.fromPartial(e)) || [];
     return message;
@@ -199,7 +199,7 @@ export const ModuleConfig = {
     return obj;
   },
 
-  fromPartial(object: Partial<ModuleConfig>): ModuleConfig {
+  fromPartial(object: DeepPartial<ModuleConfig>): ModuleConfig {
     const message = createBaseModuleConfig();
     message.name = object.name ?? "";
     message.config = object.config !== undefined && object.config !== null ? Any.fromPartial(object.config) : undefined;

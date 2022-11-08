@@ -1,6 +1,6 @@
 import { Duration, DurationSDKType } from "../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, Long } from "../../helpers";
+import { isSet, DeepPartial, Long } from "../../helpers";
 /**
  * ConsensusParams contains consensus critical parameters that determine the
  * validity of blocks.
@@ -252,7 +252,7 @@ export const ConsensusParams = {
     return obj;
   },
 
-  fromPartial(object: Partial<ConsensusParams>): ConsensusParams {
+  fromPartial(object: DeepPartial<ConsensusParams>): ConsensusParams {
     const message = createBaseConsensusParams();
     message.block = object.block !== undefined && object.block !== null ? BlockParams.fromPartial(object.block) : undefined;
     message.evidence = object.evidence !== undefined && object.evidence !== null ? EvidenceParams.fromPartial(object.evidence) : undefined;
@@ -334,7 +334,7 @@ export const BlockParams = {
     return obj;
   },
 
-  fromPartial(object: Partial<BlockParams>): BlockParams {
+  fromPartial(object: DeepPartial<BlockParams>): BlockParams {
     const message = createBaseBlockParams();
     message.maxBytes = object.maxBytes !== undefined && object.maxBytes !== null ? Long.fromValue(object.maxBytes) : Long.ZERO;
     message.maxGas = object.maxGas !== undefined && object.maxGas !== null ? Long.fromValue(object.maxGas) : Long.ZERO;
@@ -415,7 +415,7 @@ export const EvidenceParams = {
     return obj;
   },
 
-  fromPartial(object: Partial<EvidenceParams>): EvidenceParams {
+  fromPartial(object: DeepPartial<EvidenceParams>): EvidenceParams {
     const message = createBaseEvidenceParams();
     message.maxAgeNumBlocks = object.maxAgeNumBlocks !== undefined && object.maxAgeNumBlocks !== null ? Long.fromValue(object.maxAgeNumBlocks) : Long.ZERO;
     message.maxAgeDuration = object.maxAgeDuration !== undefined && object.maxAgeDuration !== null ? Duration.fromPartial(object.maxAgeDuration) : undefined;
@@ -480,7 +480,7 @@ export const ValidatorParams = {
     return obj;
   },
 
-  fromPartial(object: Partial<ValidatorParams>): ValidatorParams {
+  fromPartial(object: DeepPartial<ValidatorParams>): ValidatorParams {
     const message = createBaseValidatorParams();
     message.pubKeyTypes = object.pubKeyTypes?.map(e => e) || [];
     return message;
@@ -537,7 +537,7 @@ export const VersionParams = {
     return obj;
   },
 
-  fromPartial(object: Partial<VersionParams>): VersionParams {
+  fromPartial(object: DeepPartial<VersionParams>): VersionParams {
     const message = createBaseVersionParams();
     message.appVersion = object.appVersion !== undefined && object.appVersion !== null ? Long.fromValue(object.appVersion) : Long.UZERO;
     return message;
@@ -605,7 +605,7 @@ export const HashedParams = {
     return obj;
   },
 
-  fromPartial(object: Partial<HashedParams>): HashedParams {
+  fromPartial(object: DeepPartial<HashedParams>): HashedParams {
     const message = createBaseHashedParams();
     message.blockMaxBytes = object.blockMaxBytes !== undefined && object.blockMaxBytes !== null ? Long.fromValue(object.blockMaxBytes) : Long.ZERO;
     message.blockMaxGas = object.blockMaxGas !== undefined && object.blockMaxGas !== null ? Long.fromValue(object.blockMaxGas) : Long.ZERO;

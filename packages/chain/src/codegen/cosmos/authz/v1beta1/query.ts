@@ -1,7 +1,7 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import { Grant, GrantSDKType, GrantAuthorization, GrantAuthorizationSDKType } from "./authz";
 import * as _m0 from "protobufjs/minimal";
-import { isSet } from "../../../helpers";
+import { isSet, DeepPartial } from "../../../helpers";
 /** QueryGrantsRequest is the request type for the Query/Grants RPC method. */
 
 export interface QueryGrantsRequest {
@@ -195,7 +195,7 @@ export const QueryGrantsRequest = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryGrantsRequest>): QueryGrantsRequest {
+  fromPartial(object: DeepPartial<QueryGrantsRequest>): QueryGrantsRequest {
     const message = createBaseQueryGrantsRequest();
     message.granter = object.granter ?? "";
     message.grantee = object.grantee ?? "";
@@ -272,7 +272,7 @@ export const QueryGrantsResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryGrantsResponse>): QueryGrantsResponse {
+  fromPartial(object: DeepPartial<QueryGrantsResponse>): QueryGrantsResponse {
     const message = createBaseQueryGrantsResponse();
     message.grants = object.grants?.map(e => Grant.fromPartial(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
@@ -341,7 +341,7 @@ export const QueryGranterGrantsRequest = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryGranterGrantsRequest>): QueryGranterGrantsRequest {
+  fromPartial(object: DeepPartial<QueryGranterGrantsRequest>): QueryGranterGrantsRequest {
     const message = createBaseQueryGranterGrantsRequest();
     message.granter = object.granter ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
@@ -416,7 +416,7 @@ export const QueryGranterGrantsResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryGranterGrantsResponse>): QueryGranterGrantsResponse {
+  fromPartial(object: DeepPartial<QueryGranterGrantsResponse>): QueryGranterGrantsResponse {
     const message = createBaseQueryGranterGrantsResponse();
     message.grants = object.grants?.map(e => GrantAuthorization.fromPartial(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;
@@ -485,7 +485,7 @@ export const QueryGranteeGrantsRequest = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryGranteeGrantsRequest>): QueryGranteeGrantsRequest {
+  fromPartial(object: DeepPartial<QueryGranteeGrantsRequest>): QueryGranteeGrantsRequest {
     const message = createBaseQueryGranteeGrantsRequest();
     message.grantee = object.grantee ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
@@ -560,7 +560,7 @@ export const QueryGranteeGrantsResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryGranteeGrantsResponse>): QueryGranteeGrantsResponse {
+  fromPartial(object: DeepPartial<QueryGranteeGrantsResponse>): QueryGranteeGrantsResponse {
     const message = createBaseQueryGranteeGrantsResponse();
     message.grants = object.grants?.map(e => GrantAuthorization.fromPartial(e)) || [];
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageResponse.fromPartial(object.pagination) : undefined;

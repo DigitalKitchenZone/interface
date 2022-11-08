@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet } from "../../../helpers";
+import { isSet, DeepPartial } from "../../../helpers";
 /** MsgVerifyInvariant represents a message to verify a particular invariance. */
 
 export interface MsgVerifyInvariant {
@@ -92,7 +92,7 @@ export const MsgVerifyInvariant = {
     return obj;
   },
 
-  fromPartial(object: Partial<MsgVerifyInvariant>): MsgVerifyInvariant {
+  fromPartial(object: DeepPartial<MsgVerifyInvariant>): MsgVerifyInvariant {
     const message = createBaseMsgVerifyInvariant();
     message.sender = object.sender ?? "";
     message.invariantModuleName = object.invariantModuleName ?? "";
@@ -138,7 +138,7 @@ export const MsgVerifyInvariantResponse = {
     return obj;
   },
 
-  fromPartial(_: Partial<MsgVerifyInvariantResponse>): MsgVerifyInvariantResponse {
+  fromPartial(_: DeepPartial<MsgVerifyInvariantResponse>): MsgVerifyInvariantResponse {
     const message = createBaseMsgVerifyInvariantResponse();
     return message;
   }

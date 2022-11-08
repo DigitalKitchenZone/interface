@@ -1,5 +1,6 @@
 import { Grant, GrantSDKType } from "./feegrant";
 import * as _m0 from "protobufjs/minimal";
+import { DeepPartial } from "../../../helpers";
 /** GenesisState contains a set of fee allowances, persisted from the store */
 
 export interface GenesisState {
@@ -66,7 +67,7 @@ export const GenesisState = {
     return obj;
   },
 
-  fromPartial(object: Partial<GenesisState>): GenesisState {
+  fromPartial(object: DeepPartial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
     message.allowances = object.allowances?.map(e => Grant.fromPartial(e)) || [];
     return message;

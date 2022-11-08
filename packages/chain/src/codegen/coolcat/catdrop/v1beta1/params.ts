@@ -2,7 +2,7 @@ import { Action, ActionSDKType, actionFromJSON, actionToJSON } from "./claim_rec
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
+import { isSet, DeepPartial, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
 export interface ClaimAuthorization {
   contractAddress: string;
   action: Action;
@@ -100,7 +100,7 @@ export const ClaimAuthorization = {
     return obj;
   },
 
-  fromPartial(object: Partial<ClaimAuthorization>): ClaimAuthorization {
+  fromPartial(object: DeepPartial<ClaimAuthorization>): ClaimAuthorization {
     const message = createBaseClaimAuthorization();
     message.contractAddress = object.contractAddress ?? "";
     message.action = object.action ?? 0;
@@ -219,7 +219,7 @@ export const Params = {
     return obj;
   },
 
-  fromPartial(object: Partial<Params>): Params {
+  fromPartial(object: DeepPartial<Params>): Params {
     const message = createBaseParams();
     message.airdropEnabled = object.airdropEnabled ?? false;
     message.airdropStartTime = object.airdropStartTime !== undefined && object.airdropStartTime !== null ? Timestamp.fromPartial(object.airdropStartTime) : undefined;

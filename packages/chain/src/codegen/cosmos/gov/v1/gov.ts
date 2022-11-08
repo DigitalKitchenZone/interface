@@ -3,7 +3,7 @@ import { Any, AnySDKType } from "../../../google/protobuf/any";
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, Long, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
+import { isSet, DeepPartial, Long, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
 /** VoteOption enumerates the valid vote options for a given governance proposal. */
 
 export enum VoteOption {
@@ -474,7 +474,7 @@ export const WeightedVoteOption = {
     return obj;
   },
 
-  fromPartial(object: Partial<WeightedVoteOption>): WeightedVoteOption {
+  fromPartial(object: DeepPartial<WeightedVoteOption>): WeightedVoteOption {
     const message = createBaseWeightedVoteOption();
     message.option = object.option ?? 0;
     message.weight = object.weight ?? "";
@@ -560,7 +560,7 @@ export const Deposit = {
     return obj;
   },
 
-  fromPartial(object: Partial<Deposit>): Deposit {
+  fromPartial(object: DeepPartial<Deposit>): Deposit {
     const message = createBaseDeposit();
     message.proposalId = object.proposalId !== undefined && object.proposalId !== null ? Long.fromValue(object.proposalId) : Long.UZERO;
     message.depositor = object.depositor ?? "";
@@ -730,7 +730,7 @@ export const Proposal = {
     return obj;
   },
 
-  fromPartial(object: Partial<Proposal>): Proposal {
+  fromPartial(object: DeepPartial<Proposal>): Proposal {
     const message = createBaseProposal();
     message.id = object.id !== undefined && object.id !== null ? Long.fromValue(object.id) : Long.UZERO;
     message.messages = object.messages?.map(e => Any.fromPartial(e)) || [];
@@ -829,7 +829,7 @@ export const TallyResult = {
     return obj;
   },
 
-  fromPartial(object: Partial<TallyResult>): TallyResult {
+  fromPartial(object: DeepPartial<TallyResult>): TallyResult {
     const message = createBaseTallyResult();
     message.yesCount = object.yesCount ?? "";
     message.abstainCount = object.abstainCount ?? "";
@@ -928,7 +928,7 @@ export const Vote = {
     return obj;
   },
 
-  fromPartial(object: Partial<Vote>): Vote {
+  fromPartial(object: DeepPartial<Vote>): Vote {
     const message = createBaseVote();
     message.proposalId = object.proposalId !== undefined && object.proposalId !== null ? Long.fromValue(object.proposalId) : Long.UZERO;
     message.voter = object.voter ?? "";
@@ -1005,7 +1005,7 @@ export const DepositParams = {
     return obj;
   },
 
-  fromPartial(object: Partial<DepositParams>): DepositParams {
+  fromPartial(object: DeepPartial<DepositParams>): DepositParams {
     const message = createBaseDepositParams();
     message.minDeposit = object.minDeposit?.map(e => Coin.fromPartial(e)) || [];
     message.maxDepositPeriod = object.maxDepositPeriod !== undefined && object.maxDepositPeriod !== null ? Duration.fromPartial(object.maxDepositPeriod) : undefined;
@@ -1063,7 +1063,7 @@ export const VotingParams = {
     return obj;
   },
 
-  fromPartial(object: Partial<VotingParams>): VotingParams {
+  fromPartial(object: DeepPartial<VotingParams>): VotingParams {
     const message = createBaseVotingParams();
     message.votingPeriod = object.votingPeriod !== undefined && object.votingPeriod !== null ? Duration.fromPartial(object.votingPeriod) : undefined;
     return message;
@@ -1142,7 +1142,7 @@ export const TallyParams = {
     return obj;
   },
 
-  fromPartial(object: Partial<TallyParams>): TallyParams {
+  fromPartial(object: DeepPartial<TallyParams>): TallyParams {
     const message = createBaseTallyParams();
     message.quorum = object.quorum ?? "";
     message.threshold = object.threshold ?? "";

@@ -1,7 +1,7 @@
 import { CompactBitArray, CompactBitArraySDKType } from "../../../crypto/multisig/v1beta1/multisig";
 import { Any, AnySDKType } from "../../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { DeepPartial, Long, isSet, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * SignMode represents a signing mode with its own security guarantees.
  * 
@@ -308,7 +308,7 @@ export const SignatureDescriptors = {
     return obj;
   },
 
-  fromPartial(object: Partial<SignatureDescriptors>): SignatureDescriptors {
+  fromPartial(object: DeepPartial<SignatureDescriptors>): SignatureDescriptors {
     const message = createBaseSignatureDescriptors();
     message.signatures = object.signatures?.map(e => SignatureDescriptor.fromPartial(e)) || [];
     return message;
@@ -387,7 +387,7 @@ export const SignatureDescriptor = {
     return obj;
   },
 
-  fromPartial(object: Partial<SignatureDescriptor>): SignatureDescriptor {
+  fromPartial(object: DeepPartial<SignatureDescriptor>): SignatureDescriptor {
     const message = createBaseSignatureDescriptor();
     message.publicKey = object.publicKey !== undefined && object.publicKey !== null ? Any.fromPartial(object.publicKey) : undefined;
     message.data = object.data !== undefined && object.data !== null ? SignatureDescriptor_Data.fromPartial(object.data) : undefined;
@@ -457,7 +457,7 @@ export const SignatureDescriptor_Data = {
     return obj;
   },
 
-  fromPartial(object: Partial<SignatureDescriptor_Data>): SignatureDescriptor_Data {
+  fromPartial(object: DeepPartial<SignatureDescriptor_Data>): SignatureDescriptor_Data {
     const message = createBaseSignatureDescriptor_Data();
     message.single = object.single !== undefined && object.single !== null ? SignatureDescriptor_Data_Single.fromPartial(object.single) : undefined;
     message.multi = object.multi !== undefined && object.multi !== null ? SignatureDescriptor_Data_Multi.fromPartial(object.multi) : undefined;
@@ -526,7 +526,7 @@ export const SignatureDescriptor_Data_Single = {
     return obj;
   },
 
-  fromPartial(object: Partial<SignatureDescriptor_Data_Single>): SignatureDescriptor_Data_Single {
+  fromPartial(object: DeepPartial<SignatureDescriptor_Data_Single>): SignatureDescriptor_Data_Single {
     const message = createBaseSignatureDescriptor_Data_Single();
     message.mode = object.mode ?? 0;
     message.signature = object.signature ?? new Uint8Array();
@@ -601,7 +601,7 @@ export const SignatureDescriptor_Data_Multi = {
     return obj;
   },
 
-  fromPartial(object: Partial<SignatureDescriptor_Data_Multi>): SignatureDescriptor_Data_Multi {
+  fromPartial(object: DeepPartial<SignatureDescriptor_Data_Multi>): SignatureDescriptor_Data_Multi {
     const message = createBaseSignatureDescriptor_Data_Multi();
     message.bitarray = object.bitarray !== undefined && object.bitarray !== null ? CompactBitArray.fromPartial(object.bitarray) : undefined;
     message.signatures = object.signatures?.map(e => SignatureDescriptor_Data.fromPartial(e)) || [];

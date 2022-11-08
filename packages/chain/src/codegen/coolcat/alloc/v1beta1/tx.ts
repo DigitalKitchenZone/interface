@@ -1,6 +1,6 @@
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet } from "../../../helpers";
+import { Long, isSet, DeepPartial } from "../../../helpers";
 /**
  * MsgCreateVestingAccount defines a message that enables creating a vesting
  * account.
@@ -150,7 +150,7 @@ export const MsgCreateVestingAccount = {
     return obj;
   },
 
-  fromPartial(object: Partial<MsgCreateVestingAccount>): MsgCreateVestingAccount {
+  fromPartial(object: DeepPartial<MsgCreateVestingAccount>): MsgCreateVestingAccount {
     const message = createBaseMsgCreateVestingAccount();
     message.fromAddress = object.fromAddress ?? "";
     message.toAddress = object.toAddress ?? "";
@@ -199,7 +199,7 @@ export const MsgCreateVestingAccountResponse = {
     return obj;
   },
 
-  fromPartial(_: Partial<MsgCreateVestingAccountResponse>): MsgCreateVestingAccountResponse {
+  fromPartial(_: DeepPartial<MsgCreateVestingAccountResponse>): MsgCreateVestingAccountResponse {
     const message = createBaseMsgCreateVestingAccountResponse();
     return message;
   }

@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet } from "../../../helpers";
+import { isSet, DeepPartial } from "../../../helpers";
 /** TableDescriptor describes an ORM table. */
 
 export interface TableDescriptor {
@@ -270,7 +270,7 @@ export const TableDescriptor = {
     return obj;
   },
 
-  fromPartial(object: Partial<TableDescriptor>): TableDescriptor {
+  fromPartial(object: DeepPartial<TableDescriptor>): TableDescriptor {
     const message = createBaseTableDescriptor();
     message.primaryKey = object.primaryKey !== undefined && object.primaryKey !== null ? PrimaryKeyDescriptor.fromPartial(object.primaryKey) : undefined;
     message.index = object.index?.map(e => SecondaryIndexDescriptor.fromPartial(e)) || [];
@@ -340,7 +340,7 @@ export const PrimaryKeyDescriptor = {
     return obj;
   },
 
-  fromPartial(object: Partial<PrimaryKeyDescriptor>): PrimaryKeyDescriptor {
+  fromPartial(object: DeepPartial<PrimaryKeyDescriptor>): PrimaryKeyDescriptor {
     const message = createBasePrimaryKeyDescriptor();
     message.fields = object.fields ?? "";
     message.autoIncrement = object.autoIncrement ?? false;
@@ -420,7 +420,7 @@ export const SecondaryIndexDescriptor = {
     return obj;
   },
 
-  fromPartial(object: Partial<SecondaryIndexDescriptor>): SecondaryIndexDescriptor {
+  fromPartial(object: DeepPartial<SecondaryIndexDescriptor>): SecondaryIndexDescriptor {
     const message = createBaseSecondaryIndexDescriptor();
     message.fields = object.fields ?? "";
     message.id = object.id ?? 0;
@@ -479,7 +479,7 @@ export const SingletonDescriptor = {
     return obj;
   },
 
-  fromPartial(object: Partial<SingletonDescriptor>): SingletonDescriptor {
+  fromPartial(object: DeepPartial<SingletonDescriptor>): SingletonDescriptor {
     const message = createBaseSingletonDescriptor();
     message.id = object.id ?? 0;
     return message;

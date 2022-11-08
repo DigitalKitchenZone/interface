@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet } from "../../../helpers";
+import { Long, isSet, DeepPartial } from "../../../helpers";
 export interface BitArray {
   bits: Long;
   elems: Long[];
@@ -87,7 +87,7 @@ export const BitArray = {
     return obj;
   },
 
-  fromPartial(object: Partial<BitArray>): BitArray {
+  fromPartial(object: DeepPartial<BitArray>): BitArray {
     const message = createBaseBitArray();
     message.bits = object.bits !== undefined && object.bits !== null ? Long.fromValue(object.bits) : Long.ZERO;
     message.elems = object.elems?.map(e => Long.fromValue(e)) || [];

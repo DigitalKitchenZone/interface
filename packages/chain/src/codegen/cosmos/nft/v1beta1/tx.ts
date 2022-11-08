@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet } from "../../../helpers";
+import { isSet, DeepPartial } from "../../../helpers";
 /** MsgSend represents a message to send a nft from one account to another account. */
 
 export interface MsgSend {
@@ -119,7 +119,7 @@ export const MsgSend = {
     return obj;
   },
 
-  fromPartial(object: Partial<MsgSend>): MsgSend {
+  fromPartial(object: DeepPartial<MsgSend>): MsgSend {
     const message = createBaseMsgSend();
     message.classId = object.classId ?? "";
     message.id = object.id ?? "";
@@ -166,7 +166,7 @@ export const MsgSendResponse = {
     return obj;
   },
 
-  fromPartial(_: Partial<MsgSendResponse>): MsgSendResponse {
+  fromPartial(_: DeepPartial<MsgSendResponse>): MsgSendResponse {
     const message = createBaseMsgSendResponse();
     return message;
   }

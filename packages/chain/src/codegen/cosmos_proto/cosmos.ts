@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet } from "../helpers";
+import { isSet, DeepPartial } from "../helpers";
 export enum ScalarType {
   SCALAR_TYPE_UNSPECIFIED = 0,
   SCALAR_TYPE_STRING = 1,
@@ -217,7 +217,7 @@ export const InterfaceDescriptor = {
     return obj;
   },
 
-  fromPartial(object: Partial<InterfaceDescriptor>): InterfaceDescriptor {
+  fromPartial(object: DeepPartial<InterfaceDescriptor>): InterfaceDescriptor {
     const message = createBaseInterfaceDescriptor();
     message.name = object.name ?? "";
     message.description = object.description ?? "";
@@ -315,7 +315,7 @@ export const ScalarDescriptor = {
     return obj;
   },
 
-  fromPartial(object: Partial<ScalarDescriptor>): ScalarDescriptor {
+  fromPartial(object: DeepPartial<ScalarDescriptor>): ScalarDescriptor {
     const message = createBaseScalarDescriptor();
     message.name = object.name ?? "";
     message.description = object.description ?? "";

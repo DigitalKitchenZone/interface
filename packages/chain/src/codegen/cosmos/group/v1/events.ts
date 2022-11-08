@@ -1,6 +1,6 @@
 import { ProposalExecutorResult, ProposalExecutorResultSDKType, proposalExecutorResultFromJSON, proposalExecutorResultToJSON } from "./types";
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet } from "../../../helpers";
+import { Long, isSet, DeepPartial } from "../../../helpers";
 /** EventCreateGroup is an event emitted when a group is created. */
 
 export interface EventCreateGroup {
@@ -171,7 +171,7 @@ export const EventCreateGroup = {
     return obj;
   },
 
-  fromPartial(object: Partial<EventCreateGroup>): EventCreateGroup {
+  fromPartial(object: DeepPartial<EventCreateGroup>): EventCreateGroup {
     const message = createBaseEventCreateGroup();
     message.groupId = object.groupId !== undefined && object.groupId !== null ? Long.fromValue(object.groupId) : Long.UZERO;
     return message;
@@ -228,7 +228,7 @@ export const EventUpdateGroup = {
     return obj;
   },
 
-  fromPartial(object: Partial<EventUpdateGroup>): EventUpdateGroup {
+  fromPartial(object: DeepPartial<EventUpdateGroup>): EventUpdateGroup {
     const message = createBaseEventUpdateGroup();
     message.groupId = object.groupId !== undefined && object.groupId !== null ? Long.fromValue(object.groupId) : Long.UZERO;
     return message;
@@ -285,7 +285,7 @@ export const EventCreateGroupPolicy = {
     return obj;
   },
 
-  fromPartial(object: Partial<EventCreateGroupPolicy>): EventCreateGroupPolicy {
+  fromPartial(object: DeepPartial<EventCreateGroupPolicy>): EventCreateGroupPolicy {
     const message = createBaseEventCreateGroupPolicy();
     message.address = object.address ?? "";
     return message;
@@ -342,7 +342,7 @@ export const EventUpdateGroupPolicy = {
     return obj;
   },
 
-  fromPartial(object: Partial<EventUpdateGroupPolicy>): EventUpdateGroupPolicy {
+  fromPartial(object: DeepPartial<EventUpdateGroupPolicy>): EventUpdateGroupPolicy {
     const message = createBaseEventUpdateGroupPolicy();
     message.address = object.address ?? "";
     return message;
@@ -399,7 +399,7 @@ export const EventSubmitProposal = {
     return obj;
   },
 
-  fromPartial(object: Partial<EventSubmitProposal>): EventSubmitProposal {
+  fromPartial(object: DeepPartial<EventSubmitProposal>): EventSubmitProposal {
     const message = createBaseEventSubmitProposal();
     message.proposalId = object.proposalId !== undefined && object.proposalId !== null ? Long.fromValue(object.proposalId) : Long.UZERO;
     return message;
@@ -456,7 +456,7 @@ export const EventWithdrawProposal = {
     return obj;
   },
 
-  fromPartial(object: Partial<EventWithdrawProposal>): EventWithdrawProposal {
+  fromPartial(object: DeepPartial<EventWithdrawProposal>): EventWithdrawProposal {
     const message = createBaseEventWithdrawProposal();
     message.proposalId = object.proposalId !== undefined && object.proposalId !== null ? Long.fromValue(object.proposalId) : Long.UZERO;
     return message;
@@ -513,7 +513,7 @@ export const EventVote = {
     return obj;
   },
 
-  fromPartial(object: Partial<EventVote>): EventVote {
+  fromPartial(object: DeepPartial<EventVote>): EventVote {
     const message = createBaseEventVote();
     message.proposalId = object.proposalId !== undefined && object.proposalId !== null ? Long.fromValue(object.proposalId) : Long.UZERO;
     return message;
@@ -581,7 +581,7 @@ export const EventExec = {
     return obj;
   },
 
-  fromPartial(object: Partial<EventExec>): EventExec {
+  fromPartial(object: DeepPartial<EventExec>): EventExec {
     const message = createBaseEventExec();
     message.proposalId = object.proposalId !== undefined && object.proposalId !== null ? Long.fromValue(object.proposalId) : Long.UZERO;
     message.result = object.result ?? 0;
@@ -650,7 +650,7 @@ export const EventLeaveGroup = {
     return obj;
   },
 
-  fromPartial(object: Partial<EventLeaveGroup>): EventLeaveGroup {
+  fromPartial(object: DeepPartial<EventLeaveGroup>): EventLeaveGroup {
     const message = createBaseEventLeaveGroup();
     message.groupId = object.groupId !== undefined && object.groupId !== null ? Long.fromValue(object.groupId) : Long.UZERO;
     message.address = object.address ?? "";

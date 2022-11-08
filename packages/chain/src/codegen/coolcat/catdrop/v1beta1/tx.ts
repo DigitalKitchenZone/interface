@@ -1,7 +1,7 @@
 import { Action, ActionSDKType, actionFromJSON, actionToJSON } from "./claim_record";
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { isSet } from "../../../helpers";
+import { isSet, DeepPartial } from "../../../helpers";
 export interface MsgClaimFor {
   sender: string;
   address: string;
@@ -96,7 +96,7 @@ export const MsgClaimFor = {
     return obj;
   },
 
-  fromPartial(object: Partial<MsgClaimFor>): MsgClaimFor {
+  fromPartial(object: DeepPartial<MsgClaimFor>): MsgClaimFor {
     const message = createBaseMsgClaimFor();
     message.sender = object.sender ?? "";
     message.address = object.address ?? "";
@@ -172,7 +172,7 @@ export const MsgClaimForResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<MsgClaimForResponse>): MsgClaimForResponse {
+  fromPartial(object: DeepPartial<MsgClaimForResponse>): MsgClaimForResponse {
     const message = createBaseMsgClaimForResponse();
     message.address = object.address ?? "";
     message.claimedAmount = object.claimedAmount?.map(e => Coin.fromPartial(e)) || [];

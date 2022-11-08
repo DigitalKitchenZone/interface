@@ -1,6 +1,6 @@
 import { Params, ParamsSDKType, ValidatorSigningInfo, ValidatorSigningInfoSDKType } from "./slashing";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, Long } from "../../../helpers";
+import { isSet, DeepPartial, Long } from "../../../helpers";
 /** GenesisState defines the slashing module's genesis state. */
 
 export interface GenesisState {
@@ -180,7 +180,7 @@ export const GenesisState = {
     return obj;
   },
 
-  fromPartial(object: Partial<GenesisState>): GenesisState {
+  fromPartial(object: DeepPartial<GenesisState>): GenesisState {
     const message = createBaseGenesisState();
     message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     message.signingInfos = object.signingInfos?.map(e => SigningInfo.fromPartial(e)) || [];
@@ -250,7 +250,7 @@ export const SigningInfo = {
     return obj;
   },
 
-  fromPartial(object: Partial<SigningInfo>): SigningInfo {
+  fromPartial(object: DeepPartial<SigningInfo>): SigningInfo {
     const message = createBaseSigningInfo();
     message.address = object.address ?? "";
     message.validatorSigningInfo = object.validatorSigningInfo !== undefined && object.validatorSigningInfo !== null ? ValidatorSigningInfo.fromPartial(object.validatorSigningInfo) : undefined;
@@ -325,7 +325,7 @@ export const ValidatorMissedBlocks = {
     return obj;
   },
 
-  fromPartial(object: Partial<ValidatorMissedBlocks>): ValidatorMissedBlocks {
+  fromPartial(object: DeepPartial<ValidatorMissedBlocks>): ValidatorMissedBlocks {
     const message = createBaseValidatorMissedBlocks();
     message.address = object.address ?? "";
     message.missedBlocks = object.missedBlocks?.map(e => MissedBlock.fromPartial(e)) || [];
@@ -394,7 +394,7 @@ export const MissedBlock = {
     return obj;
   },
 
-  fromPartial(object: Partial<MissedBlock>): MissedBlock {
+  fromPartial(object: DeepPartial<MissedBlock>): MissedBlock {
     const message = createBaseMissedBlock();
     message.index = object.index !== undefined && object.index !== null ? Long.fromValue(object.index) : Long.ZERO;
     message.missed = object.missed ?? false;

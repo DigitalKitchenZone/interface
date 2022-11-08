@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet } from "../../../helpers";
+import { isSet, DeepPartial } from "../../../helpers";
 export interface DistributionProportions {
   communityPool: string;
 }
@@ -64,7 +64,7 @@ export const DistributionProportions = {
     return obj;
   },
 
-  fromPartial(object: Partial<DistributionProportions>): DistributionProportions {
+  fromPartial(object: DeepPartial<DistributionProportions>): DistributionProportions {
     const message = createBaseDistributionProportions();
     message.communityPool = object.communityPool ?? "";
     return message;
@@ -121,7 +121,7 @@ export const Params = {
     return obj;
   },
 
-  fromPartial(object: Partial<Params>): Params {
+  fromPartial(object: DeepPartial<Params>): Params {
     const message = createBaseParams();
     message.distributionProportions = object.distributionProportions !== undefined && object.distributionProportions !== null ? DistributionProportions.fromPartial(object.distributionProportions) : undefined;
     return message;

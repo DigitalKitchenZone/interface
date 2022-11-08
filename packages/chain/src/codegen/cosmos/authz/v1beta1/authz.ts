@@ -1,7 +1,7 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
+import { isSet, DeepPartial, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
 /**
  * GenericAuthorization gives the grantee unrestricted permissions to execute
  * the provided method on behalf of the granter's account.
@@ -134,7 +134,7 @@ export const GenericAuthorization = {
     return obj;
   },
 
-  fromPartial(object: Partial<GenericAuthorization>): GenericAuthorization {
+  fromPartial(object: DeepPartial<GenericAuthorization>): GenericAuthorization {
     const message = createBaseGenericAuthorization();
     message.msg = object.msg ?? "";
     return message;
@@ -202,7 +202,7 @@ export const Grant = {
     return obj;
   },
 
-  fromPartial(object: Partial<Grant>): Grant {
+  fromPartial(object: DeepPartial<Grant>): Grant {
     const message = createBaseGrant();
     message.authorization = object.authorization !== undefined && object.authorization !== null ? Any.fromPartial(object.authorization) : undefined;
     message.expiration = object.expiration !== undefined && object.expiration !== null ? Timestamp.fromPartial(object.expiration) : undefined;
@@ -293,7 +293,7 @@ export const GrantAuthorization = {
     return obj;
   },
 
-  fromPartial(object: Partial<GrantAuthorization>): GrantAuthorization {
+  fromPartial(object: DeepPartial<GrantAuthorization>): GrantAuthorization {
     const message = createBaseGrantAuthorization();
     message.granter = object.granter ?? "";
     message.grantee = object.grantee ?? "";
@@ -359,7 +359,7 @@ export const GrantQueueItem = {
     return obj;
   },
 
-  fromPartial(object: Partial<GrantQueueItem>): GrantQueueItem {
+  fromPartial(object: DeepPartial<GrantQueueItem>): GrantQueueItem {
     const message = createBaseGrantQueueItem();
     message.msgTypeUrls = object.msgTypeUrls?.map(e => e) || [];
     return message;

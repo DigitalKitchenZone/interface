@@ -1,6 +1,6 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { isSet } from "../../../helpers";
+import { isSet, DeepPartial } from "../../../helpers";
 /**
  * MsgGrantAllowance adds permission for Grantee to spend up to Allowance
  * of fees from the account of Granter.
@@ -133,7 +133,7 @@ export const MsgGrantAllowance = {
     return obj;
   },
 
-  fromPartial(object: Partial<MsgGrantAllowance>): MsgGrantAllowance {
+  fromPartial(object: DeepPartial<MsgGrantAllowance>): MsgGrantAllowance {
     const message = createBaseMsgGrantAllowance();
     message.granter = object.granter ?? "";
     message.grantee = object.grantee ?? "";
@@ -179,7 +179,7 @@ export const MsgGrantAllowanceResponse = {
     return obj;
   },
 
-  fromPartial(_: Partial<MsgGrantAllowanceResponse>): MsgGrantAllowanceResponse {
+  fromPartial(_: DeepPartial<MsgGrantAllowanceResponse>): MsgGrantAllowanceResponse {
     const message = createBaseMsgGrantAllowanceResponse();
     return message;
   }
@@ -246,7 +246,7 @@ export const MsgRevokeAllowance = {
     return obj;
   },
 
-  fromPartial(object: Partial<MsgRevokeAllowance>): MsgRevokeAllowance {
+  fromPartial(object: DeepPartial<MsgRevokeAllowance>): MsgRevokeAllowance {
     const message = createBaseMsgRevokeAllowance();
     message.granter = object.granter ?? "";
     message.grantee = object.grantee ?? "";
@@ -291,7 +291,7 @@ export const MsgRevokeAllowanceResponse = {
     return obj;
   },
 
-  fromPartial(_: Partial<MsgRevokeAllowanceResponse>): MsgRevokeAllowanceResponse {
+  fromPartial(_: DeepPartial<MsgRevokeAllowanceResponse>): MsgRevokeAllowanceResponse {
     const message = createBaseMsgRevokeAllowanceResponse();
     return message;
   }

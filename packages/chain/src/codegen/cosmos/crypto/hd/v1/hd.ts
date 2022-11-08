@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet } from "../../../../helpers";
+import { isSet, DeepPartial } from "../../../../helpers";
 /** BIP44Params is used as path field in ledger item in Record. */
 
 export interface BIP44Params {
@@ -136,7 +136,7 @@ export const BIP44Params = {
     return obj;
   },
 
-  fromPartial(object: Partial<BIP44Params>): BIP44Params {
+  fromPartial(object: DeepPartial<BIP44Params>): BIP44Params {
     const message = createBaseBIP44Params();
     message.purpose = object.purpose ?? 0;
     message.coinType = object.coinType ?? 0;

@@ -1,6 +1,6 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { isSet } from "../../../helpers";
+import { isSet, DeepPartial } from "../../../helpers";
 /** Class defines the class of the nft type. */
 
 export interface Class {
@@ -201,7 +201,7 @@ export const Class = {
     return obj;
   },
 
-  fromPartial(object: Partial<Class>): Class {
+  fromPartial(object: DeepPartial<Class>): Class {
     const message = createBaseClass();
     message.id = object.id ?? "";
     message.name = object.name ?? "";
@@ -308,7 +308,7 @@ export const NFT = {
     return obj;
   },
 
-  fromPartial(object: Partial<NFT>): NFT {
+  fromPartial(object: DeepPartial<NFT>): NFT {
     const message = createBaseNFT();
     message.classId = object.classId ?? "";
     message.id = object.id ?? "";

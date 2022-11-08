@@ -1,7 +1,7 @@
 import { Any, AnySDKType } from "../../../../google/protobuf/any";
 import { BIP44Params, BIP44ParamsSDKType } from "../../hd/v1/hd";
 import * as _m0 from "protobufjs/minimal";
-import { isSet } from "../../../../helpers";
+import { isSet, DeepPartial } from "../../../../helpers";
 /** Record is used for representing a key in the keyring. */
 
 export interface Record {
@@ -189,7 +189,7 @@ export const Record = {
     return obj;
   },
 
-  fromPartial(object: Partial<Record>): Record {
+  fromPartial(object: DeepPartial<Record>): Record {
     const message = createBaseRecord();
     message.name = object.name ?? "";
     message.pubKey = object.pubKey !== undefined && object.pubKey !== null ? Any.fromPartial(object.pubKey) : undefined;
@@ -262,7 +262,7 @@ export const Record_Local = {
     return obj;
   },
 
-  fromPartial(object: Partial<Record_Local>): Record_Local {
+  fromPartial(object: DeepPartial<Record_Local>): Record_Local {
     const message = createBaseRecord_Local();
     message.privKey = object.privKey !== undefined && object.privKey !== null ? Any.fromPartial(object.privKey) : undefined;
     message.privKeyType = object.privKeyType ?? "";
@@ -320,7 +320,7 @@ export const Record_Ledger = {
     return obj;
   },
 
-  fromPartial(object: Partial<Record_Ledger>): Record_Ledger {
+  fromPartial(object: DeepPartial<Record_Ledger>): Record_Ledger {
     const message = createBaseRecord_Ledger();
     message.path = object.path !== undefined && object.path !== null ? BIP44Params.fromPartial(object.path) : undefined;
     return message;
@@ -364,7 +364,7 @@ export const Record_Multi = {
     return obj;
   },
 
-  fromPartial(_: Partial<Record_Multi>): Record_Multi {
+  fromPartial(_: DeepPartial<Record_Multi>): Record_Multi {
     const message = createBaseRecord_Multi();
     return message;
   }
@@ -407,7 +407,7 @@ export const Record_Offline = {
     return obj;
   },
 
-  fromPartial(_: Partial<Record_Offline>): Record_Offline {
+  fromPartial(_: DeepPartial<Record_Offline>): Record_Offline {
     const message = createBaseRecord_Offline();
     return message;
   }

@@ -1,6 +1,6 @@
 import { PublicKey, PublicKeySDKType } from "../crypto/keys";
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet, bytesFromBase64, base64FromBytes } from "../../helpers";
+import { Long, isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../helpers";
 export interface ValidatorSet {
   validators: Validator[];
   proposer?: Validator;
@@ -109,7 +109,7 @@ export const ValidatorSet = {
     return obj;
   },
 
-  fromPartial(object: Partial<ValidatorSet>): ValidatorSet {
+  fromPartial(object: DeepPartial<ValidatorSet>): ValidatorSet {
     const message = createBaseValidatorSet();
     message.validators = object.validators?.map(e => Validator.fromPartial(e)) || [];
     message.proposer = object.proposer !== undefined && object.proposer !== null ? Validator.fromPartial(object.proposer) : undefined;
@@ -201,7 +201,7 @@ export const Validator = {
     return obj;
   },
 
-  fromPartial(object: Partial<Validator>): Validator {
+  fromPartial(object: DeepPartial<Validator>): Validator {
     const message = createBaseValidator();
     message.address = object.address ?? new Uint8Array();
     message.pubKey = object.pubKey !== undefined && object.pubKey !== null ? PublicKey.fromPartial(object.pubKey) : undefined;
@@ -272,7 +272,7 @@ export const SimpleValidator = {
     return obj;
   },
 
-  fromPartial(object: Partial<SimpleValidator>): SimpleValidator {
+  fromPartial(object: DeepPartial<SimpleValidator>): SimpleValidator {
     const message = createBaseSimpleValidator();
     message.pubKey = object.pubKey !== undefined && object.pubKey !== null ? PublicKey.fromPartial(object.pubKey) : undefined;
     message.votingPower = object.votingPower !== undefined && object.votingPower !== null ? Long.fromValue(object.votingPower) : Long.ZERO;

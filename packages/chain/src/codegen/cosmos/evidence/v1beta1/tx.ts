@@ -1,6 +1,6 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /**
  * MsgSubmitEvidence represents a message that supports submitting arbitrary
  * Evidence of misbehavior such as equivocation or counterfactual signing.
@@ -92,7 +92,7 @@ export const MsgSubmitEvidence = {
     return obj;
   },
 
-  fromPartial(object: Partial<MsgSubmitEvidence>): MsgSubmitEvidence {
+  fromPartial(object: DeepPartial<MsgSubmitEvidence>): MsgSubmitEvidence {
     const message = createBaseMsgSubmitEvidence();
     message.submitter = object.submitter ?? "";
     message.evidence = object.evidence !== undefined && object.evidence !== null ? Any.fromPartial(object.evidence) : undefined;
@@ -150,7 +150,7 @@ export const MsgSubmitEvidenceResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<MsgSubmitEvidenceResponse>): MsgSubmitEvidenceResponse {
+  fromPartial(object: DeepPartial<MsgSubmitEvidenceResponse>): MsgSubmitEvidenceResponse {
     const message = createBaseMsgSubmitEvidenceResponse();
     message.hash = object.hash ?? new Uint8Array();
     return message;

@@ -83,5 +83,6 @@
     "@cosmjs/stargate": "0.29.3",
     "@cosmjs/tendermint-rpc": "^0.29.3",
     "protobufjs": "^6.11.2"
-  }
+  },
+  "gitHead": "0a94ff6736ad5d4fdf1594dcd0d714a5b7e408ad"
 }

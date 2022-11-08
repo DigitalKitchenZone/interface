@@ -1,6 +1,6 @@
 import { ParamChange, ParamChangeSDKType } from "./params";
 import * as _m0 from "protobufjs/minimal";
-import { isSet } from "../../../helpers";
+import { isSet, DeepPartial } from "../../../helpers";
 /** QueryParamsRequest is request type for the Query/Params RPC method. */
 
 export interface QueryParamsRequest {
@@ -138,7 +138,7 @@ export const QueryParamsRequest = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryParamsRequest>): QueryParamsRequest {
+  fromPartial(object: DeepPartial<QueryParamsRequest>): QueryParamsRequest {
     const message = createBaseQueryParamsRequest();
     message.subspace = object.subspace ?? "";
     message.key = object.key ?? "";
@@ -196,7 +196,7 @@ export const QueryParamsResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<QueryParamsResponse>): QueryParamsResponse {
+  fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse {
     const message = createBaseQueryParamsResponse();
     message.param = object.param !== undefined && object.param !== null ? ParamChange.fromPartial(object.param) : undefined;
     return message;
@@ -240,7 +240,7 @@ export const QuerySubspacesRequest = {
     return obj;
   },
 
-  fromPartial(_: Partial<QuerySubspacesRequest>): QuerySubspacesRequest {
+  fromPartial(_: DeepPartial<QuerySubspacesRequest>): QuerySubspacesRequest {
     const message = createBaseQuerySubspacesRequest();
     return message;
   }
@@ -302,7 +302,7 @@ export const QuerySubspacesResponse = {
     return obj;
   },
 
-  fromPartial(object: Partial<QuerySubspacesResponse>): QuerySubspacesResponse {
+  fromPartial(object: DeepPartial<QuerySubspacesResponse>): QuerySubspacesResponse {
     const message = createBaseQuerySubspacesResponse();
     message.subspaces = object.subspaces?.map(e => Subspace.fromPartial(e)) || [];
     return message;
@@ -376,7 +376,7 @@ export const Subspace = {
     return obj;
   },
 
-  fromPartial(object: Partial<Subspace>): Subspace {
+  fromPartial(object: DeepPartial<Subspace>): Subspace {
     const message = createBaseSubspace();
     message.subspace = object.subspace ?? "";
     message.keys = object.keys?.map(e => e) || [];

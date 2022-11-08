@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet, bytesFromBase64, base64FromBytes } from "../../../../helpers";
+import { Long, isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /**
  * CommitInfo defines commit information used by the multi-store when committing
  * a version/height.
@@ -121,7 +121,7 @@ export const CommitInfo = {
     return obj;
   },
 
-  fromPartial(object: Partial<CommitInfo>): CommitInfo {
+  fromPartial(object: DeepPartial<CommitInfo>): CommitInfo {
     const message = createBaseCommitInfo();
     message.version = object.version !== undefined && object.version !== null ? Long.fromValue(object.version) : Long.ZERO;
     message.storeInfos = object.storeInfos?.map(e => StoreInfo.fromPartial(e)) || [];
@@ -190,7 +190,7 @@ export const StoreInfo = {
     return obj;
   },
 
-  fromPartial(object: Partial<StoreInfo>): StoreInfo {
+  fromPartial(object: DeepPartial<StoreInfo>): StoreInfo {
     const message = createBaseStoreInfo();
     message.name = object.name ?? "";
     message.commitId = object.commitId !== undefined && object.commitId !== null ? CommitID.fromPartial(object.commitId) : undefined;
@@ -259,7 +259,7 @@ export const CommitID = {
     return obj;
   },
 
-  fromPartial(object: Partial<CommitID>): CommitID {
+  fromPartial(object: DeepPartial<CommitID>): CommitID {
     const message = createBaseCommitID();
     message.version = object.version !== undefined && object.version !== null ? Long.fromValue(object.version) : Long.ZERO;
     message.hash = object.hash ?? new Uint8Array();

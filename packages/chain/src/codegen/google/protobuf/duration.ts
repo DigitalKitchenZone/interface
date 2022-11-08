@@ -1,5 +1,5 @@
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet } from "../../helpers";
+import { Long, isSet, DeepPartial } from "../../helpers";
 /**
  * A Duration represents a signed, fixed-length span of time represented
  * as a count of seconds and fractions of seconds at nanosecond
@@ -219,7 +219,7 @@ export const Duration = {
     return obj;
   },
 
-  fromPartial(object: Partial<Duration>): Duration {
+  fromPartial(object: DeepPartial<Duration>): Duration {
     const message = createBaseDuration();
     message.seconds = object.seconds !== undefined && object.seconds !== null ? Long.fromValue(object.seconds) : Long.ZERO;
     message.nanos = object.nanos ?? 0;
