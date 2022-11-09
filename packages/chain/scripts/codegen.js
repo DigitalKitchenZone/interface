@@ -39,6 +39,9 @@ telescope({
       enabled: false
     },
     rpcClients: {
+      bundle: true,
+      extensions: true,
+      inline: false,
       enabled: true,
       camelCase: true,
       extensions: true
