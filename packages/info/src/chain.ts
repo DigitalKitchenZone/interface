@@ -4,7 +4,7 @@ const chain: Chain = {
   chain_name: 'coolcat',
   status: 'live',
   network_type: 'devnet',
-  website: 'https://coolcat.space/',
+  website: 'https://app.coolcat.space/',
   pretty_name: 'CoolCat',
   chain_id: 'kitten-04',
   bech32_prefix: 'ccat',
@@ -27,13 +27,13 @@ const chain: Chain = {
   apis: {
     rpc: [
       {
-        address: 'https://localhost:26657',
+        address: 'http://localhost:26657',
         provider: 'Digital Kitchen'
       }
     ],
     rest: [
       {
-        address: 'https://localhost:1317',
+        address: 'http://localhost:1317',
         provider: 'Digital Kitchen'
       }
     ],
