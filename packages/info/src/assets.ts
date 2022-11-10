@@ -23,7 +23,9 @@ const assets: AssetList = {
       logo_URIs: {
         svg: 'https://raw.githubusercontent.com/DigitalKitchenLabs/branding/main/ccat.svg'
       },
-      coingecko_id: 'coolcat'
+      coingecko_id: 'coolcat',
+      type_asset: 'native',
+      keywords: ['nft', 'staking', 'games']
     }
   ]
 };
