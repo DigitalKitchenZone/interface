@@ -63,9 +63,9 @@ codegen({
       enabled: true,
       execExtendsQuery: true
     },
-    // messageComposer: {
-    //   enabled: true
-    // },
+    messageComposer: {
+      enabled: true
+    },
   }
 }).then(() => {
   console.log('✨ all done!');
