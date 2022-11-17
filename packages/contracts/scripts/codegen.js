@@ -61,12 +61,11 @@ codegen({
     },
     client: {
       enabled: true,
-      execExtendsQuery: false
+      execExtendsQuery: true
     },
-    messageComposer: {
-      enabled: true
-    },
-
+    // messageComposer: {
+    //   enabled: true
+    // },
   }
 }).then(() => {
   console.log('✨ all done!');
