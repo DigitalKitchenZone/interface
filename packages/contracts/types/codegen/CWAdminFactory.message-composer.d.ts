@@ -3,26 +3,25 @@
 * DO NOT MODIFY IT BY HAND. Instead, modify the source JSONSchema file,
 * and run the @cosmwasm/ts-codegen generate command to regenerate this file.
 */
-import { Coin, StdFee } from "@cosmjs/amino";
-import { SigningCosmWasmClient, ExecuteResult } from "@cosmjs/cosmwasm-stargate";
+import { Coin } from "@cosmjs/amino";
+import { MsgExecuteContractEncodeObject } from "cosmwasm";
 import { Binary } from "./CWAdminFactory.types";
-export interface CWAdminFactoryInterface {
+export interface CWAdminFactoryMessage {
     contractAddress: string;
     sender: string;
     instantiateContractWithSelfAdmin: ({ codeId, instantiateMsg, label }: {
         codeId: number;
         instantiateMsg: Binary;
         label: string;
-    }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
+    }, funds?: Coin[]) => MsgExecuteContractEncodeObject;
 }
-export declare class CWAdminFactoryClient implements CWAdminFactoryInterface {
-    client: SigningCosmWasmClient;
+export declare class CWAdminFactoryMessageComposer implements CWAdminFactoryMessage {
     sender: string;
     contractAddress: string;
-    constructor(client: SigningCosmWasmClient, sender: string, contractAddress: string);
+    constructor(sender: string, contractAddress: string);
     instantiateContractWithSelfAdmin: ({ codeId, instantiateMsg, label }: {
         codeId: number;
         instantiateMsg: Binary;
         label: string;
-    }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
+    }, funds?: Coin[]) => MsgExecuteContractEncodeObject;
 }
