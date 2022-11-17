@@ -34,7 +34,7 @@ export declare class CWNamesRegistryQueryClient implements CWNamesRegistryReadOn
         name: string;
     }) => Promise<IsNameAvailableToRegisterResponse>;
 }
-export interface CWNamesRegistryInterface {
+export interface CWNamesRegistryInterface extends CWNamesRegistryReadOnlyInterface {
     contractAddress: string;
     sender: string;
     registerName: ({ name }: {
@@ -50,7 +50,7 @@ export interface CWNamesRegistryInterface {
         name: string;
     }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export declare class CWNamesRegistryClient implements CWNamesRegistryInterface {
+export declare class CWNamesRegistryClient extends CWNamesRegistryQueryClient implements CWNamesRegistryInterface {
     client: SigningCosmWasmClient;
     sender: string;
     contractAddress: string;

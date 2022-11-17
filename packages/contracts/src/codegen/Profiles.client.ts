@@ -202,7 +202,7 @@ export class ProfilesQueryClient implements ProfilesReadOnlyInterface {
     });
   };
 }
-export interface ProfilesInterface {
+export interface ProfilesInterface extends ProfilesReadOnlyInterface {
   contractAddress: string;
   sender: string;
   updateMintingFees: ({
@@ -250,12 +250,13 @@ export interface ProfilesInterface {
     tokenUri?: string;
   }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export class ProfilesClient implements ProfilesInterface {
+export class ProfilesClient extends ProfilesQueryClient implements ProfilesInterface {
   client: SigningCosmWasmClient;
   sender: string;
   contractAddress: string;
 
   constructor(client: SigningCosmWasmClient, sender: string, contractAddress: string) {
+    super(client, contractAddress);
     this.client = client;
     this.sender = sender;
     this.contractAddress = contractAddress;

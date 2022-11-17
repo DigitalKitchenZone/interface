@@ -165,7 +165,7 @@ export class CWProposalMultipleQueryClient implements CWProposalMultipleReadOnly
     });
   };
 }
-export interface CWProposalMultipleInterface {
+export interface CWProposalMultipleInterface extends CWProposalMultipleReadOnlyInterface {
   contractAddress: string;
   sender: string;
   propose: ({
@@ -234,12 +234,13 @@ export interface CWProposalMultipleInterface {
     address: string;
   }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export class CWProposalMultipleClient implements CWProposalMultipleInterface {
+export class CWProposalMultipleClient extends CWProposalMultipleQueryClient implements CWProposalMultipleInterface {
   client: SigningCosmWasmClient;
   sender: string;
   contractAddress: string;
 
   constructor(client: SigningCosmWasmClient, sender: string, contractAddress: string) {
+    super(client, contractAddress);
     this.client = client;
     this.sender = sender;
     this.contractAddress = contractAddress;

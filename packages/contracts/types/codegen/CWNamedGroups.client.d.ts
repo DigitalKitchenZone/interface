@@ -44,7 +44,7 @@ export declare class CWNamedGroupsQueryClient implements CWNamedGroupsReadOnlyIn
         group: string;
     }) => Promise<IsAddressInGroupResponse>;
 }
-export interface CWNamedGroupsInterface {
+export interface CWNamedGroupsInterface extends CWNamedGroupsReadOnlyInterface {
     contractAddress: string;
     sender: string;
     update: ({ addressesToAdd, addressesToRemove, group }: {
@@ -59,7 +59,7 @@ export interface CWNamedGroupsInterface {
         owner: string;
     }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export declare class CWNamedGroupsClient implements CWNamedGroupsInterface {
+export declare class CWNamedGroupsClient extends CWNamedGroupsQueryClient implements CWNamedGroupsInterface {
     client: SigningCosmWasmClient;
     sender: string;
     contractAddress: string;

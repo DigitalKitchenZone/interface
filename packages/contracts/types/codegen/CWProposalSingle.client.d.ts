@@ -64,7 +64,7 @@ export declare class CWProposalSingleQueryClient implements CWProposalSingleRead
     voteHooks: () => Promise<VoteHooksResponse>;
     info: () => Promise<InfoResponse>;
 }
-export interface CWProposalSingleInterface {
+export interface CWProposalSingleInterface extends CWProposalSingleReadOnlyInterface {
     contractAddress: string;
     sender: string;
     propose: ({ description, msgs, title }: {
@@ -105,7 +105,7 @@ export interface CWProposalSingleInterface {
         address: string;
     }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export declare class CWProposalSingleClient implements CWProposalSingleInterface {
+export declare class CWProposalSingleClient extends CWProposalSingleQueryClient implements CWProposalSingleInterface {
     client: SigningCosmWasmClient;
     sender: string;
     contractAddress: string;

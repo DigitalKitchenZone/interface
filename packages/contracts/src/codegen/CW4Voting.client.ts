@@ -80,7 +80,7 @@ export class CW4VotingQueryClient implements CW4VotingReadOnlyInterface {
     });
   };
 }
-export interface CW4VotingInterface {
+export interface CW4VotingInterface extends CW4VotingReadOnlyInterface {
   contractAddress: string;
   sender: string;
   memberChangedHook: ({
@@ -89,12 +89,13 @@ export interface CW4VotingInterface {
     diffs: MemberDiff[];
   }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export class CW4VotingClient implements CW4VotingInterface {
+export class CW4VotingClient extends CW4VotingQueryClient implements CW4VotingInterface {
   client: SigningCosmWasmClient;
   sender: string;
   contractAddress: string;
 
   constructor(client: SigningCosmWasmClient, sender: string, contractAddress: string) {
+    super(client, contractAddress);
     this.client = client;
     this.sender = sender;
     this.contractAddress = contractAddress;

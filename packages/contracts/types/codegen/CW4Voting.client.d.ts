@@ -34,14 +34,14 @@ export declare class CW4VotingQueryClient implements CW4VotingReadOnlyInterface 
     }) => Promise<TotalPowerAtHeightResponse>;
     info: () => Promise<InfoResponse>;
 }
-export interface CW4VotingInterface {
+export interface CW4VotingInterface extends CW4VotingReadOnlyInterface {
     contractAddress: string;
     sender: string;
     memberChangedHook: ({ diffs }: {
         diffs: MemberDiff[];
     }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export declare class CW4VotingClient implements CW4VotingInterface {
+export declare class CW4VotingClient extends CW4VotingQueryClient implements CW4VotingInterface {
     client: SigningCosmWasmClient;
     sender: string;
     contractAddress: string;

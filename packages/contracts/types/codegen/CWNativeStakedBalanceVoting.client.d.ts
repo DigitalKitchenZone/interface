@@ -48,7 +48,7 @@ export declare class CWNativeStakedBalanceVotingQueryClient implements CWNativeS
     }) => Promise<TotalPowerAtHeightResponse>;
     info: () => Promise<InfoResponse>;
 }
-export interface CWNativeStakedBalanceVotingInterface {
+export interface CWNativeStakedBalanceVotingInterface extends CWNativeStakedBalanceVotingReadOnlyInterface {
     contractAddress: string;
     sender: string;
     stake: (fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
@@ -62,7 +62,7 @@ export interface CWNativeStakedBalanceVotingInterface {
     }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
     claim: (fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export declare class CWNativeStakedBalanceVotingClient implements CWNativeStakedBalanceVotingInterface {
+export declare class CWNativeStakedBalanceVotingClient extends CWNativeStakedBalanceVotingQueryClient implements CWNativeStakedBalanceVotingInterface {
     client: SigningCosmWasmClient;
     sender: string;
     contractAddress: string;

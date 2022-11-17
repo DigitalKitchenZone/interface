@@ -27,7 +27,7 @@ export class CWTokenSwapQueryClient implements CWTokenSwapReadOnlyInterface {
     });
   };
 }
-export interface CWTokenSwapInterface {
+export interface CWTokenSwapInterface extends CWTokenSwapReadOnlyInterface {
   contractAddress: string;
   sender: string;
   receive: ({
@@ -42,12 +42,13 @@ export interface CWTokenSwapInterface {
   fund: (fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
   withdraw: (fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export class CWTokenSwapClient implements CWTokenSwapInterface {
+export class CWTokenSwapClient extends CWTokenSwapQueryClient implements CWTokenSwapInterface {
   client: SigningCosmWasmClient;
   sender: string;
   contractAddress: string;
 
   constructor(client: SigningCosmWasmClient, sender: string, contractAddress: string) {
+    super(client, contractAddress);
     this.client = client;
     this.sender = sender;
     this.contractAddress = contractAddress;
