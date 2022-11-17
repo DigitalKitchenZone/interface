@@ -78,7 +78,7 @@ export declare class ProfilesQueryClient implements ProfilesReadOnlyInterface {
         aliases: string[];
     }) => Promise<ListUserInfoResponse>;
 }
-export interface ProfilesInterface extends ProfilesReadOnlyInterface {
+export interface ProfilesInterface {
     contractAddress: string;
     sender: string;
     updateMintingFees: ({ baseMintFee, burnPercentage, shortNameSurcharge, tokenCap }: {
@@ -107,7 +107,7 @@ export interface ProfilesInterface extends ProfilesReadOnlyInterface {
         tokenUri?: string;
     }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export declare class ProfilesClient extends ProfilesQueryClient implements ProfilesInterface {
+export declare class ProfilesClient implements ProfilesInterface {
     client: SigningCosmWasmClient;
     sender: string;
     contractAddress: string;

@@ -119,7 +119,7 @@ export class CWNativeStakedBalanceVotingQueryClient implements CWNativeStakedBal
     });
   };
 }
-export interface CWNativeStakedBalanceVotingInterface extends CWNativeStakedBalanceVotingReadOnlyInterface {
+export interface CWNativeStakedBalanceVotingInterface {
   contractAddress: string;
   sender: string;
   stake: (fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
@@ -139,13 +139,12 @@ export interface CWNativeStakedBalanceVotingInterface extends CWNativeStakedBala
   }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
   claim: (fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export class CWNativeStakedBalanceVotingClient extends CWNativeStakedBalanceVotingQueryClient implements CWNativeStakedBalanceVotingInterface {
+export class CWNativeStakedBalanceVotingClient implements CWNativeStakedBalanceVotingInterface {
   client: SigningCosmWasmClient;
   sender: string;
   contractAddress: string;
 
   constructor(client: SigningCosmWasmClient, sender: string, contractAddress: string) {
-    super(client, contractAddress);
     this.client = client;
     this.sender = sender;
     this.contractAddress = contractAddress;

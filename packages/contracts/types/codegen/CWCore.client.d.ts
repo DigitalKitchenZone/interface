@@ -106,7 +106,7 @@ export declare class CWCoreQueryClient implements CWCoreReadOnlyInterface {
     }) => Promise<TotalPowerAtHeightResponse>;
     info: () => Promise<InfoResponse>;
 }
-export interface CWCoreInterface extends CWCoreReadOnlyInterface {
+export interface CWCoreInterface {
     contractAddress: string;
     sender: string;
     executeAdminMsgs: ({ msgs }: {
@@ -163,7 +163,7 @@ export interface CWCoreInterface extends CWCoreReadOnlyInterface {
         toRemove: string[];
     }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export declare class CWCoreClient extends CWCoreQueryClient implements CWCoreInterface {
+export declare class CWCoreClient implements CWCoreInterface {
     client: SigningCosmWasmClient;
     sender: string;
     contractAddress: string;

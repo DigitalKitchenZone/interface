@@ -78,7 +78,7 @@ export class CWNamesRegistryQueryClient implements CWNamesRegistryReadOnlyInterf
     });
   };
 }
-export interface CWNamesRegistryInterface extends CWNamesRegistryReadOnlyInterface {
+export interface CWNamesRegistryInterface {
   contractAddress: string;
   sender: string;
   registerName: ({
@@ -102,13 +102,12 @@ export interface CWNamesRegistryInterface extends CWNamesRegistryReadOnlyInterfa
     name: string;
   }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export class CWNamesRegistryClient extends CWNamesRegistryQueryClient implements CWNamesRegistryInterface {
+export class CWNamesRegistryClient implements CWNamesRegistryInterface {
   client: SigningCosmWasmClient;
   sender: string;
   contractAddress: string;
 
   constructor(client: SigningCosmWasmClient, sender: string, contractAddress: string) {
-    super(client, contractAddress);
     this.client = client;
     this.sender = sender;
     this.contractAddress = contractAddress;

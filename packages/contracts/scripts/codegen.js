@@ -61,7 +61,7 @@ codegen({
     },
     client: {
       enabled: true,
-      execExtendsQuery: true
+      execExtendsQuery: false
     },
     // messageComposer: {
     //   enabled: true

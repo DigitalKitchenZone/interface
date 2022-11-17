@@ -103,7 +103,7 @@ export class CWNamedGroupsQueryClient implements CWNamedGroupsReadOnlyInterface 
     });
   };
 }
-export interface CWNamedGroupsInterface extends CWNamedGroupsReadOnlyInterface {
+export interface CWNamedGroupsInterface {
   contractAddress: string;
   sender: string;
   update: ({
@@ -126,13 +126,12 @@ export interface CWNamedGroupsInterface extends CWNamedGroupsReadOnlyInterface {
     owner: string;
   }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export class CWNamedGroupsClient extends CWNamedGroupsQueryClient implements CWNamedGroupsInterface {
+export class CWNamedGroupsClient implements CWNamedGroupsInterface {
   client: SigningCosmWasmClient;
   sender: string;
   contractAddress: string;
 
   constructor(client: SigningCosmWasmClient, sender: string, contractAddress: string) {
-    super(client, contractAddress);
     this.client = client;
     this.sender = sender;
     this.contractAddress = contractAddress;

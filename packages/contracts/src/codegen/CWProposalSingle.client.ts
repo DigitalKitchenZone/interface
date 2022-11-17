@@ -165,7 +165,7 @@ export class CWProposalSingleQueryClient implements CWProposalSingleReadOnlyInte
     });
   };
 }
-export interface CWProposalSingleInterface extends CWProposalSingleReadOnlyInterface {
+export interface CWProposalSingleInterface {
   contractAddress: string;
   sender: string;
   propose: ({
@@ -234,13 +234,12 @@ export interface CWProposalSingleInterface extends CWProposalSingleReadOnlyInter
     address: string;
   }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export class CWProposalSingleClient extends CWProposalSingleQueryClient implements CWProposalSingleInterface {
+export class CWProposalSingleClient implements CWProposalSingleInterface {
   client: SigningCosmWasmClient;
   sender: string;
   contractAddress: string;
 
   constructor(client: SigningCosmWasmClient, sender: string, contractAddress: string) {
-    super(client, contractAddress);
     this.client = client;
     this.sender = sender;
     this.contractAddress = contractAddress;

@@ -286,7 +286,7 @@ export class CWCoreQueryClient implements CWCoreReadOnlyInterface {
     });
   };
 }
-export interface CWCoreInterface extends CWCoreReadOnlyInterface {
+export interface CWCoreInterface {
   contractAddress: string;
   sender: string;
   executeAdminMsgs: ({
@@ -380,13 +380,12 @@ export interface CWCoreInterface extends CWCoreReadOnlyInterface {
     toRemove: string[];
   }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export class CWCoreClient extends CWCoreQueryClient implements CWCoreInterface {
+export class CWCoreClient implements CWCoreInterface {
   client: SigningCosmWasmClient;
   sender: string;
   contractAddress: string;
 
   constructor(client: SigningCosmWasmClient, sender: string, contractAddress: string) {
-    super(client, contractAddress);
     this.client = client;
     this.sender = sender;
     this.contractAddress = contractAddress;

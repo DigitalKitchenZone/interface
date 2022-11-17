@@ -64,7 +64,7 @@ export declare class CWProposalMultipleQueryClient implements CWProposalMultiple
     voteHooks: () => Promise<VoteHooksResponse>;
     info: () => Promise<InfoResponse>;
 }
-export interface CWProposalMultipleInterface extends CWProposalMultipleReadOnlyInterface {
+export interface CWProposalMultipleInterface {
     contractAddress: string;
     sender: string;
     propose: ({ choices, description, title }: {
@@ -105,7 +105,7 @@ export interface CWProposalMultipleInterface extends CWProposalMultipleReadOnlyI
         address: string;
     }, fee?: number | StdFee | "auto", memo?: string, funds?: Coin[]) => Promise<ExecuteResult>;
 }
-export declare class CWProposalMultipleClient extends CWProposalMultipleQueryClient implements CWProposalMultipleInterface {
+export declare class CWProposalMultipleClient implements CWProposalMultipleInterface {
     client: SigningCosmWasmClient;
     sender: string;
     contractAddress: string;
