@@ -27,13 +27,13 @@ const chain: Chain = {
   apis: {
     rpc: [
       {
-        address: 'http://localhost:26657',
+        address: 'https://rpc.coolcat.space',
         provider: 'Digital Kitchen'
       }
     ],
     rest: [
       {
-        address: 'http://localhost:1317',
+        address: 'https://lcd.coolcat.space',
         provider: 'Digital Kitchen'
       }
     ],
