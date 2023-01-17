@@ -26,8 +26,8 @@ export interface Msg {
 export declare class MsgClientImpl implements Msg {
     private readonly rpc;
     constructor(rpc: Rpc);
-    setWithdrawAddress: (request: MsgSetWithdrawAddress) => Promise<MsgSetWithdrawAddressResponse>;
-    withdrawDelegatorReward: (request: MsgWithdrawDelegatorReward) => Promise<MsgWithdrawDelegatorRewardResponse>;
-    withdrawValidatorCommission: (request: MsgWithdrawValidatorCommission) => Promise<MsgWithdrawValidatorCommissionResponse>;
-    fundCommunityPool: (request: MsgFundCommunityPool) => Promise<MsgFundCommunityPoolResponse>;
+    setWithdrawAddress(request: MsgSetWithdrawAddress): Promise<MsgSetWithdrawAddressResponse>;
+    withdrawDelegatorReward(request: MsgWithdrawDelegatorReward): Promise<MsgWithdrawDelegatorRewardResponse>;
+    withdrawValidatorCommission(request: MsgWithdrawValidatorCommission): Promise<MsgWithdrawValidatorCommissionResponse>;
+    fundCommunityPool(request: MsgFundCommunityPool): Promise<MsgFundCommunityPoolResponse>;
 }

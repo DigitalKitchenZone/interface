@@ -56,8 +56,7 @@ telescope({
       enabled: true,
       camelCase: true,
     },
-    classesUseArrowFunctions: true,
-    removeUnusedImports: true,
+    classesUseArrowFunctions: false,
     useSDKTypes: false,
     stargateClients: {
       enabled: true,

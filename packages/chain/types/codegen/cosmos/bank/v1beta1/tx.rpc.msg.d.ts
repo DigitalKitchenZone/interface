@@ -10,6 +10,6 @@ export interface Msg {
 export declare class MsgClientImpl implements Msg {
     private readonly rpc;
     constructor(rpc: Rpc);
-    send: (request: MsgSend) => Promise<MsgSendResponse>;
-    multiSend: (request: MsgMultiSend) => Promise<MsgMultiSendResponse>;
+    send(request: MsgSend): Promise<MsgSendResponse>;
+    multiSend(request: MsgMultiSend): Promise<MsgMultiSendResponse>;
 }

@@ -17,8 +17,8 @@ export interface Msg {
 export declare class MsgClientImpl implements Msg {
     private readonly rpc;
     constructor(rpc: Rpc);
-    connectionOpenInit: (request: MsgConnectionOpenInit) => Promise<MsgConnectionOpenInitResponse>;
-    connectionOpenTry: (request: MsgConnectionOpenTry) => Promise<MsgConnectionOpenTryResponse>;
-    connectionOpenAck: (request: MsgConnectionOpenAck) => Promise<MsgConnectionOpenAckResponse>;
-    connectionOpenConfirm: (request: MsgConnectionOpenConfirm) => Promise<MsgConnectionOpenConfirmResponse>;
+    connectionOpenInit(request: MsgConnectionOpenInit): Promise<MsgConnectionOpenInitResponse>;
+    connectionOpenTry(request: MsgConnectionOpenTry): Promise<MsgConnectionOpenTryResponse>;
+    connectionOpenAck(request: MsgConnectionOpenAck): Promise<MsgConnectionOpenAckResponse>;
+    connectionOpenConfirm(request: MsgConnectionOpenConfirm): Promise<MsgConnectionOpenConfirmResponse>;
 }

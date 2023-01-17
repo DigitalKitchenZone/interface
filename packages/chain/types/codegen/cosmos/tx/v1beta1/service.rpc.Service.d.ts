@@ -21,11 +21,11 @@ export interface Service {
 export declare class ServiceClientImpl implements Service {
     private readonly rpc;
     constructor(rpc: Rpc);
-    simulate: (request: SimulateRequest) => Promise<SimulateResponse>;
-    getTx: (request: GetTxRequest) => Promise<GetTxResponse>;
-    broadcastTx: (request: BroadcastTxRequest) => Promise<BroadcastTxResponse>;
-    getTxsEvent: (request: GetTxsEventRequest) => Promise<GetTxsEventResponse>;
-    getBlockWithTxs: (request: GetBlockWithTxsRequest) => Promise<GetBlockWithTxsResponse>;
+    simulate(request: SimulateRequest): Promise<SimulateResponse>;
+    getTx(request: GetTxRequest): Promise<GetTxResponse>;
+    broadcastTx(request: BroadcastTxRequest): Promise<BroadcastTxResponse>;
+    getTxsEvent(request: GetTxsEventRequest): Promise<GetTxsEventResponse>;
+    getBlockWithTxs(request: GetBlockWithTxsRequest): Promise<GetBlockWithTxsResponse>;
 }
 export declare const createRpcQueryExtension: (base: QueryClient) => {
     simulate(request: SimulateRequest): Promise<SimulateResponse>;

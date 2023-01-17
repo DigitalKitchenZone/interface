@@ -28,15 +28,15 @@ export interface Query {
 export declare class QueryClientImpl implements Query {
     private readonly rpc;
     constructor(rpc: Rpc);
-    params: (request?: QueryParamsRequest) => Promise<QueryParamsResponse>;
-    validatorOutstandingRewards: (request: QueryValidatorOutstandingRewardsRequest) => Promise<QueryValidatorOutstandingRewardsResponse>;
-    validatorCommission: (request: QueryValidatorCommissionRequest) => Promise<QueryValidatorCommissionResponse>;
-    validatorSlashes: (request: QueryValidatorSlashesRequest) => Promise<QueryValidatorSlashesResponse>;
-    delegationRewards: (request: QueryDelegationRewardsRequest) => Promise<QueryDelegationRewardsResponse>;
-    delegationTotalRewards: (request: QueryDelegationTotalRewardsRequest) => Promise<QueryDelegationTotalRewardsResponse>;
-    delegatorValidators: (request: QueryDelegatorValidatorsRequest) => Promise<QueryDelegatorValidatorsResponse>;
-    delegatorWithdrawAddress: (request: QueryDelegatorWithdrawAddressRequest) => Promise<QueryDelegatorWithdrawAddressResponse>;
-    communityPool: (request?: QueryCommunityPoolRequest) => Promise<QueryCommunityPoolResponse>;
+    params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
+    validatorOutstandingRewards(request: QueryValidatorOutstandingRewardsRequest): Promise<QueryValidatorOutstandingRewardsResponse>;
+    validatorCommission(request: QueryValidatorCommissionRequest): Promise<QueryValidatorCommissionResponse>;
+    validatorSlashes(request: QueryValidatorSlashesRequest): Promise<QueryValidatorSlashesResponse>;
+    delegationRewards(request: QueryDelegationRewardsRequest): Promise<QueryDelegationRewardsResponse>;
+    delegationTotalRewards(request: QueryDelegationTotalRewardsRequest): Promise<QueryDelegationTotalRewardsResponse>;
+    delegatorValidators(request: QueryDelegatorValidatorsRequest): Promise<QueryDelegatorValidatorsResponse>;
+    delegatorWithdrawAddress(request: QueryDelegatorWithdrawAddressRequest): Promise<QueryDelegatorWithdrawAddressResponse>;
+    communityPool(request?: QueryCommunityPoolRequest): Promise<QueryCommunityPoolResponse>;
 }
 export declare const createRpcQueryExtension: (base: QueryClient) => {
     params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;

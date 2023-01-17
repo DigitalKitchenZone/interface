@@ -11,5 +11,5 @@ export interface Msg {
 export declare class MsgClientImpl implements Msg {
     private readonly rpc;
     constructor(rpc: Rpc);
-    createVestingAccount: (request: MsgCreateVestingAccount) => Promise<MsgCreateVestingAccountResponse>;
+    createVestingAccount(request: MsgCreateVestingAccount): Promise<MsgCreateVestingAccountResponse>;
 }

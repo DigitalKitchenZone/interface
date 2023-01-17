@@ -25,13 +25,13 @@ export interface Query {
 export declare class QueryClientImpl implements Query {
     private readonly rpc;
     constructor(rpc: Rpc);
-    accounts: (request?: QueryAccountsRequest) => Promise<QueryAccountsResponse>;
-    account: (request: QueryAccountRequest) => Promise<QueryAccountResponse>;
-    params: (request?: QueryParamsRequest) => Promise<QueryParamsResponse>;
-    moduleAccounts: (request?: QueryModuleAccountsRequest) => Promise<QueryModuleAccountsResponse>;
-    bech32Prefix: (request?: Bech32PrefixRequest) => Promise<Bech32PrefixResponse>;
-    addressBytesToString: (request: AddressBytesToStringRequest) => Promise<AddressBytesToStringResponse>;
-    addressStringToBytes: (request: AddressStringToBytesRequest) => Promise<AddressStringToBytesResponse>;
+    accounts(request?: QueryAccountsRequest): Promise<QueryAccountsResponse>;
+    account(request: QueryAccountRequest): Promise<QueryAccountResponse>;
+    params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
+    moduleAccounts(request?: QueryModuleAccountsRequest): Promise<QueryModuleAccountsResponse>;
+    bech32Prefix(request?: Bech32PrefixRequest): Promise<Bech32PrefixResponse>;
+    addressBytesToString(request: AddressBytesToStringRequest): Promise<AddressBytesToStringResponse>;
+    addressStringToBytes(request: AddressStringToBytesRequest): Promise<AddressStringToBytesResponse>;
 }
 export declare const createRpcQueryExtension: (base: QueryClient) => {
     accounts(request?: QueryAccountsRequest): Promise<QueryAccountsResponse>;

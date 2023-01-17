@@ -25,15 +25,15 @@ export interface Query {
 export declare class QueryClientImpl implements Query {
     private readonly rpc;
     constructor(rpc: Rpc);
-    contractInfo: (request: QueryContractInfoRequest) => Promise<QueryContractInfoResponse>;
-    contractHistory: (request: QueryContractHistoryRequest) => Promise<QueryContractHistoryResponse>;
-    contractsByCode: (request: QueryContractsByCodeRequest) => Promise<QueryContractsByCodeResponse>;
-    allContractState: (request: QueryAllContractStateRequest) => Promise<QueryAllContractStateResponse>;
-    rawContractState: (request: QueryRawContractStateRequest) => Promise<QueryRawContractStateResponse>;
-    smartContractState: (request: QuerySmartContractStateRequest) => Promise<QuerySmartContractStateResponse>;
-    code: (request: QueryCodeRequest) => Promise<QueryCodeResponse>;
-    codes: (request?: QueryCodesRequest) => Promise<QueryCodesResponse>;
-    pinnedCodes: (request?: QueryPinnedCodesRequest) => Promise<QueryPinnedCodesResponse>;
+    contractInfo(request: QueryContractInfoRequest): Promise<QueryContractInfoResponse>;
+    contractHistory(request: QueryContractHistoryRequest): Promise<QueryContractHistoryResponse>;
+    contractsByCode(request: QueryContractsByCodeRequest): Promise<QueryContractsByCodeResponse>;
+    allContractState(request: QueryAllContractStateRequest): Promise<QueryAllContractStateResponse>;
+    rawContractState(request: QueryRawContractStateRequest): Promise<QueryRawContractStateResponse>;
+    smartContractState(request: QuerySmartContractStateRequest): Promise<QuerySmartContractStateResponse>;
+    code(request: QueryCodeRequest): Promise<QueryCodeResponse>;
+    codes(request?: QueryCodesRequest): Promise<QueryCodesResponse>;
+    pinnedCodes(request?: QueryPinnedCodesRequest): Promise<QueryPinnedCodesResponse>;
 }
 export declare const createRpcQueryExtension: (base: QueryClient) => {
     contractInfo(request: QueryContractInfoRequest): Promise<QueryContractInfoResponse>;

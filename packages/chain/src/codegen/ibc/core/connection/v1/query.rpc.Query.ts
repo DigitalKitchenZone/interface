@@ -34,48 +34,45 @@ export class QueryClientImpl implements Query {
 
   constructor(rpc: Rpc) {
     this.rpc = rpc;
+    this.connection = this.connection.bind(this);
+    this.connections = this.connections.bind(this);
+    this.clientConnections = this.clientConnections.bind(this);
+    this.connectionClientState = this.connectionClientState.bind(this);
+    this.connectionConsensusState = this.connectionConsensusState.bind(this);
   }
-  /* Connection queries an IBC connection end. */
 
-
-  connection = async (request: QueryConnectionRequest): Promise<QueryConnectionResponse> => {
+  connection(request: QueryConnectionRequest): Promise<QueryConnectionResponse> {
     const data = QueryConnectionRequest.encode(request).finish();
     const promise = this.rpc.request("ibc.core.connection.v1.Query", "Connection", data);
     return promise.then(data => QueryConnectionResponse.decode(new _m0.Reader(data)));
-  };
-  /* Connections queries all the IBC connections of a chain. */
+  }
 
-  connections = async (request: QueryConnectionsRequest = {
+  connections(request: QueryConnectionsRequest = {
     pagination: undefined
-  }): Promise<QueryConnectionsResponse> => {
+  }): Promise<QueryConnectionsResponse> {
     const data = QueryConnectionsRequest.encode(request).finish();
     const promise = this.rpc.request("ibc.core.connection.v1.Query", "Connections", data);
     return promise.then(data => QueryConnectionsResponse.decode(new _m0.Reader(data)));
-  };
-  /* ClientConnections queries the connection paths associated with a client
-   state. */
+  }
 
-  clientConnections = async (request: QueryClientConnectionsRequest): Promise<QueryClientConnectionsResponse> => {
+  clientConnections(request: QueryClientConnectionsRequest): Promise<QueryClientConnectionsResponse> {
     const data = QueryClientConnectionsRequest.encode(request).finish();
     const promise = this.rpc.request("ibc.core.connection.v1.Query", "ClientConnections", data);
     return promise.then(data => QueryClientConnectionsResponse.decode(new _m0.Reader(data)));
-  };
-  /* ConnectionClientState queries the client state associated with the
-   connection. */
+  }
 
-  connectionClientState = async (request: QueryConnectionClientStateRequest): Promise<QueryConnectionClientStateResponse> => {
+  connectionClientState(request: QueryConnectionClientStateRequest): Promise<QueryConnectionClientStateResponse> {
     const data = QueryConnectionClientStateRequest.encode(request).finish();
     const promise = this.rpc.request("ibc.core.connection.v1.Query", "ConnectionClientState", data);
     return promise.then(data => QueryConnectionClientStateResponse.decode(new _m0.Reader(data)));
-  };
-  /* ConnectionConsensusState queries the consensus state associated with the
-   connection. */
+  }
 
-  connectionConsensusState = async (request: QueryConnectionConsensusStateRequest): Promise<QueryConnectionConsensusStateResponse> => {
+  connectionConsensusState(request: QueryConnectionConsensusStateRequest): Promise<QueryConnectionConsensusStateResponse> {
     const data = QueryConnectionConsensusStateRequest.encode(request).finish();
     const promise = this.rpc.request("ibc.core.connection.v1.Query", "ConnectionConsensusState", data);
     return promise.then(data => QueryConnectionConsensusStateResponse.decode(new _m0.Reader(data)));
-  };
+  }
+
 }
 export const createRpcQueryExtension = (base: QueryClient) => {
   const rpc = createProtobufRpcClient(base);

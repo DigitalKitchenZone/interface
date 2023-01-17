@@ -21,9 +21,9 @@ export interface Query {
 export declare class QueryClientImpl implements Query {
     private readonly rpc;
     constructor(rpc: Rpc);
-    grants: (request: QueryGrantsRequest) => Promise<QueryGrantsResponse>;
-    granterGrants: (request: QueryGranterGrantsRequest) => Promise<QueryGranterGrantsResponse>;
-    granteeGrants: (request: QueryGranteeGrantsRequest) => Promise<QueryGranteeGrantsResponse>;
+    grants(request: QueryGrantsRequest): Promise<QueryGrantsResponse>;
+    granterGrants(request: QueryGranterGrantsRequest): Promise<QueryGranterGrantsResponse>;
+    granteeGrants(request: QueryGranteeGrantsRequest): Promise<QueryGranteeGrantsResponse>;
 }
 export declare const createRpcQueryExtension: (base: QueryClient) => {
     grants(request: QueryGrantsRequest): Promise<QueryGrantsResponse>;
