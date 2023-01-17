@@ -3,7 +3,7 @@ import telescope from '@osmonauts/telescope';
 
 telescope({
   protoDirs: [join(__dirname, '../proto')],
-  outPath: join(__dirname, '../src'),
+  outPath: join(__dirname, '../src/codegen'),
   options: {
     prototypes: {
       includePackageVar: false,
@@ -53,14 +53,11 @@ telescope({
       enabled: false,
     },
     rpcClients: {
-      bundle: true,
       enabled: true,
       camelCase: true,
     },
-    bundle: { enabled: true },
     classesUseArrowFunctions: true,
     removeUnusedImports: true,
-    experimentalGlobalProtoNamespace: true,
     useSDKTypes: false,
     stargateClients: {
       enabled: true,
