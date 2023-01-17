@@ -18,7 +18,6 @@ telescope({
       },
       excluded: {
         packages: [
-          "cosmos.auth.v1beta1",
           "cosmos.app.v1alpha1",
           "cosmos.app.v1beta1",
           "cosmos.base.kv.v1beta1",
