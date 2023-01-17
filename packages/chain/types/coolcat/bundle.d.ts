@@ -10,16 +10,16 @@ import * as _9 from "./catdrop/v1beta1/tx";
 import * as _10 from "./mint/v1beta1/genesis";
 import * as _11 from "./mint/v1beta1/mint";
 import * as _12 from "./mint/v1beta1/query";
-import * as _104 from "./alloc/v1beta1/query.rpc.Query";
-import * as _105 from "./catdrop/v1beta1/query.rpc.Query";
-import * as _106 from "./mint/v1beta1/query.rpc.Query";
-import * as _107 from "./alloc/v1beta1/tx.rpc.msg";
-import * as _108 from "./catdrop/v1beta1/tx.rpc.msg";
+import * as _107 from "./alloc/v1beta1/query.rpc.Query";
+import * as _108 from "./catdrop/v1beta1/query.rpc.Query";
+import * as _109 from "./mint/v1beta1/query.rpc.Query";
+import * as _110 from "./alloc/v1beta1/tx.rpc.msg";
+import * as _111 from "./catdrop/v1beta1/tx.rpc.msg";
 export declare namespace coolcat {
     namespace alloc {
         const v1beta1: {
-            MsgClientImpl: typeof _107.MsgClientImpl;
-            QueryClientImpl: typeof _104.QueryClientImpl;
+            MsgClientImpl: typeof _110.MsgClientImpl;
+            QueryClientImpl: typeof _107.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                 params(request?: _3.QueryParamsRequest): Promise<_3.QueryParamsResponse>;
             };
@@ -165,8 +165,8 @@ export declare namespace coolcat {
     }
     namespace catdrop {
         const v1beta1: {
-            MsgClientImpl: typeof _108.MsgClientImpl;
-            QueryClientImpl: typeof _105.QueryClientImpl;
+            MsgClientImpl: typeof _111.MsgClientImpl;
+            QueryClientImpl: typeof _108.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                 moduleAccountBalance(request?: _8.QueryModuleAccountBalanceRequest): Promise<_8.QueryModuleAccountBalanceResponse>;
                 params(request?: _8.QueryParamsRequest): Promise<_8.QueryParamsResponse>;
@@ -457,7 +457,7 @@ export declare namespace coolcat {
     }
     namespace mint {
         const v1beta1: {
-            QueryClientImpl: typeof _106.QueryClientImpl;
+            QueryClientImpl: typeof _109.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                 params(request?: _12.QueryParamsRequest): Promise<_12.QueryParamsResponse>;
                 inflation(request?: _12.QueryInflationRequest): Promise<_12.QueryInflationResponse>;
@@ -562,10 +562,10 @@ export declare namespace coolcat {
         }) => Promise<{
             coolcat: {
                 alloc: {
-                    v1beta1: _107.MsgClientImpl;
+                    v1beta1: _110.MsgClientImpl;
                 };
                 catdrop: {
-                    v1beta1: _108.MsgClientImpl;
+                    v1beta1: _111.MsgClientImpl;
                 };
             };
             cosmos: {
@@ -616,6 +616,17 @@ export declare namespace coolcat {
                 };
             };
             cosmos: {
+                auth: {
+                    v1beta1: {
+                        accounts(request?: import("../cosmos/auth/v1beta1/query").QueryAccountsRequest): Promise<import("../cosmos/auth/v1beta1/query").QueryAccountsResponse>;
+                        account(request: import("../cosmos/auth/v1beta1/query").QueryAccountRequest): Promise<import("../cosmos/auth/v1beta1/query").QueryAccountResponse>;
+                        params(request?: import("../cosmos/auth/v1beta1/query").QueryParamsRequest): Promise<import("../cosmos/auth/v1beta1/query").QueryParamsResponse>;
+                        moduleAccounts(request?: import("../cosmos/auth/v1beta1/query").QueryModuleAccountsRequest): Promise<import("../cosmos/auth/v1beta1/query").QueryModuleAccountsResponse>;
+                        bech32Prefix(request?: import("../cosmos/auth/v1beta1/query").Bech32PrefixRequest): Promise<import("../cosmos/auth/v1beta1/query").Bech32PrefixResponse>;
+                        addressBytesToString(request: import("../cosmos/auth/v1beta1/query").AddressBytesToStringRequest): Promise<import("../cosmos/auth/v1beta1/query").AddressBytesToStringResponse>;
+                        addressStringToBytes(request: import("../cosmos/auth/v1beta1/query").AddressStringToBytesRequest): Promise<import("../cosmos/auth/v1beta1/query").AddressStringToBytesResponse>;
+                    };
+                };
                 authz: {
                     v1beta1: {
                         grants(request: import("../cosmos/authz/v1beta1/query").QueryGrantsRequest): Promise<import("../cosmos/authz/v1beta1/query").QueryGrantsResponse>;
