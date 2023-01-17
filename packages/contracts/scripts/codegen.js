@@ -47,7 +47,7 @@ const contracts = [
 
 codegen({
   contracts,
-  outPath: join(__dirname, '../src/codegen'),
+  outPath: join(__dirname, '../src'),
   options: {
     bundle: {
       enabled: true,
@@ -64,13 +64,10 @@ codegen({
     },
     messageComposer: {
       enabled: true,
-    },
-    bundle: {
-      enabled: true
     }
   }
 }).then(() => {
-  console.log('✨ all done!');
+  console.log("✨ Generated CoolCat contracts package!");
 }).catch(e=>{
   console.error(e);
   process.exit(1)

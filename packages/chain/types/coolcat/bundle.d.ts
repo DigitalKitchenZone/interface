@@ -10,16 +10,16 @@ import * as _9 from "./catdrop/v1beta1/tx";
 import * as _10 from "./mint/v1beta1/genesis";
 import * as _11 from "./mint/v1beta1/mint";
 import * as _12 from "./mint/v1beta1/query";
-import * as _102 from "./alloc/v1beta1/query.rpc.Query";
-import * as _103 from "./catdrop/v1beta1/query.rpc.Query";
-import * as _104 from "./mint/v1beta1/query.rpc.Query";
-import * as _105 from "./alloc/v1beta1/tx.rpc.msg";
-import * as _106 from "./catdrop/v1beta1/tx.rpc.msg";
+import * as _104 from "./alloc/v1beta1/query.rpc.Query";
+import * as _105 from "./catdrop/v1beta1/query.rpc.Query";
+import * as _106 from "./mint/v1beta1/query.rpc.Query";
+import * as _107 from "./alloc/v1beta1/tx.rpc.msg";
+import * as _108 from "./catdrop/v1beta1/tx.rpc.msg";
 export declare namespace coolcat {
     namespace alloc {
         const v1beta1: {
-            MsgClientImpl: typeof _105.MsgClientImpl;
-            QueryClientImpl: typeof _102.QueryClientImpl;
+            MsgClientImpl: typeof _107.MsgClientImpl;
+            QueryClientImpl: typeof _104.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                 params(request?: _3.QueryParamsRequest): Promise<_3.QueryParamsResponse>;
             };
@@ -165,8 +165,8 @@ export declare namespace coolcat {
     }
     namespace catdrop {
         const v1beta1: {
-            MsgClientImpl: typeof _106.MsgClientImpl;
-            QueryClientImpl: typeof _103.QueryClientImpl;
+            MsgClientImpl: typeof _108.MsgClientImpl;
+            QueryClientImpl: typeof _105.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                 moduleAccountBalance(request?: _8.QueryModuleAccountBalanceRequest): Promise<_8.QueryModuleAccountBalanceResponse>;
                 params(request?: _8.QueryParamsRequest): Promise<_8.QueryParamsResponse>;
@@ -457,7 +457,7 @@ export declare namespace coolcat {
     }
     namespace mint {
         const v1beta1: {
-            QueryClientImpl: typeof _104.QueryClientImpl;
+            QueryClientImpl: typeof _106.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                 params(request?: _12.QueryParamsRequest): Promise<_12.QueryParamsResponse>;
                 inflation(request?: _12.QueryInflationRequest): Promise<_12.QueryInflationResponse>;
@@ -562,10 +562,10 @@ export declare namespace coolcat {
         }) => Promise<{
             coolcat: {
                 alloc: {
-                    v1beta1: _105.MsgClientImpl;
+                    v1beta1: _107.MsgClientImpl;
                 };
                 catdrop: {
-                    v1beta1: _106.MsgClientImpl;
+                    v1beta1: _108.MsgClientImpl;
                 };
             };
             cosmos: {
@@ -659,6 +659,12 @@ export declare namespace coolcat {
                         deposit(request: import("../cosmos/gov/v1beta1/query").QueryDepositRequest): Promise<import("../cosmos/gov/v1beta1/query").QueryDepositResponse>;
                         deposits(request: import("../cosmos/gov/v1beta1/query").QueryDepositsRequest): Promise<import("../cosmos/gov/v1beta1/query").QueryDepositsResponse>;
                         tallyResult(request: import("../cosmos/gov/v1beta1/query").QueryTallyResultRequest): Promise<import("../cosmos/gov/v1beta1/query").QueryTallyResultResponse>;
+                    };
+                };
+                params: {
+                    v1beta1: {
+                        params(request: import("../cosmos/params/v1beta1/query").QueryParamsRequest): Promise<import("../cosmos/params/v1beta1/query").QueryParamsResponse>;
+                        subspaces(request?: import("../cosmos/params/v1beta1/query").QuerySubspacesRequest): Promise<import("../cosmos/params/v1beta1/query").QuerySubspacesResponse>;
                     };
                 };
                 staking: {

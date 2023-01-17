@@ -48,6 +48,12 @@ export declare const createRPCQueryClient: ({ rpcEndpoint }: {
                 tallyResult(request: import("./gov/v1beta1/query").QueryTallyResultRequest): Promise<import("./gov/v1beta1/query").QueryTallyResultResponse>;
             };
         };
+        params: {
+            v1beta1: {
+                params(request: import("./params/v1beta1/query").QueryParamsRequest): Promise<import("./params/v1beta1/query").QueryParamsResponse>;
+                subspaces(request?: import("./params/v1beta1/query").QuerySubspacesRequest): Promise<import("./params/v1beta1/query").QuerySubspacesResponse>;
+            };
+        };
         staking: {
             v1beta1: {
                 validators(request: import("./staking/v1beta1/query").QueryValidatorsRequest): Promise<import("./staking/v1beta1/query").QueryValidatorsResponse>;

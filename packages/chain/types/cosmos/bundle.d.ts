@@ -26,35 +26,38 @@ import * as _38 from "./gov/v1beta1/genesis";
 import * as _39 from "./gov/v1beta1/gov";
 import * as _40 from "./gov/v1beta1/query";
 import * as _41 from "./gov/v1beta1/tx";
-import * as _42 from "./staking/v1beta1/authz";
-import * as _43 from "./staking/v1beta1/genesis";
-import * as _44 from "./staking/v1beta1/query";
-import * as _45 from "./staking/v1beta1/staking";
-import * as _46 from "./staking/v1beta1/tx";
-import * as _47 from "./tx/signing/v1beta1/signing";
-import * as _48 from "./tx/v1beta1/service";
-import * as _49 from "./tx/v1beta1/tx";
-import * as _50 from "./upgrade/v1beta1/query";
-import * as _51 from "./upgrade/v1beta1/tx";
-import * as _52 from "./upgrade/v1beta1/upgrade";
-import * as _119 from "./authz/v1beta1/query.rpc.Query";
-import * as _120 from "./bank/v1beta1/query.rpc.Query";
-import * as _121 from "./distribution/v1beta1/query.rpc.Query";
-import * as _122 from "./gov/v1beta1/query.rpc.Query";
-import * as _123 from "./staking/v1beta1/query.rpc.Query";
-import * as _124 from "./tx/v1beta1/service.rpc.Service";
-import * as _125 from "./upgrade/v1beta1/query.rpc.Query";
-import * as _126 from "./authz/v1beta1/tx.rpc.msg";
-import * as _127 from "./bank/v1beta1/tx.rpc.msg";
-import * as _128 from "./distribution/v1beta1/tx.rpc.msg";
-import * as _129 from "./gov/v1beta1/tx.rpc.msg";
-import * as _130 from "./staking/v1beta1/tx.rpc.msg";
-import * as _131 from "./upgrade/v1beta1/tx.rpc.msg";
+import * as _42 from "./params/v1beta1/params";
+import * as _43 from "./params/v1beta1/query";
+import * as _44 from "./staking/v1beta1/authz";
+import * as _45 from "./staking/v1beta1/genesis";
+import * as _46 from "./staking/v1beta1/query";
+import * as _47 from "./staking/v1beta1/staking";
+import * as _48 from "./staking/v1beta1/tx";
+import * as _49 from "./tx/signing/v1beta1/signing";
+import * as _50 from "./tx/v1beta1/service";
+import * as _51 from "./tx/v1beta1/tx";
+import * as _52 from "./upgrade/v1beta1/query";
+import * as _53 from "./upgrade/v1beta1/tx";
+import * as _54 from "./upgrade/v1beta1/upgrade";
+import * as _121 from "./authz/v1beta1/query.rpc.Query";
+import * as _122 from "./bank/v1beta1/query.rpc.Query";
+import * as _123 from "./distribution/v1beta1/query.rpc.Query";
+import * as _124 from "./gov/v1beta1/query.rpc.Query";
+import * as _125 from "./params/v1beta1/query.rpc.Query";
+import * as _126 from "./staking/v1beta1/query.rpc.Query";
+import * as _127 from "./tx/v1beta1/service.rpc.Service";
+import * as _128 from "./upgrade/v1beta1/query.rpc.Query";
+import * as _129 from "./authz/v1beta1/tx.rpc.msg";
+import * as _130 from "./bank/v1beta1/tx.rpc.msg";
+import * as _131 from "./distribution/v1beta1/tx.rpc.msg";
+import * as _132 from "./gov/v1beta1/tx.rpc.msg";
+import * as _133 from "./staking/v1beta1/tx.rpc.msg";
+import * as _134 from "./upgrade/v1beta1/tx.rpc.msg";
 export declare namespace cosmos {
     namespace authz {
         const v1beta1: {
-            MsgClientImpl: typeof _126.MsgClientImpl;
-            QueryClientImpl: typeof _119.QueryClientImpl;
+            MsgClientImpl: typeof _129.MsgClientImpl;
+            QueryClientImpl: typeof _121.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                 grants(request: _17.QueryGrantsRequest): Promise<_17.QueryGrantsResponse>;
                 granterGrants(request: _17.QueryGranterGrantsRequest): Promise<_17.QueryGranterGrantsResponse>;
@@ -461,8 +464,8 @@ export declare namespace cosmos {
     }
     namespace bank {
         const v1beta1: {
-            MsgClientImpl: typeof _127.MsgClientImpl;
-            QueryClientImpl: typeof _120.QueryClientImpl;
+            MsgClientImpl: typeof _130.MsgClientImpl;
+            QueryClientImpl: typeof _122.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                 balance(request: _22.QueryBalanceRequest): Promise<_22.QueryBalanceResponse>;
                 allBalances(request: _22.QueryAllBalancesRequest): Promise<_22.QueryAllBalancesResponse>;
@@ -1879,8 +1882,8 @@ export declare namespace cosmos {
     }
     namespace distribution {
         const v1beta1: {
-            MsgClientImpl: typeof _128.MsgClientImpl;
-            QueryClientImpl: typeof _121.QueryClientImpl;
+            MsgClientImpl: typeof _131.MsgClientImpl;
+            QueryClientImpl: typeof _123.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                 params(request?: _36.QueryParamsRequest): Promise<_36.QueryParamsResponse>;
                 validatorOutstandingRewards(request: _36.QueryValidatorOutstandingRewardsRequest): Promise<_36.QueryValidatorOutstandingRewardsResponse>;
@@ -2655,8 +2658,8 @@ export declare namespace cosmos {
     }
     namespace gov {
         const v1beta1: {
-            MsgClientImpl: typeof _129.MsgClientImpl;
-            QueryClientImpl: typeof _122.QueryClientImpl;
+            MsgClientImpl: typeof _132.MsgClientImpl;
+            QueryClientImpl: typeof _124.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                 proposal(request: _40.QueryProposalRequest): Promise<_40.QueryProposalResponse>;
                 proposals(request: _40.QueryProposalsRequest): Promise<_40.QueryProposalsResponse>;
@@ -3408,91 +3411,178 @@ export declare namespace cosmos {
             };
         };
     }
+    namespace params {
+        const v1beta1: {
+            QueryClientImpl: typeof _125.QueryClientImpl;
+            createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
+                params(request: _43.QueryParamsRequest): Promise<_43.QueryParamsResponse>;
+                subspaces(request?: _43.QuerySubspacesRequest): Promise<_43.QuerySubspacesResponse>;
+            };
+            QueryParamsRequest: {
+                encode(message: _43.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _43.QueryParamsRequest;
+                fromJSON(object: any): _43.QueryParamsRequest;
+                toJSON(message: _43.QueryParamsRequest): unknown;
+                fromPartial(object: {
+                    subspace?: string;
+                    key?: string;
+                }): _43.QueryParamsRequest;
+            };
+            QueryParamsResponse: {
+                encode(message: _43.QueryParamsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _43.QueryParamsResponse;
+                fromJSON(object: any): _43.QueryParamsResponse;
+                toJSON(message: _43.QueryParamsResponse): unknown;
+                fromPartial(object: {
+                    param?: {
+                        subspace?: string;
+                        key?: string;
+                        value?: string;
+                    };
+                }): _43.QueryParamsResponse;
+            };
+            QuerySubspacesRequest: {
+                encode(_: _43.QuerySubspacesRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _43.QuerySubspacesRequest;
+                fromJSON(_: any): _43.QuerySubspacesRequest;
+                toJSON(_: _43.QuerySubspacesRequest): unknown;
+                fromPartial(_: {}): _43.QuerySubspacesRequest;
+            };
+            QuerySubspacesResponse: {
+                encode(message: _43.QuerySubspacesResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _43.QuerySubspacesResponse;
+                fromJSON(object: any): _43.QuerySubspacesResponse;
+                toJSON(message: _43.QuerySubspacesResponse): unknown;
+                fromPartial(object: {
+                    subspaces?: {
+                        subspace?: string;
+                        keys?: string[];
+                    }[];
+                }): _43.QuerySubspacesResponse;
+            };
+            Subspace: {
+                encode(message: _43.Subspace, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _43.Subspace;
+                fromJSON(object: any): _43.Subspace;
+                toJSON(message: _43.Subspace): unknown;
+                fromPartial(object: {
+                    subspace?: string;
+                    keys?: string[];
+                }): _43.Subspace;
+            };
+            ParameterChangeProposal: {
+                encode(message: _42.ParameterChangeProposal, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _42.ParameterChangeProposal;
+                fromJSON(object: any): _42.ParameterChangeProposal;
+                toJSON(message: _42.ParameterChangeProposal): unknown;
+                fromPartial(object: {
+                    title?: string;
+                    description?: string;
+                    changes?: {
+                        subspace?: string;
+                        key?: string;
+                        value?: string;
+                    }[];
+                }): _42.ParameterChangeProposal;
+            };
+            ParamChange: {
+                encode(message: _42.ParamChange, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _42.ParamChange;
+                fromJSON(object: any): _42.ParamChange;
+                toJSON(message: _42.ParamChange): unknown;
+                fromPartial(object: {
+                    subspace?: string;
+                    key?: string;
+                    value?: string;
+                }): _42.ParamChange;
+            };
+        };
+    }
     namespace staking {
         const v1beta1: {
-            MsgClientImpl: typeof _130.MsgClientImpl;
-            QueryClientImpl: typeof _123.QueryClientImpl;
+            MsgClientImpl: typeof _133.MsgClientImpl;
+            QueryClientImpl: typeof _126.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
-                validators(request: _44.QueryValidatorsRequest): Promise<_44.QueryValidatorsResponse>;
-                validator(request: _44.QueryValidatorRequest): Promise<_44.QueryValidatorResponse>;
-                validatorDelegations(request: _44.QueryValidatorDelegationsRequest): Promise<_44.QueryValidatorDelegationsResponse>;
-                validatorUnbondingDelegations(request: _44.QueryValidatorUnbondingDelegationsRequest): Promise<_44.QueryValidatorUnbondingDelegationsResponse>;
-                delegation(request: _44.QueryDelegationRequest): Promise<_44.QueryDelegationResponse>;
-                unbondingDelegation(request: _44.QueryUnbondingDelegationRequest): Promise<_44.QueryUnbondingDelegationResponse>;
-                delegatorDelegations(request: _44.QueryDelegatorDelegationsRequest): Promise<_44.QueryDelegatorDelegationsResponse>;
-                delegatorUnbondingDelegations(request: _44.QueryDelegatorUnbondingDelegationsRequest): Promise<_44.QueryDelegatorUnbondingDelegationsResponse>;
-                redelegations(request: _44.QueryRedelegationsRequest): Promise<_44.QueryRedelegationsResponse>;
-                delegatorValidators(request: _44.QueryDelegatorValidatorsRequest): Promise<_44.QueryDelegatorValidatorsResponse>;
-                delegatorValidator(request: _44.QueryDelegatorValidatorRequest): Promise<_44.QueryDelegatorValidatorResponse>;
-                historicalInfo(request: _44.QueryHistoricalInfoRequest): Promise<_44.QueryHistoricalInfoResponse>;
-                pool(request?: _44.QueryPoolRequest): Promise<_44.QueryPoolResponse>;
-                params(request?: _44.QueryParamsRequest): Promise<_44.QueryParamsResponse>;
+                validators(request: _46.QueryValidatorsRequest): Promise<_46.QueryValidatorsResponse>;
+                validator(request: _46.QueryValidatorRequest): Promise<_46.QueryValidatorResponse>;
+                validatorDelegations(request: _46.QueryValidatorDelegationsRequest): Promise<_46.QueryValidatorDelegationsResponse>;
+                validatorUnbondingDelegations(request: _46.QueryValidatorUnbondingDelegationsRequest): Promise<_46.QueryValidatorUnbondingDelegationsResponse>;
+                delegation(request: _46.QueryDelegationRequest): Promise<_46.QueryDelegationResponse>;
+                unbondingDelegation(request: _46.QueryUnbondingDelegationRequest): Promise<_46.QueryUnbondingDelegationResponse>;
+                delegatorDelegations(request: _46.QueryDelegatorDelegationsRequest): Promise<_46.QueryDelegatorDelegationsResponse>;
+                delegatorUnbondingDelegations(request: _46.QueryDelegatorUnbondingDelegationsRequest): Promise<_46.QueryDelegatorUnbondingDelegationsResponse>;
+                redelegations(request: _46.QueryRedelegationsRequest): Promise<_46.QueryRedelegationsResponse>;
+                delegatorValidators(request: _46.QueryDelegatorValidatorsRequest): Promise<_46.QueryDelegatorValidatorsResponse>;
+                delegatorValidator(request: _46.QueryDelegatorValidatorRequest): Promise<_46.QueryDelegatorValidatorResponse>;
+                historicalInfo(request: _46.QueryHistoricalInfoRequest): Promise<_46.QueryHistoricalInfoResponse>;
+                pool(request?: _46.QueryPoolRequest): Promise<_46.QueryPoolResponse>;
+                params(request?: _46.QueryParamsRequest): Promise<_46.QueryParamsResponse>;
             };
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
             MessageComposer: {
                 encoded: {
-                    createValidator(value: _46.MsgCreateValidator): {
+                    createValidator(value: _48.MsgCreateValidator): {
                         typeUrl: string;
                         value: Uint8Array;
                     };
-                    editValidator(value: _46.MsgEditValidator): {
+                    editValidator(value: _48.MsgEditValidator): {
                         typeUrl: string;
                         value: Uint8Array;
                     };
-                    delegate(value: _46.MsgDelegate): {
+                    delegate(value: _48.MsgDelegate): {
                         typeUrl: string;
                         value: Uint8Array;
                     };
-                    beginRedelegate(value: _46.MsgBeginRedelegate): {
+                    beginRedelegate(value: _48.MsgBeginRedelegate): {
                         typeUrl: string;
                         value: Uint8Array;
                     };
-                    undelegate(value: _46.MsgUndelegate): {
+                    undelegate(value: _48.MsgUndelegate): {
                         typeUrl: string;
                         value: Uint8Array;
                     };
                 };
                 withTypeUrl: {
-                    createValidator(value: _46.MsgCreateValidator): {
+                    createValidator(value: _48.MsgCreateValidator): {
                         typeUrl: string;
-                        value: _46.MsgCreateValidator;
+                        value: _48.MsgCreateValidator;
                     };
-                    editValidator(value: _46.MsgEditValidator): {
+                    editValidator(value: _48.MsgEditValidator): {
                         typeUrl: string;
-                        value: _46.MsgEditValidator;
+                        value: _48.MsgEditValidator;
                     };
-                    delegate(value: _46.MsgDelegate): {
+                    delegate(value: _48.MsgDelegate): {
                         typeUrl: string;
-                        value: _46.MsgDelegate;
+                        value: _48.MsgDelegate;
                     };
-                    beginRedelegate(value: _46.MsgBeginRedelegate): {
+                    beginRedelegate(value: _48.MsgBeginRedelegate): {
                         typeUrl: string;
-                        value: _46.MsgBeginRedelegate;
+                        value: _48.MsgBeginRedelegate;
                     };
-                    undelegate(value: _46.MsgUndelegate): {
+                    undelegate(value: _48.MsgUndelegate): {
                         typeUrl: string;
-                        value: _46.MsgUndelegate;
+                        value: _48.MsgUndelegate;
                     };
                 };
                 toJSON: {
-                    createValidator(value: _46.MsgCreateValidator): {
+                    createValidator(value: _48.MsgCreateValidator): {
                         typeUrl: string;
                         value: unknown;
                     };
-                    editValidator(value: _46.MsgEditValidator): {
+                    editValidator(value: _48.MsgEditValidator): {
                         typeUrl: string;
                         value: unknown;
                     };
-                    delegate(value: _46.MsgDelegate): {
+                    delegate(value: _48.MsgDelegate): {
                         typeUrl: string;
                         value: unknown;
                     };
-                    beginRedelegate(value: _46.MsgBeginRedelegate): {
+                    beginRedelegate(value: _48.MsgBeginRedelegate): {
                         typeUrl: string;
                         value: unknown;
                     };
-                    undelegate(value: _46.MsgUndelegate): {
+                    undelegate(value: _48.MsgUndelegate): {
                         typeUrl: string;
                         value: unknown;
                     };
@@ -3500,52 +3590,52 @@ export declare namespace cosmos {
                 fromJSON: {
                     createValidator(value: any): {
                         typeUrl: string;
-                        value: _46.MsgCreateValidator;
+                        value: _48.MsgCreateValidator;
                     };
                     editValidator(value: any): {
                         typeUrl: string;
-                        value: _46.MsgEditValidator;
+                        value: _48.MsgEditValidator;
                     };
                     delegate(value: any): {
                         typeUrl: string;
-                        value: _46.MsgDelegate;
+                        value: _48.MsgDelegate;
                     };
                     beginRedelegate(value: any): {
                         typeUrl: string;
-                        value: _46.MsgBeginRedelegate;
+                        value: _48.MsgBeginRedelegate;
                     };
                     undelegate(value: any): {
                         typeUrl: string;
-                        value: _46.MsgUndelegate;
+                        value: _48.MsgUndelegate;
                     };
                 };
                 fromPartial: {
-                    createValidator(value: _46.MsgCreateValidator): {
+                    createValidator(value: _48.MsgCreateValidator): {
                         typeUrl: string;
-                        value: _46.MsgCreateValidator;
+                        value: _48.MsgCreateValidator;
                     };
-                    editValidator(value: _46.MsgEditValidator): {
+                    editValidator(value: _48.MsgEditValidator): {
                         typeUrl: string;
-                        value: _46.MsgEditValidator;
+                        value: _48.MsgEditValidator;
                     };
-                    delegate(value: _46.MsgDelegate): {
+                    delegate(value: _48.MsgDelegate): {
                         typeUrl: string;
-                        value: _46.MsgDelegate;
+                        value: _48.MsgDelegate;
                     };
-                    beginRedelegate(value: _46.MsgBeginRedelegate): {
+                    beginRedelegate(value: _48.MsgBeginRedelegate): {
                         typeUrl: string;
-                        value: _46.MsgBeginRedelegate;
+                        value: _48.MsgBeginRedelegate;
                     };
-                    undelegate(value: _46.MsgUndelegate): {
+                    undelegate(value: _48.MsgUndelegate): {
                         typeUrl: string;
-                        value: _46.MsgUndelegate;
+                        value: _48.MsgUndelegate;
                     };
                 };
             };
             AminoConverter: {
                 "/cosmos.staking.v1beta1.MsgCreateValidator": {
                     aminoType: string;
-                    toAmino: ({ description, commission, minSelfDelegation, delegatorAddress, validatorAddress, pubkey, value }: _46.MsgCreateValidator) => {
+                    toAmino: ({ description, commission, minSelfDelegation, delegatorAddress, validatorAddress, pubkey, value }: _48.MsgCreateValidator) => {
                         description: {
                             moniker: string;
                             identity: string;
@@ -3594,11 +3684,11 @@ export declare namespace cosmos {
                             denom: string;
                             amount: string;
                         };
-                    }) => _46.MsgCreateValidator;
+                    }) => _48.MsgCreateValidator;
                 };
                 "/cosmos.staking.v1beta1.MsgEditValidator": {
                     aminoType: string;
-                    toAmino: ({ description, validatorAddress, commissionRate, minSelfDelegation }: _46.MsgEditValidator) => {
+                    toAmino: ({ description, validatorAddress, commissionRate, minSelfDelegation }: _48.MsgEditValidator) => {
                         description: {
                             moniker: string;
                             identity: string;
@@ -3621,11 +3711,11 @@ export declare namespace cosmos {
                         validator_address: string;
                         commission_rate: string;
                         min_self_delegation: string;
-                    }) => _46.MsgEditValidator;
+                    }) => _48.MsgEditValidator;
                 };
                 "/cosmos.staking.v1beta1.MsgDelegate": {
                     aminoType: string;
-                    toAmino: ({ delegatorAddress, validatorAddress, amount }: _46.MsgDelegate) => {
+                    toAmino: ({ delegatorAddress, validatorAddress, amount }: _48.MsgDelegate) => {
                         delegator_address: string;
                         validator_address: string;
                         amount: {
@@ -3640,11 +3730,11 @@ export declare namespace cosmos {
                             denom: string;
                             amount: string;
                         };
-                    }) => _46.MsgDelegate;
+                    }) => _48.MsgDelegate;
                 };
                 "/cosmos.staking.v1beta1.MsgBeginRedelegate": {
                     aminoType: string;
-                    toAmino: ({ delegatorAddress, validatorSrcAddress, validatorDstAddress, amount }: _46.MsgBeginRedelegate) => {
+                    toAmino: ({ delegatorAddress, validatorSrcAddress, validatorDstAddress, amount }: _48.MsgBeginRedelegate) => {
                         delegator_address: string;
                         validator_src_address: string;
                         validator_dst_address: string;
@@ -3661,11 +3751,11 @@ export declare namespace cosmos {
                             denom: string;
                             amount: string;
                         };
-                    }) => _46.MsgBeginRedelegate;
+                    }) => _48.MsgBeginRedelegate;
                 };
                 "/cosmos.staking.v1beta1.MsgUndelegate": {
                     aminoType: string;
-                    toAmino: ({ delegatorAddress, validatorAddress, amount }: _46.MsgUndelegate) => {
+                    toAmino: ({ delegatorAddress, validatorAddress, amount }: _48.MsgUndelegate) => {
                         delegator_address: string;
                         validator_address: string;
                         amount: {
@@ -3680,14 +3770,14 @@ export declare namespace cosmos {
                             denom: string;
                             amount: string;
                         };
-                    }) => _46.MsgUndelegate;
+                    }) => _48.MsgUndelegate;
                 };
             };
             MsgCreateValidator: {
-                encode(message: _46.MsgCreateValidator, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.MsgCreateValidator;
-                fromJSON(object: any): _46.MsgCreateValidator;
-                toJSON(message: _46.MsgCreateValidator): unknown;
+                encode(message: _48.MsgCreateValidator, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.MsgCreateValidator;
+                fromJSON(object: any): _48.MsgCreateValidator;
+                toJSON(message: _48.MsgCreateValidator): unknown;
                 fromPartial(object: {
                     description?: {
                         moniker?: string;
@@ -3712,20 +3802,20 @@ export declare namespace cosmos {
                         denom?: string;
                         amount?: string;
                     };
-                }): _46.MsgCreateValidator;
+                }): _48.MsgCreateValidator;
             };
             MsgCreateValidatorResponse: {
-                encode(_: _46.MsgCreateValidatorResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.MsgCreateValidatorResponse;
-                fromJSON(_: any): _46.MsgCreateValidatorResponse;
-                toJSON(_: _46.MsgCreateValidatorResponse): unknown;
-                fromPartial(_: {}): _46.MsgCreateValidatorResponse;
+                encode(_: _48.MsgCreateValidatorResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.MsgCreateValidatorResponse;
+                fromJSON(_: any): _48.MsgCreateValidatorResponse;
+                toJSON(_: _48.MsgCreateValidatorResponse): unknown;
+                fromPartial(_: {}): _48.MsgCreateValidatorResponse;
             };
             MsgEditValidator: {
-                encode(message: _46.MsgEditValidator, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.MsgEditValidator;
-                fromJSON(object: any): _46.MsgEditValidator;
-                toJSON(message: _46.MsgEditValidator): unknown;
+                encode(message: _48.MsgEditValidator, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.MsgEditValidator;
+                fromJSON(object: any): _48.MsgEditValidator;
+                toJSON(message: _48.MsgEditValidator): unknown;
                 fromPartial(object: {
                     description?: {
                         moniker?: string;
@@ -3737,20 +3827,20 @@ export declare namespace cosmos {
                     validatorAddress?: string;
                     commissionRate?: string;
                     minSelfDelegation?: string;
-                }): _46.MsgEditValidator;
+                }): _48.MsgEditValidator;
             };
             MsgEditValidatorResponse: {
-                encode(_: _46.MsgEditValidatorResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.MsgEditValidatorResponse;
-                fromJSON(_: any): _46.MsgEditValidatorResponse;
-                toJSON(_: _46.MsgEditValidatorResponse): unknown;
-                fromPartial(_: {}): _46.MsgEditValidatorResponse;
+                encode(_: _48.MsgEditValidatorResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.MsgEditValidatorResponse;
+                fromJSON(_: any): _48.MsgEditValidatorResponse;
+                toJSON(_: _48.MsgEditValidatorResponse): unknown;
+                fromPartial(_: {}): _48.MsgEditValidatorResponse;
             };
             MsgDelegate: {
-                encode(message: _46.MsgDelegate, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.MsgDelegate;
-                fromJSON(object: any): _46.MsgDelegate;
-                toJSON(message: _46.MsgDelegate): unknown;
+                encode(message: _48.MsgDelegate, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.MsgDelegate;
+                fromJSON(object: any): _48.MsgDelegate;
+                toJSON(message: _48.MsgDelegate): unknown;
                 fromPartial(object: {
                     delegatorAddress?: string;
                     validatorAddress?: string;
@@ -3758,20 +3848,20 @@ export declare namespace cosmos {
                         denom?: string;
                         amount?: string;
                     };
-                }): _46.MsgDelegate;
+                }): _48.MsgDelegate;
             };
             MsgDelegateResponse: {
-                encode(_: _46.MsgDelegateResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.MsgDelegateResponse;
-                fromJSON(_: any): _46.MsgDelegateResponse;
-                toJSON(_: _46.MsgDelegateResponse): unknown;
-                fromPartial(_: {}): _46.MsgDelegateResponse;
+                encode(_: _48.MsgDelegateResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.MsgDelegateResponse;
+                fromJSON(_: any): _48.MsgDelegateResponse;
+                toJSON(_: _48.MsgDelegateResponse): unknown;
+                fromPartial(_: {}): _48.MsgDelegateResponse;
             };
             MsgBeginRedelegate: {
-                encode(message: _46.MsgBeginRedelegate, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.MsgBeginRedelegate;
-                fromJSON(object: any): _46.MsgBeginRedelegate;
-                toJSON(message: _46.MsgBeginRedelegate): unknown;
+                encode(message: _48.MsgBeginRedelegate, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.MsgBeginRedelegate;
+                fromJSON(object: any): _48.MsgBeginRedelegate;
+                toJSON(message: _48.MsgBeginRedelegate): unknown;
                 fromPartial(object: {
                     delegatorAddress?: string;
                     validatorSrcAddress?: string;
@@ -3780,22 +3870,22 @@ export declare namespace cosmos {
                         denom?: string;
                         amount?: string;
                     };
-                }): _46.MsgBeginRedelegate;
+                }): _48.MsgBeginRedelegate;
             };
             MsgBeginRedelegateResponse: {
-                encode(message: _46.MsgBeginRedelegateResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.MsgBeginRedelegateResponse;
-                fromJSON(object: any): _46.MsgBeginRedelegateResponse;
-                toJSON(message: _46.MsgBeginRedelegateResponse): unknown;
+                encode(message: _48.MsgBeginRedelegateResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.MsgBeginRedelegateResponse;
+                fromJSON(object: any): _48.MsgBeginRedelegateResponse;
+                toJSON(message: _48.MsgBeginRedelegateResponse): unknown;
                 fromPartial(object: {
                     completionTime?: Date;
-                }): _46.MsgBeginRedelegateResponse;
+                }): _48.MsgBeginRedelegateResponse;
             };
             MsgUndelegate: {
-                encode(message: _46.MsgUndelegate, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.MsgUndelegate;
-                fromJSON(object: any): _46.MsgUndelegate;
-                toJSON(message: _46.MsgUndelegate): unknown;
+                encode(message: _48.MsgUndelegate, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.MsgUndelegate;
+                fromJSON(object: any): _48.MsgUndelegate;
+                toJSON(message: _48.MsgUndelegate): unknown;
                 fromPartial(object: {
                     delegatorAddress?: string;
                     validatorAddress?: string;
@@ -3803,25 +3893,25 @@ export declare namespace cosmos {
                         denom?: string;
                         amount?: string;
                     };
-                }): _46.MsgUndelegate;
+                }): _48.MsgUndelegate;
             };
             MsgUndelegateResponse: {
-                encode(message: _46.MsgUndelegateResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.MsgUndelegateResponse;
-                fromJSON(object: any): _46.MsgUndelegateResponse;
-                toJSON(message: _46.MsgUndelegateResponse): unknown;
+                encode(message: _48.MsgUndelegateResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.MsgUndelegateResponse;
+                fromJSON(object: any): _48.MsgUndelegateResponse;
+                toJSON(message: _48.MsgUndelegateResponse): unknown;
                 fromPartial(object: {
                     completionTime?: Date;
-                }): _46.MsgUndelegateResponse;
+                }): _48.MsgUndelegateResponse;
             };
-            bondStatusFromJSON(object: any): _45.BondStatus;
-            bondStatusToJSON(object: _45.BondStatus): string;
-            BondStatus: typeof _45.BondStatus;
+            bondStatusFromJSON(object: any): _47.BondStatus;
+            bondStatusToJSON(object: _47.BondStatus): string;
+            BondStatus: typeof _47.BondStatus;
             HistoricalInfo: {
-                encode(message: _45.HistoricalInfo, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.HistoricalInfo;
-                fromJSON(object: any): _45.HistoricalInfo;
-                toJSON(message: _45.HistoricalInfo): unknown;
+                encode(message: _47.HistoricalInfo, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.HistoricalInfo;
+                fromJSON(object: any): _47.HistoricalInfo;
+                toJSON(message: _47.HistoricalInfo): unknown;
                 fromPartial(object: {
                     header?: {
                         version?: {
@@ -3855,7 +3945,7 @@ export declare namespace cosmos {
                             value?: Uint8Array;
                         };
                         jailed?: boolean;
-                        status?: _45.BondStatus;
+                        status?: _47.BondStatus;
                         tokens?: string;
                         delegatorShares?: string;
                         description?: {
@@ -3877,24 +3967,24 @@ export declare namespace cosmos {
                         };
                         minSelfDelegation?: string;
                     }[];
-                }): _45.HistoricalInfo;
+                }): _47.HistoricalInfo;
             };
             CommissionRates: {
-                encode(message: _45.CommissionRates, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.CommissionRates;
-                fromJSON(object: any): _45.CommissionRates;
-                toJSON(message: _45.CommissionRates): unknown;
+                encode(message: _47.CommissionRates, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.CommissionRates;
+                fromJSON(object: any): _47.CommissionRates;
+                toJSON(message: _47.CommissionRates): unknown;
                 fromPartial(object: {
                     rate?: string;
                     maxRate?: string;
                     maxChangeRate?: string;
-                }): _45.CommissionRates;
+                }): _47.CommissionRates;
             };
             Commission: {
-                encode(message: _45.Commission, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.Commission;
-                fromJSON(object: any): _45.Commission;
-                toJSON(message: _45.Commission): unknown;
+                encode(message: _47.Commission, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.Commission;
+                fromJSON(object: any): _47.Commission;
+                toJSON(message: _47.Commission): unknown;
                 fromPartial(object: {
                     commissionRates?: {
                         rate?: string;
@@ -3902,26 +3992,26 @@ export declare namespace cosmos {
                         maxChangeRate?: string;
                     };
                     updateTime?: Date;
-                }): _45.Commission;
+                }): _47.Commission;
             };
             Description: {
-                encode(message: _45.Description, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.Description;
-                fromJSON(object: any): _45.Description;
-                toJSON(message: _45.Description): unknown;
+                encode(message: _47.Description, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.Description;
+                fromJSON(object: any): _47.Description;
+                toJSON(message: _47.Description): unknown;
                 fromPartial(object: {
                     moniker?: string;
                     identity?: string;
                     website?: string;
                     securityContact?: string;
                     details?: string;
-                }): _45.Description;
+                }): _47.Description;
             };
             Validator: {
-                encode(message: _45.Validator, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.Validator;
-                fromJSON(object: any): _45.Validator;
-                toJSON(message: _45.Validator): unknown;
+                encode(message: _47.Validator, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.Validator;
+                fromJSON(object: any): _47.Validator;
+                toJSON(message: _47.Validator): unknown;
                 fromPartial(object: {
                     operatorAddress?: string;
                     consensusPubkey?: {
@@ -3929,7 +4019,7 @@ export declare namespace cosmos {
                         value?: Uint8Array;
                     };
                     jailed?: boolean;
-                    status?: _45.BondStatus;
+                    status?: _47.BondStatus;
                     tokens?: string;
                     delegatorShares?: string;
                     description?: {
@@ -3950,79 +4040,79 @@ export declare namespace cosmos {
                         updateTime?: Date;
                     };
                     minSelfDelegation?: string;
-                }): _45.Validator;
+                }): _47.Validator;
             };
             ValAddresses: {
-                encode(message: _45.ValAddresses, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.ValAddresses;
-                fromJSON(object: any): _45.ValAddresses;
-                toJSON(message: _45.ValAddresses): unknown;
+                encode(message: _47.ValAddresses, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.ValAddresses;
+                fromJSON(object: any): _47.ValAddresses;
+                toJSON(message: _47.ValAddresses): unknown;
                 fromPartial(object: {
                     addresses?: string[];
-                }): _45.ValAddresses;
+                }): _47.ValAddresses;
             };
             DVPair: {
-                encode(message: _45.DVPair, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.DVPair;
-                fromJSON(object: any): _45.DVPair;
-                toJSON(message: _45.DVPair): unknown;
+                encode(message: _47.DVPair, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.DVPair;
+                fromJSON(object: any): _47.DVPair;
+                toJSON(message: _47.DVPair): unknown;
                 fromPartial(object: {
                     delegatorAddress?: string;
                     validatorAddress?: string;
-                }): _45.DVPair;
+                }): _47.DVPair;
             };
             DVPairs: {
-                encode(message: _45.DVPairs, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.DVPairs;
-                fromJSON(object: any): _45.DVPairs;
-                toJSON(message: _45.DVPairs): unknown;
+                encode(message: _47.DVPairs, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.DVPairs;
+                fromJSON(object: any): _47.DVPairs;
+                toJSON(message: _47.DVPairs): unknown;
                 fromPartial(object: {
                     pairs?: {
                         delegatorAddress?: string;
                         validatorAddress?: string;
                     }[];
-                }): _45.DVPairs;
+                }): _47.DVPairs;
             };
             DVVTriplet: {
-                encode(message: _45.DVVTriplet, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.DVVTriplet;
-                fromJSON(object: any): _45.DVVTriplet;
-                toJSON(message: _45.DVVTriplet): unknown;
+                encode(message: _47.DVVTriplet, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.DVVTriplet;
+                fromJSON(object: any): _47.DVVTriplet;
+                toJSON(message: _47.DVVTriplet): unknown;
                 fromPartial(object: {
                     delegatorAddress?: string;
                     validatorSrcAddress?: string;
                     validatorDstAddress?: string;
-                }): _45.DVVTriplet;
+                }): _47.DVVTriplet;
             };
             DVVTriplets: {
-                encode(message: _45.DVVTriplets, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.DVVTriplets;
-                fromJSON(object: any): _45.DVVTriplets;
-                toJSON(message: _45.DVVTriplets): unknown;
+                encode(message: _47.DVVTriplets, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.DVVTriplets;
+                fromJSON(object: any): _47.DVVTriplets;
+                toJSON(message: _47.DVVTriplets): unknown;
                 fromPartial(object: {
                     triplets?: {
                         delegatorAddress?: string;
                         validatorSrcAddress?: string;
                         validatorDstAddress?: string;
                     }[];
-                }): _45.DVVTriplets;
+                }): _47.DVVTriplets;
             };
             Delegation: {
-                encode(message: _45.Delegation, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.Delegation;
-                fromJSON(object: any): _45.Delegation;
-                toJSON(message: _45.Delegation): unknown;
+                encode(message: _47.Delegation, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.Delegation;
+                fromJSON(object: any): _47.Delegation;
+                toJSON(message: _47.Delegation): unknown;
                 fromPartial(object: {
                     delegatorAddress?: string;
                     validatorAddress?: string;
                     shares?: string;
-                }): _45.Delegation;
+                }): _47.Delegation;
             };
             UnbondingDelegation: {
-                encode(message: _45.UnbondingDelegation, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.UnbondingDelegation;
-                fromJSON(object: any): _45.UnbondingDelegation;
-                toJSON(message: _45.UnbondingDelegation): unknown;
+                encode(message: _47.UnbondingDelegation, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.UnbondingDelegation;
+                fromJSON(object: any): _47.UnbondingDelegation;
+                toJSON(message: _47.UnbondingDelegation): unknown;
                 fromPartial(object: {
                     delegatorAddress?: string;
                     validatorAddress?: string;
@@ -4032,37 +4122,37 @@ export declare namespace cosmos {
                         initialBalance?: string;
                         balance?: string;
                     }[];
-                }): _45.UnbondingDelegation;
+                }): _47.UnbondingDelegation;
             };
             UnbondingDelegationEntry: {
-                encode(message: _45.UnbondingDelegationEntry, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.UnbondingDelegationEntry;
-                fromJSON(object: any): _45.UnbondingDelegationEntry;
-                toJSON(message: _45.UnbondingDelegationEntry): unknown;
+                encode(message: _47.UnbondingDelegationEntry, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.UnbondingDelegationEntry;
+                fromJSON(object: any): _47.UnbondingDelegationEntry;
+                toJSON(message: _47.UnbondingDelegationEntry): unknown;
                 fromPartial(object: {
                     creationHeight?: string | number | import("long");
                     completionTime?: Date;
                     initialBalance?: string;
                     balance?: string;
-                }): _45.UnbondingDelegationEntry;
+                }): _47.UnbondingDelegationEntry;
             };
             RedelegationEntry: {
-                encode(message: _45.RedelegationEntry, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.RedelegationEntry;
-                fromJSON(object: any): _45.RedelegationEntry;
-                toJSON(message: _45.RedelegationEntry): unknown;
+                encode(message: _47.RedelegationEntry, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.RedelegationEntry;
+                fromJSON(object: any): _47.RedelegationEntry;
+                toJSON(message: _47.RedelegationEntry): unknown;
                 fromPartial(object: {
                     creationHeight?: string | number | import("long");
                     completionTime?: Date;
                     initialBalance?: string;
                     sharesDst?: string;
-                }): _45.RedelegationEntry;
+                }): _47.RedelegationEntry;
             };
             Redelegation: {
-                encode(message: _45.Redelegation, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.Redelegation;
-                fromJSON(object: any): _45.Redelegation;
-                toJSON(message: _45.Redelegation): unknown;
+                encode(message: _47.Redelegation, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.Redelegation;
+                fromJSON(object: any): _47.Redelegation;
+                toJSON(message: _47.Redelegation): unknown;
                 fromPartial(object: {
                     delegatorAddress?: string;
                     validatorSrcAddress?: string;
@@ -4073,13 +4163,13 @@ export declare namespace cosmos {
                         initialBalance?: string;
                         sharesDst?: string;
                     }[];
-                }): _45.Redelegation;
+                }): _47.Redelegation;
             };
             Params: {
-                encode(message: _45.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.Params;
-                fromJSON(object: any): _45.Params;
-                toJSON(message: _45.Params): unknown;
+                encode(message: _47.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.Params;
+                fromJSON(object: any): _47.Params;
+                toJSON(message: _47.Params): unknown;
                 fromPartial(object: {
                     unbondingTime?: {
                         seconds?: string | number | import("long");
@@ -4090,13 +4180,13 @@ export declare namespace cosmos {
                     historicalEntries?: number;
                     bondDenom?: string;
                     minCommissionRate?: string;
-                }): _45.Params;
+                }): _47.Params;
             };
             DelegationResponse: {
-                encode(message: _45.DelegationResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.DelegationResponse;
-                fromJSON(object: any): _45.DelegationResponse;
-                toJSON(message: _45.DelegationResponse): unknown;
+                encode(message: _47.DelegationResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.DelegationResponse;
+                fromJSON(object: any): _47.DelegationResponse;
+                toJSON(message: _47.DelegationResponse): unknown;
                 fromPartial(object: {
                     delegation?: {
                         delegatorAddress?: string;
@@ -4107,13 +4197,13 @@ export declare namespace cosmos {
                         denom?: string;
                         amount?: string;
                     };
-                }): _45.DelegationResponse;
+                }): _47.DelegationResponse;
             };
             RedelegationEntryResponse: {
-                encode(message: _45.RedelegationEntryResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.RedelegationEntryResponse;
-                fromJSON(object: any): _45.RedelegationEntryResponse;
-                toJSON(message: _45.RedelegationEntryResponse): unknown;
+                encode(message: _47.RedelegationEntryResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.RedelegationEntryResponse;
+                fromJSON(object: any): _47.RedelegationEntryResponse;
+                toJSON(message: _47.RedelegationEntryResponse): unknown;
                 fromPartial(object: {
                     redelegationEntry?: {
                         creationHeight?: string | number | import("long");
@@ -4122,13 +4212,13 @@ export declare namespace cosmos {
                         sharesDst?: string;
                     };
                     balance?: string;
-                }): _45.RedelegationEntryResponse;
+                }): _47.RedelegationEntryResponse;
             };
             RedelegationResponse: {
-                encode(message: _45.RedelegationResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.RedelegationResponse;
-                fromJSON(object: any): _45.RedelegationResponse;
-                toJSON(message: _45.RedelegationResponse): unknown;
+                encode(message: _47.RedelegationResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.RedelegationResponse;
+                fromJSON(object: any): _47.RedelegationResponse;
+                toJSON(message: _47.RedelegationResponse): unknown;
                 fromPartial(object: {
                     redelegation?: {
                         delegatorAddress?: string;
@@ -4150,23 +4240,23 @@ export declare namespace cosmos {
                         };
                         balance?: string;
                     }[];
-                }): _45.RedelegationResponse;
+                }): _47.RedelegationResponse;
             };
             Pool: {
-                encode(message: _45.Pool, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.Pool;
-                fromJSON(object: any): _45.Pool;
-                toJSON(message: _45.Pool): unknown;
+                encode(message: _47.Pool, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.Pool;
+                fromJSON(object: any): _47.Pool;
+                toJSON(message: _47.Pool): unknown;
                 fromPartial(object: {
                     notBondedTokens?: string;
                     bondedTokens?: string;
-                }): _45.Pool;
+                }): _47.Pool;
             };
             QueryValidatorsRequest: {
-                encode(message: _44.QueryValidatorsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryValidatorsRequest;
-                fromJSON(object: any): _44.QueryValidatorsRequest;
-                toJSON(message: _44.QueryValidatorsRequest): unknown;
+                encode(message: _46.QueryValidatorsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryValidatorsRequest;
+                fromJSON(object: any): _46.QueryValidatorsRequest;
+                toJSON(message: _46.QueryValidatorsRequest): unknown;
                 fromPartial(object: {
                     status?: string;
                     pagination?: {
@@ -4176,13 +4266,13 @@ export declare namespace cosmos {
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
-                }): _44.QueryValidatorsRequest;
+                }): _46.QueryValidatorsRequest;
             };
             QueryValidatorsResponse: {
-                encode(message: _44.QueryValidatorsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryValidatorsResponse;
-                fromJSON(object: any): _44.QueryValidatorsResponse;
-                toJSON(message: _44.QueryValidatorsResponse): unknown;
+                encode(message: _46.QueryValidatorsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryValidatorsResponse;
+                fromJSON(object: any): _46.QueryValidatorsResponse;
+                toJSON(message: _46.QueryValidatorsResponse): unknown;
                 fromPartial(object: {
                     validators?: {
                         operatorAddress?: string;
@@ -4191,7 +4281,7 @@ export declare namespace cosmos {
                             value?: Uint8Array;
                         };
                         jailed?: boolean;
-                        status?: _45.BondStatus;
+                        status?: _47.BondStatus;
                         tokens?: string;
                         delegatorShares?: string;
                         description?: {
@@ -4217,22 +4307,22 @@ export declare namespace cosmos {
                         nextKey?: Uint8Array;
                         total?: string | number | import("long");
                     };
-                }): _44.QueryValidatorsResponse;
+                }): _46.QueryValidatorsResponse;
             };
             QueryValidatorRequest: {
-                encode(message: _44.QueryValidatorRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryValidatorRequest;
-                fromJSON(object: any): _44.QueryValidatorRequest;
-                toJSON(message: _44.QueryValidatorRequest): unknown;
+                encode(message: _46.QueryValidatorRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryValidatorRequest;
+                fromJSON(object: any): _46.QueryValidatorRequest;
+                toJSON(message: _46.QueryValidatorRequest): unknown;
                 fromPartial(object: {
                     validatorAddr?: string;
-                }): _44.QueryValidatorRequest;
+                }): _46.QueryValidatorRequest;
             };
             QueryValidatorResponse: {
-                encode(message: _44.QueryValidatorResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryValidatorResponse;
-                fromJSON(object: any): _44.QueryValidatorResponse;
-                toJSON(message: _44.QueryValidatorResponse): unknown;
+                encode(message: _46.QueryValidatorResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryValidatorResponse;
+                fromJSON(object: any): _46.QueryValidatorResponse;
+                toJSON(message: _46.QueryValidatorResponse): unknown;
                 fromPartial(object: {
                     validator?: {
                         operatorAddress?: string;
@@ -4241,7 +4331,7 @@ export declare namespace cosmos {
                             value?: Uint8Array;
                         };
                         jailed?: boolean;
-                        status?: _45.BondStatus;
+                        status?: _47.BondStatus;
                         tokens?: string;
                         delegatorShares?: string;
                         description?: {
@@ -4263,13 +4353,13 @@ export declare namespace cosmos {
                         };
                         minSelfDelegation?: string;
                     };
-                }): _44.QueryValidatorResponse;
+                }): _46.QueryValidatorResponse;
             };
             QueryValidatorDelegationsRequest: {
-                encode(message: _44.QueryValidatorDelegationsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryValidatorDelegationsRequest;
-                fromJSON(object: any): _44.QueryValidatorDelegationsRequest;
-                toJSON(message: _44.QueryValidatorDelegationsRequest): unknown;
+                encode(message: _46.QueryValidatorDelegationsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryValidatorDelegationsRequest;
+                fromJSON(object: any): _46.QueryValidatorDelegationsRequest;
+                toJSON(message: _46.QueryValidatorDelegationsRequest): unknown;
                 fromPartial(object: {
                     validatorAddr?: string;
                     pagination?: {
@@ -4279,13 +4369,13 @@ export declare namespace cosmos {
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
-                }): _44.QueryValidatorDelegationsRequest;
+                }): _46.QueryValidatorDelegationsRequest;
             };
             QueryValidatorDelegationsResponse: {
-                encode(message: _44.QueryValidatorDelegationsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryValidatorDelegationsResponse;
-                fromJSON(object: any): _44.QueryValidatorDelegationsResponse;
-                toJSON(message: _44.QueryValidatorDelegationsResponse): unknown;
+                encode(message: _46.QueryValidatorDelegationsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryValidatorDelegationsResponse;
+                fromJSON(object: any): _46.QueryValidatorDelegationsResponse;
+                toJSON(message: _46.QueryValidatorDelegationsResponse): unknown;
                 fromPartial(object: {
                     delegationResponses?: {
                         delegation?: {
@@ -4302,13 +4392,13 @@ export declare namespace cosmos {
                         nextKey?: Uint8Array;
                         total?: string | number | import("long");
                     };
-                }): _44.QueryValidatorDelegationsResponse;
+                }): _46.QueryValidatorDelegationsResponse;
             };
             QueryValidatorUnbondingDelegationsRequest: {
-                encode(message: _44.QueryValidatorUnbondingDelegationsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryValidatorUnbondingDelegationsRequest;
-                fromJSON(object: any): _44.QueryValidatorUnbondingDelegationsRequest;
-                toJSON(message: _44.QueryValidatorUnbondingDelegationsRequest): unknown;
+                encode(message: _46.QueryValidatorUnbondingDelegationsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryValidatorUnbondingDelegationsRequest;
+                fromJSON(object: any): _46.QueryValidatorUnbondingDelegationsRequest;
+                toJSON(message: _46.QueryValidatorUnbondingDelegationsRequest): unknown;
                 fromPartial(object: {
                     validatorAddr?: string;
                     pagination?: {
@@ -4318,13 +4408,13 @@ export declare namespace cosmos {
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
-                }): _44.QueryValidatorUnbondingDelegationsRequest;
+                }): _46.QueryValidatorUnbondingDelegationsRequest;
             };
             QueryValidatorUnbondingDelegationsResponse: {
-                encode(message: _44.QueryValidatorUnbondingDelegationsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryValidatorUnbondingDelegationsResponse;
-                fromJSON(object: any): _44.QueryValidatorUnbondingDelegationsResponse;
-                toJSON(message: _44.QueryValidatorUnbondingDelegationsResponse): unknown;
+                encode(message: _46.QueryValidatorUnbondingDelegationsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryValidatorUnbondingDelegationsResponse;
+                fromJSON(object: any): _46.QueryValidatorUnbondingDelegationsResponse;
+                toJSON(message: _46.QueryValidatorUnbondingDelegationsResponse): unknown;
                 fromPartial(object: {
                     unbondingResponses?: {
                         delegatorAddress?: string;
@@ -4340,23 +4430,23 @@ export declare namespace cosmos {
                         nextKey?: Uint8Array;
                         total?: string | number | import("long");
                     };
-                }): _44.QueryValidatorUnbondingDelegationsResponse;
+                }): _46.QueryValidatorUnbondingDelegationsResponse;
             };
             QueryDelegationRequest: {
-                encode(message: _44.QueryDelegationRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryDelegationRequest;
-                fromJSON(object: any): _44.QueryDelegationRequest;
-                toJSON(message: _44.QueryDelegationRequest): unknown;
+                encode(message: _46.QueryDelegationRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryDelegationRequest;
+                fromJSON(object: any): _46.QueryDelegationRequest;
+                toJSON(message: _46.QueryDelegationRequest): unknown;
                 fromPartial(object: {
                     delegatorAddr?: string;
                     validatorAddr?: string;
-                }): _44.QueryDelegationRequest;
+                }): _46.QueryDelegationRequest;
             };
             QueryDelegationResponse: {
-                encode(message: _44.QueryDelegationResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryDelegationResponse;
-                fromJSON(object: any): _44.QueryDelegationResponse;
-                toJSON(message: _44.QueryDelegationResponse): unknown;
+                encode(message: _46.QueryDelegationResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryDelegationResponse;
+                fromJSON(object: any): _46.QueryDelegationResponse;
+                toJSON(message: _46.QueryDelegationResponse): unknown;
                 fromPartial(object: {
                     delegationResponse?: {
                         delegation?: {
@@ -4369,23 +4459,23 @@ export declare namespace cosmos {
                             amount?: string;
                         };
                     };
-                }): _44.QueryDelegationResponse;
+                }): _46.QueryDelegationResponse;
             };
             QueryUnbondingDelegationRequest: {
-                encode(message: _44.QueryUnbondingDelegationRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryUnbondingDelegationRequest;
-                fromJSON(object: any): _44.QueryUnbondingDelegationRequest;
-                toJSON(message: _44.QueryUnbondingDelegationRequest): unknown;
+                encode(message: _46.QueryUnbondingDelegationRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryUnbondingDelegationRequest;
+                fromJSON(object: any): _46.QueryUnbondingDelegationRequest;
+                toJSON(message: _46.QueryUnbondingDelegationRequest): unknown;
                 fromPartial(object: {
                     delegatorAddr?: string;
                     validatorAddr?: string;
-                }): _44.QueryUnbondingDelegationRequest;
+                }): _46.QueryUnbondingDelegationRequest;
             };
             QueryUnbondingDelegationResponse: {
-                encode(message: _44.QueryUnbondingDelegationResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryUnbondingDelegationResponse;
-                fromJSON(object: any): _44.QueryUnbondingDelegationResponse;
-                toJSON(message: _44.QueryUnbondingDelegationResponse): unknown;
+                encode(message: _46.QueryUnbondingDelegationResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryUnbondingDelegationResponse;
+                fromJSON(object: any): _46.QueryUnbondingDelegationResponse;
+                toJSON(message: _46.QueryUnbondingDelegationResponse): unknown;
                 fromPartial(object: {
                     unbond?: {
                         delegatorAddress?: string;
@@ -4397,13 +4487,13 @@ export declare namespace cosmos {
                             balance?: string;
                         }[];
                     };
-                }): _44.QueryUnbondingDelegationResponse;
+                }): _46.QueryUnbondingDelegationResponse;
             };
             QueryDelegatorDelegationsRequest: {
-                encode(message: _44.QueryDelegatorDelegationsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryDelegatorDelegationsRequest;
-                fromJSON(object: any): _44.QueryDelegatorDelegationsRequest;
-                toJSON(message: _44.QueryDelegatorDelegationsRequest): unknown;
+                encode(message: _46.QueryDelegatorDelegationsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryDelegatorDelegationsRequest;
+                fromJSON(object: any): _46.QueryDelegatorDelegationsRequest;
+                toJSON(message: _46.QueryDelegatorDelegationsRequest): unknown;
                 fromPartial(object: {
                     delegatorAddr?: string;
                     pagination?: {
@@ -4413,13 +4503,13 @@ export declare namespace cosmos {
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
-                }): _44.QueryDelegatorDelegationsRequest;
+                }): _46.QueryDelegatorDelegationsRequest;
             };
             QueryDelegatorDelegationsResponse: {
-                encode(message: _44.QueryDelegatorDelegationsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryDelegatorDelegationsResponse;
-                fromJSON(object: any): _44.QueryDelegatorDelegationsResponse;
-                toJSON(message: _44.QueryDelegatorDelegationsResponse): unknown;
+                encode(message: _46.QueryDelegatorDelegationsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryDelegatorDelegationsResponse;
+                fromJSON(object: any): _46.QueryDelegatorDelegationsResponse;
+                toJSON(message: _46.QueryDelegatorDelegationsResponse): unknown;
                 fromPartial(object: {
                     delegationResponses?: {
                         delegation?: {
@@ -4436,13 +4526,13 @@ export declare namespace cosmos {
                         nextKey?: Uint8Array;
                         total?: string | number | import("long");
                     };
-                }): _44.QueryDelegatorDelegationsResponse;
+                }): _46.QueryDelegatorDelegationsResponse;
             };
             QueryDelegatorUnbondingDelegationsRequest: {
-                encode(message: _44.QueryDelegatorUnbondingDelegationsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryDelegatorUnbondingDelegationsRequest;
-                fromJSON(object: any): _44.QueryDelegatorUnbondingDelegationsRequest;
-                toJSON(message: _44.QueryDelegatorUnbondingDelegationsRequest): unknown;
+                encode(message: _46.QueryDelegatorUnbondingDelegationsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryDelegatorUnbondingDelegationsRequest;
+                fromJSON(object: any): _46.QueryDelegatorUnbondingDelegationsRequest;
+                toJSON(message: _46.QueryDelegatorUnbondingDelegationsRequest): unknown;
                 fromPartial(object: {
                     delegatorAddr?: string;
                     pagination?: {
@@ -4452,13 +4542,13 @@ export declare namespace cosmos {
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
-                }): _44.QueryDelegatorUnbondingDelegationsRequest;
+                }): _46.QueryDelegatorUnbondingDelegationsRequest;
             };
             QueryDelegatorUnbondingDelegationsResponse: {
-                encode(message: _44.QueryDelegatorUnbondingDelegationsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryDelegatorUnbondingDelegationsResponse;
-                fromJSON(object: any): _44.QueryDelegatorUnbondingDelegationsResponse;
-                toJSON(message: _44.QueryDelegatorUnbondingDelegationsResponse): unknown;
+                encode(message: _46.QueryDelegatorUnbondingDelegationsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryDelegatorUnbondingDelegationsResponse;
+                fromJSON(object: any): _46.QueryDelegatorUnbondingDelegationsResponse;
+                toJSON(message: _46.QueryDelegatorUnbondingDelegationsResponse): unknown;
                 fromPartial(object: {
                     unbondingResponses?: {
                         delegatorAddress?: string;
@@ -4474,13 +4564,13 @@ export declare namespace cosmos {
                         nextKey?: Uint8Array;
                         total?: string | number | import("long");
                     };
-                }): _44.QueryDelegatorUnbondingDelegationsResponse;
+                }): _46.QueryDelegatorUnbondingDelegationsResponse;
             };
             QueryRedelegationsRequest: {
-                encode(message: _44.QueryRedelegationsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryRedelegationsRequest;
-                fromJSON(object: any): _44.QueryRedelegationsRequest;
-                toJSON(message: _44.QueryRedelegationsRequest): unknown;
+                encode(message: _46.QueryRedelegationsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryRedelegationsRequest;
+                fromJSON(object: any): _46.QueryRedelegationsRequest;
+                toJSON(message: _46.QueryRedelegationsRequest): unknown;
                 fromPartial(object: {
                     delegatorAddr?: string;
                     srcValidatorAddr?: string;
@@ -4492,13 +4582,13 @@ export declare namespace cosmos {
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
-                }): _44.QueryRedelegationsRequest;
+                }): _46.QueryRedelegationsRequest;
             };
             QueryRedelegationsResponse: {
-                encode(message: _44.QueryRedelegationsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryRedelegationsResponse;
-                fromJSON(object: any): _44.QueryRedelegationsResponse;
-                toJSON(message: _44.QueryRedelegationsResponse): unknown;
+                encode(message: _46.QueryRedelegationsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryRedelegationsResponse;
+                fromJSON(object: any): _46.QueryRedelegationsResponse;
+                toJSON(message: _46.QueryRedelegationsResponse): unknown;
                 fromPartial(object: {
                     redelegationResponses?: {
                         redelegation?: {
@@ -4526,13 +4616,13 @@ export declare namespace cosmos {
                         nextKey?: Uint8Array;
                         total?: string | number | import("long");
                     };
-                }): _44.QueryRedelegationsResponse;
+                }): _46.QueryRedelegationsResponse;
             };
             QueryDelegatorValidatorsRequest: {
-                encode(message: _44.QueryDelegatorValidatorsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryDelegatorValidatorsRequest;
-                fromJSON(object: any): _44.QueryDelegatorValidatorsRequest;
-                toJSON(message: _44.QueryDelegatorValidatorsRequest): unknown;
+                encode(message: _46.QueryDelegatorValidatorsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryDelegatorValidatorsRequest;
+                fromJSON(object: any): _46.QueryDelegatorValidatorsRequest;
+                toJSON(message: _46.QueryDelegatorValidatorsRequest): unknown;
                 fromPartial(object: {
                     delegatorAddr?: string;
                     pagination?: {
@@ -4542,13 +4632,13 @@ export declare namespace cosmos {
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
-                }): _44.QueryDelegatorValidatorsRequest;
+                }): _46.QueryDelegatorValidatorsRequest;
             };
             QueryDelegatorValidatorsResponse: {
-                encode(message: _44.QueryDelegatorValidatorsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryDelegatorValidatorsResponse;
-                fromJSON(object: any): _44.QueryDelegatorValidatorsResponse;
-                toJSON(message: _44.QueryDelegatorValidatorsResponse): unknown;
+                encode(message: _46.QueryDelegatorValidatorsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryDelegatorValidatorsResponse;
+                fromJSON(object: any): _46.QueryDelegatorValidatorsResponse;
+                toJSON(message: _46.QueryDelegatorValidatorsResponse): unknown;
                 fromPartial(object: {
                     validators?: {
                         operatorAddress?: string;
@@ -4557,7 +4647,7 @@ export declare namespace cosmos {
                             value?: Uint8Array;
                         };
                         jailed?: boolean;
-                        status?: _45.BondStatus;
+                        status?: _47.BondStatus;
                         tokens?: string;
                         delegatorShares?: string;
                         description?: {
@@ -4583,23 +4673,23 @@ export declare namespace cosmos {
                         nextKey?: Uint8Array;
                         total?: string | number | import("long");
                     };
-                }): _44.QueryDelegatorValidatorsResponse;
+                }): _46.QueryDelegatorValidatorsResponse;
             };
             QueryDelegatorValidatorRequest: {
-                encode(message: _44.QueryDelegatorValidatorRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryDelegatorValidatorRequest;
-                fromJSON(object: any): _44.QueryDelegatorValidatorRequest;
-                toJSON(message: _44.QueryDelegatorValidatorRequest): unknown;
+                encode(message: _46.QueryDelegatorValidatorRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryDelegatorValidatorRequest;
+                fromJSON(object: any): _46.QueryDelegatorValidatorRequest;
+                toJSON(message: _46.QueryDelegatorValidatorRequest): unknown;
                 fromPartial(object: {
                     delegatorAddr?: string;
                     validatorAddr?: string;
-                }): _44.QueryDelegatorValidatorRequest;
+                }): _46.QueryDelegatorValidatorRequest;
             };
             QueryDelegatorValidatorResponse: {
-                encode(message: _44.QueryDelegatorValidatorResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryDelegatorValidatorResponse;
-                fromJSON(object: any): _44.QueryDelegatorValidatorResponse;
-                toJSON(message: _44.QueryDelegatorValidatorResponse): unknown;
+                encode(message: _46.QueryDelegatorValidatorResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryDelegatorValidatorResponse;
+                fromJSON(object: any): _46.QueryDelegatorValidatorResponse;
+                toJSON(message: _46.QueryDelegatorValidatorResponse): unknown;
                 fromPartial(object: {
                     validator?: {
                         operatorAddress?: string;
@@ -4608,7 +4698,7 @@ export declare namespace cosmos {
                             value?: Uint8Array;
                         };
                         jailed?: boolean;
-                        status?: _45.BondStatus;
+                        status?: _47.BondStatus;
                         tokens?: string;
                         delegatorShares?: string;
                         description?: {
@@ -4630,22 +4720,22 @@ export declare namespace cosmos {
                         };
                         minSelfDelegation?: string;
                     };
-                }): _44.QueryDelegatorValidatorResponse;
+                }): _46.QueryDelegatorValidatorResponse;
             };
             QueryHistoricalInfoRequest: {
-                encode(message: _44.QueryHistoricalInfoRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryHistoricalInfoRequest;
-                fromJSON(object: any): _44.QueryHistoricalInfoRequest;
-                toJSON(message: _44.QueryHistoricalInfoRequest): unknown;
+                encode(message: _46.QueryHistoricalInfoRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryHistoricalInfoRequest;
+                fromJSON(object: any): _46.QueryHistoricalInfoRequest;
+                toJSON(message: _46.QueryHistoricalInfoRequest): unknown;
                 fromPartial(object: {
                     height?: string | number | import("long");
-                }): _44.QueryHistoricalInfoRequest;
+                }): _46.QueryHistoricalInfoRequest;
             };
             QueryHistoricalInfoResponse: {
-                encode(message: _44.QueryHistoricalInfoResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryHistoricalInfoResponse;
-                fromJSON(object: any): _44.QueryHistoricalInfoResponse;
-                toJSON(message: _44.QueryHistoricalInfoResponse): unknown;
+                encode(message: _46.QueryHistoricalInfoResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryHistoricalInfoResponse;
+                fromJSON(object: any): _46.QueryHistoricalInfoResponse;
+                toJSON(message: _46.QueryHistoricalInfoResponse): unknown;
                 fromPartial(object: {
                     hist?: {
                         header?: {
@@ -4680,7 +4770,7 @@ export declare namespace cosmos {
                                 value?: Uint8Array;
                             };
                             jailed?: boolean;
-                            status?: _45.BondStatus;
+                            status?: _47.BondStatus;
                             tokens?: string;
                             delegatorShares?: string;
                             description?: {
@@ -4703,39 +4793,39 @@ export declare namespace cosmos {
                             minSelfDelegation?: string;
                         }[];
                     };
-                }): _44.QueryHistoricalInfoResponse;
+                }): _46.QueryHistoricalInfoResponse;
             };
             QueryPoolRequest: {
-                encode(_: _44.QueryPoolRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryPoolRequest;
-                fromJSON(_: any): _44.QueryPoolRequest;
-                toJSON(_: _44.QueryPoolRequest): unknown;
-                fromPartial(_: {}): _44.QueryPoolRequest;
+                encode(_: _46.QueryPoolRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryPoolRequest;
+                fromJSON(_: any): _46.QueryPoolRequest;
+                toJSON(_: _46.QueryPoolRequest): unknown;
+                fromPartial(_: {}): _46.QueryPoolRequest;
             };
             QueryPoolResponse: {
-                encode(message: _44.QueryPoolResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryPoolResponse;
-                fromJSON(object: any): _44.QueryPoolResponse;
-                toJSON(message: _44.QueryPoolResponse): unknown;
+                encode(message: _46.QueryPoolResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryPoolResponse;
+                fromJSON(object: any): _46.QueryPoolResponse;
+                toJSON(message: _46.QueryPoolResponse): unknown;
                 fromPartial(object: {
                     pool?: {
                         notBondedTokens?: string;
                         bondedTokens?: string;
                     };
-                }): _44.QueryPoolResponse;
+                }): _46.QueryPoolResponse;
             };
             QueryParamsRequest: {
-                encode(_: _44.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryParamsRequest;
-                fromJSON(_: any): _44.QueryParamsRequest;
-                toJSON(_: _44.QueryParamsRequest): unknown;
-                fromPartial(_: {}): _44.QueryParamsRequest;
+                encode(_: _46.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryParamsRequest;
+                fromJSON(_: any): _46.QueryParamsRequest;
+                toJSON(_: _46.QueryParamsRequest): unknown;
+                fromPartial(_: {}): _46.QueryParamsRequest;
             };
             QueryParamsResponse: {
-                encode(message: _44.QueryParamsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.QueryParamsResponse;
-                fromJSON(object: any): _44.QueryParamsResponse;
-                toJSON(message: _44.QueryParamsResponse): unknown;
+                encode(message: _46.QueryParamsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _46.QueryParamsResponse;
+                fromJSON(object: any): _46.QueryParamsResponse;
+                toJSON(message: _46.QueryParamsResponse): unknown;
                 fromPartial(object: {
                     params?: {
                         unbondingTime?: {
@@ -4748,13 +4838,13 @@ export declare namespace cosmos {
                         bondDenom?: string;
                         minCommissionRate?: string;
                     };
-                }): _44.QueryParamsResponse;
+                }): _46.QueryParamsResponse;
             };
             GenesisState: {
-                encode(message: _43.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _43.GenesisState;
-                fromJSON(object: any): _43.GenesisState;
-                toJSON(message: _43.GenesisState): unknown;
+                encode(message: _45.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.GenesisState;
+                fromJSON(object: any): _45.GenesisState;
+                toJSON(message: _45.GenesisState): unknown;
                 fromPartial(object: {
                     params?: {
                         unbondingTime?: {
@@ -4779,7 +4869,7 @@ export declare namespace cosmos {
                             value?: Uint8Array;
                         };
                         jailed?: boolean;
-                        status?: _45.BondStatus;
+                        status?: _47.BondStatus;
                         tokens?: string;
                         delegatorShares?: string;
                         description?: {
@@ -4828,26 +4918,26 @@ export declare namespace cosmos {
                         }[];
                     }[];
                     exported?: boolean;
-                }): _43.GenesisState;
+                }): _45.GenesisState;
             };
             LastValidatorPower: {
-                encode(message: _43.LastValidatorPower, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _43.LastValidatorPower;
-                fromJSON(object: any): _43.LastValidatorPower;
-                toJSON(message: _43.LastValidatorPower): unknown;
+                encode(message: _45.LastValidatorPower, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _45.LastValidatorPower;
+                fromJSON(object: any): _45.LastValidatorPower;
+                toJSON(message: _45.LastValidatorPower): unknown;
                 fromPartial(object: {
                     address?: string;
                     power?: string | number | import("long");
-                }): _43.LastValidatorPower;
+                }): _45.LastValidatorPower;
             };
-            authorizationTypeFromJSON(object: any): _42.AuthorizationType;
-            authorizationTypeToJSON(object: _42.AuthorizationType): string;
-            AuthorizationType: typeof _42.AuthorizationType;
+            authorizationTypeFromJSON(object: any): _44.AuthorizationType;
+            authorizationTypeToJSON(object: _44.AuthorizationType): string;
+            AuthorizationType: typeof _44.AuthorizationType;
             StakeAuthorization: {
-                encode(message: _42.StakeAuthorization, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _42.StakeAuthorization;
-                fromJSON(object: any): _42.StakeAuthorization;
-                toJSON(message: _42.StakeAuthorization): unknown;
+                encode(message: _44.StakeAuthorization, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.StakeAuthorization;
+                fromJSON(object: any): _44.StakeAuthorization;
+                toJSON(message: _44.StakeAuthorization): unknown;
                 fromPartial(object: {
                     maxTokens?: {
                         denom?: string;
@@ -4859,31 +4949,31 @@ export declare namespace cosmos {
                     denyList?: {
                         address?: string[];
                     };
-                    authorizationType?: _42.AuthorizationType;
-                }): _42.StakeAuthorization;
+                    authorizationType?: _44.AuthorizationType;
+                }): _44.StakeAuthorization;
             };
             StakeAuthorization_Validators: {
-                encode(message: _42.StakeAuthorization_Validators, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _42.StakeAuthorization_Validators;
-                fromJSON(object: any): _42.StakeAuthorization_Validators;
-                toJSON(message: _42.StakeAuthorization_Validators): unknown;
+                encode(message: _44.StakeAuthorization_Validators, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _44.StakeAuthorization_Validators;
+                fromJSON(object: any): _44.StakeAuthorization_Validators;
+                toJSON(message: _44.StakeAuthorization_Validators): unknown;
                 fromPartial(object: {
                     address?: string[];
-                }): _42.StakeAuthorization_Validators;
+                }): _44.StakeAuthorization_Validators;
             };
         };
     }
     namespace tx {
         namespace signing {
             const v1beta1: {
-                signModeFromJSON(object: any): _47.SignMode;
-                signModeToJSON(object: _47.SignMode): string;
-                SignMode: typeof _47.SignMode;
+                signModeFromJSON(object: any): _49.SignMode;
+                signModeToJSON(object: _49.SignMode): string;
+                SignMode: typeof _49.SignMode;
                 SignatureDescriptors: {
-                    encode(message: _47.SignatureDescriptors, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                    decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.SignatureDescriptors;
-                    fromJSON(object: any): _47.SignatureDescriptors;
-                    toJSON(message: _47.SignatureDescriptors): unknown;
+                    encode(message: _49.SignatureDescriptors, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                    decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.SignatureDescriptors;
+                    fromJSON(object: any): _49.SignatureDescriptors;
+                    toJSON(message: _49.SignatureDescriptors): unknown;
                     fromPartial(object: {
                         signatures?: {
                             publicKey?: {
@@ -4892,7 +4982,7 @@ export declare namespace cosmos {
                             };
                             data?: {
                                 single?: {
-                                    mode?: _47.SignMode;
+                                    mode?: _49.SignMode;
                                     signature?: Uint8Array;
                                 };
                                 multi?: {
@@ -4905,13 +4995,13 @@ export declare namespace cosmos {
                             };
                             sequence?: string | number | import("long");
                         }[];
-                    }): _47.SignatureDescriptors;
+                    }): _49.SignatureDescriptors;
                 };
                 SignatureDescriptor: {
-                    encode(message: _47.SignatureDescriptor, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                    decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.SignatureDescriptor;
-                    fromJSON(object: any): _47.SignatureDescriptor;
-                    toJSON(message: _47.SignatureDescriptor): unknown;
+                    encode(message: _49.SignatureDescriptor, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                    decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.SignatureDescriptor;
+                    fromJSON(object: any): _49.SignatureDescriptor;
+                    toJSON(message: _49.SignatureDescriptor): unknown;
                     fromPartial(object: {
                         publicKey?: {
                             typeUrl?: string;
@@ -4919,7 +5009,7 @@ export declare namespace cosmos {
                         };
                         data?: {
                             single?: {
-                                mode?: _47.SignMode;
+                                mode?: _49.SignMode;
                                 signature?: Uint8Array;
                             };
                             multi?: {
@@ -4931,16 +5021,16 @@ export declare namespace cosmos {
                             };
                         };
                         sequence?: string | number | import("long");
-                    }): _47.SignatureDescriptor;
+                    }): _49.SignatureDescriptor;
                 };
                 SignatureDescriptor_Data: {
-                    encode(message: _47.SignatureDescriptor_Data, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                    decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.SignatureDescriptor_Data;
-                    fromJSON(object: any): _47.SignatureDescriptor_Data;
-                    toJSON(message: _47.SignatureDescriptor_Data): unknown;
+                    encode(message: _49.SignatureDescriptor_Data, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                    decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.SignatureDescriptor_Data;
+                    fromJSON(object: any): _49.SignatureDescriptor_Data;
+                    toJSON(message: _49.SignatureDescriptor_Data): unknown;
                     fromPartial(object: {
                         single?: {
-                            mode?: _47.SignMode;
+                            mode?: _49.SignMode;
                             signature?: Uint8Array;
                         };
                         multi?: {
@@ -4950,47 +5040,47 @@ export declare namespace cosmos {
                             };
                             signatures?: any[];
                         };
-                    }): _47.SignatureDescriptor_Data;
+                    }): _49.SignatureDescriptor_Data;
                 };
                 SignatureDescriptor_Data_Single: {
-                    encode(message: _47.SignatureDescriptor_Data_Single, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                    decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.SignatureDescriptor_Data_Single;
-                    fromJSON(object: any): _47.SignatureDescriptor_Data_Single;
-                    toJSON(message: _47.SignatureDescriptor_Data_Single): unknown;
+                    encode(message: _49.SignatureDescriptor_Data_Single, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                    decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.SignatureDescriptor_Data_Single;
+                    fromJSON(object: any): _49.SignatureDescriptor_Data_Single;
+                    toJSON(message: _49.SignatureDescriptor_Data_Single): unknown;
                     fromPartial(object: {
-                        mode?: _47.SignMode;
+                        mode?: _49.SignMode;
                         signature?: Uint8Array;
-                    }): _47.SignatureDescriptor_Data_Single;
+                    }): _49.SignatureDescriptor_Data_Single;
                 };
                 SignatureDescriptor_Data_Multi: {
-                    encode(message: _47.SignatureDescriptor_Data_Multi, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                    decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _47.SignatureDescriptor_Data_Multi;
-                    fromJSON(object: any): _47.SignatureDescriptor_Data_Multi;
-                    toJSON(message: _47.SignatureDescriptor_Data_Multi): unknown;
+                    encode(message: _49.SignatureDescriptor_Data_Multi, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                    decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.SignatureDescriptor_Data_Multi;
+                    fromJSON(object: any): _49.SignatureDescriptor_Data_Multi;
+                    toJSON(message: _49.SignatureDescriptor_Data_Multi): unknown;
                     fromPartial(object: {
                         bitarray?: {
                             extraBitsStored?: number;
                             elems?: Uint8Array;
                         };
                         signatures?: any[];
-                    }): _47.SignatureDescriptor_Data_Multi;
+                    }): _49.SignatureDescriptor_Data_Multi;
                 };
             };
         }
         const v1beta1: {
-            ServiceClientImpl: typeof _124.ServiceClientImpl;
+            ServiceClientImpl: typeof _127.ServiceClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
-                simulate(request: _48.SimulateRequest): Promise<_48.SimulateResponse>;
-                getTx(request: _48.GetTxRequest): Promise<_48.GetTxResponse>;
-                broadcastTx(request: _48.BroadcastTxRequest): Promise<_48.BroadcastTxResponse>;
-                getTxsEvent(request: _48.GetTxsEventRequest): Promise<_48.GetTxsEventResponse>;
-                getBlockWithTxs(request: _48.GetBlockWithTxsRequest): Promise<_48.GetBlockWithTxsResponse>;
+                simulate(request: _50.SimulateRequest): Promise<_50.SimulateResponse>;
+                getTx(request: _50.GetTxRequest): Promise<_50.GetTxResponse>;
+                broadcastTx(request: _50.BroadcastTxRequest): Promise<_50.BroadcastTxResponse>;
+                getTxsEvent(request: _50.GetTxsEventRequest): Promise<_50.GetTxsEventResponse>;
+                getBlockWithTxs(request: _50.GetBlockWithTxsRequest): Promise<_50.GetBlockWithTxsResponse>;
             };
             Tx: {
-                encode(message: _49.Tx, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.Tx;
-                fromJSON(object: any): _49.Tx;
-                toJSON(message: _49.Tx): unknown;
+                encode(message: _51.Tx, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.Tx;
+                fromJSON(object: any): _51.Tx;
+                toJSON(message: _51.Tx): unknown;
                 fromPartial(object: {
                     body?: {
                         messages?: {
@@ -5016,7 +5106,7 @@ export declare namespace cosmos {
                             };
                             modeInfo?: {
                                 single?: {
-                                    mode?: _47.SignMode;
+                                    mode?: _49.SignMode;
                                 };
                                 multi?: {
                                     bitarray?: {
@@ -5046,36 +5136,36 @@ export declare namespace cosmos {
                         };
                     };
                     signatures?: Uint8Array[];
-                }): _49.Tx;
+                }): _51.Tx;
             };
             TxRaw: {
-                encode(message: _49.TxRaw, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.TxRaw;
-                fromJSON(object: any): _49.TxRaw;
-                toJSON(message: _49.TxRaw): unknown;
+                encode(message: _51.TxRaw, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.TxRaw;
+                fromJSON(object: any): _51.TxRaw;
+                toJSON(message: _51.TxRaw): unknown;
                 fromPartial(object: {
                     bodyBytes?: Uint8Array;
                     authInfoBytes?: Uint8Array;
                     signatures?: Uint8Array[];
-                }): _49.TxRaw;
+                }): _51.TxRaw;
             };
             SignDoc: {
-                encode(message: _49.SignDoc, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.SignDoc;
-                fromJSON(object: any): _49.SignDoc;
-                toJSON(message: _49.SignDoc): unknown;
+                encode(message: _51.SignDoc, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.SignDoc;
+                fromJSON(object: any): _51.SignDoc;
+                toJSON(message: _51.SignDoc): unknown;
                 fromPartial(object: {
                     bodyBytes?: Uint8Array;
                     authInfoBytes?: Uint8Array;
                     chainId?: string;
                     accountNumber?: string | number | import("long");
-                }): _49.SignDoc;
+                }): _51.SignDoc;
             };
             SignDocDirectAux: {
-                encode(message: _49.SignDocDirectAux, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.SignDocDirectAux;
-                fromJSON(object: any): _49.SignDocDirectAux;
-                toJSON(message: _49.SignDocDirectAux): unknown;
+                encode(message: _51.SignDocDirectAux, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.SignDocDirectAux;
+                fromJSON(object: any): _51.SignDocDirectAux;
+                toJSON(message: _51.SignDocDirectAux): unknown;
                 fromPartial(object: {
                     bodyBytes?: Uint8Array;
                     publicKey?: {
@@ -5092,13 +5182,13 @@ export declare namespace cosmos {
                         }[];
                         tipper?: string;
                     };
-                }): _49.SignDocDirectAux;
+                }): _51.SignDocDirectAux;
             };
             TxBody: {
-                encode(message: _49.TxBody, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.TxBody;
-                fromJSON(object: any): _49.TxBody;
-                toJSON(message: _49.TxBody): unknown;
+                encode(message: _51.TxBody, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.TxBody;
+                fromJSON(object: any): _51.TxBody;
+                toJSON(message: _51.TxBody): unknown;
                 fromPartial(object: {
                     messages?: {
                         typeUrl?: string;
@@ -5114,13 +5204,13 @@ export declare namespace cosmos {
                         typeUrl?: string;
                         value?: Uint8Array;
                     }[];
-                }): _49.TxBody;
+                }): _51.TxBody;
             };
             AuthInfo: {
-                encode(message: _49.AuthInfo, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.AuthInfo;
-                fromJSON(object: any): _49.AuthInfo;
-                toJSON(message: _49.AuthInfo): unknown;
+                encode(message: _51.AuthInfo, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.AuthInfo;
+                fromJSON(object: any): _51.AuthInfo;
+                toJSON(message: _51.AuthInfo): unknown;
                 fromPartial(object: {
                     signerInfos?: {
                         publicKey?: {
@@ -5129,7 +5219,7 @@ export declare namespace cosmos {
                         };
                         modeInfo?: {
                             single?: {
-                                mode?: _47.SignMode;
+                                mode?: _49.SignMode;
                             };
                             multi?: {
                                 bitarray?: {
@@ -5157,13 +5247,13 @@ export declare namespace cosmos {
                         }[];
                         tipper?: string;
                     };
-                }): _49.AuthInfo;
+                }): _51.AuthInfo;
             };
             SignerInfo: {
-                encode(message: _49.SignerInfo, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.SignerInfo;
-                fromJSON(object: any): _49.SignerInfo;
-                toJSON(message: _49.SignerInfo): unknown;
+                encode(message: _51.SignerInfo, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.SignerInfo;
+                fromJSON(object: any): _51.SignerInfo;
+                toJSON(message: _51.SignerInfo): unknown;
                 fromPartial(object: {
                     publicKey?: {
                         typeUrl?: string;
@@ -5171,7 +5261,7 @@ export declare namespace cosmos {
                     };
                     modeInfo?: {
                         single?: {
-                            mode?: _47.SignMode;
+                            mode?: _49.SignMode;
                         };
                         multi?: {
                             bitarray?: {
@@ -5182,16 +5272,16 @@ export declare namespace cosmos {
                         };
                     };
                     sequence?: string | number | import("long");
-                }): _49.SignerInfo;
+                }): _51.SignerInfo;
             };
             ModeInfo: {
-                encode(message: _49.ModeInfo, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.ModeInfo;
-                fromJSON(object: any): _49.ModeInfo;
-                toJSON(message: _49.ModeInfo): unknown;
+                encode(message: _51.ModeInfo, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.ModeInfo;
+                fromJSON(object: any): _51.ModeInfo;
+                toJSON(message: _51.ModeInfo): unknown;
                 fromPartial(object: {
                     single?: {
-                        mode?: _47.SignMode;
+                        mode?: _49.SignMode;
                     };
                     multi?: {
                         bitarray?: {
@@ -5200,35 +5290,35 @@ export declare namespace cosmos {
                         };
                         modeInfos?: any[];
                     };
-                }): _49.ModeInfo;
+                }): _51.ModeInfo;
             };
             ModeInfo_Single: {
-                encode(message: _49.ModeInfo_Single, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.ModeInfo_Single;
-                fromJSON(object: any): _49.ModeInfo_Single;
-                toJSON(message: _49.ModeInfo_Single): unknown;
+                encode(message: _51.ModeInfo_Single, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.ModeInfo_Single;
+                fromJSON(object: any): _51.ModeInfo_Single;
+                toJSON(message: _51.ModeInfo_Single): unknown;
                 fromPartial(object: {
-                    mode?: _47.SignMode;
-                }): _49.ModeInfo_Single;
+                    mode?: _49.SignMode;
+                }): _51.ModeInfo_Single;
             };
             ModeInfo_Multi: {
-                encode(message: _49.ModeInfo_Multi, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.ModeInfo_Multi;
-                fromJSON(object: any): _49.ModeInfo_Multi;
-                toJSON(message: _49.ModeInfo_Multi): unknown;
+                encode(message: _51.ModeInfo_Multi, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.ModeInfo_Multi;
+                fromJSON(object: any): _51.ModeInfo_Multi;
+                toJSON(message: _51.ModeInfo_Multi): unknown;
                 fromPartial(object: {
                     bitarray?: {
                         extraBitsStored?: number;
                         elems?: Uint8Array;
                     };
                     modeInfos?: any[];
-                }): _49.ModeInfo_Multi;
+                }): _51.ModeInfo_Multi;
             };
             Fee: {
-                encode(message: _49.Fee, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.Fee;
-                fromJSON(object: any): _49.Fee;
-                toJSON(message: _49.Fee): unknown;
+                encode(message: _51.Fee, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.Fee;
+                fromJSON(object: any): _51.Fee;
+                toJSON(message: _51.Fee): unknown;
                 fromPartial(object: {
                     amount?: {
                         denom?: string;
@@ -5237,26 +5327,26 @@ export declare namespace cosmos {
                     gasLimit?: string | number | import("long");
                     payer?: string;
                     granter?: string;
-                }): _49.Fee;
+                }): _51.Fee;
             };
             Tip: {
-                encode(message: _49.Tip, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.Tip;
-                fromJSON(object: any): _49.Tip;
-                toJSON(message: _49.Tip): unknown;
+                encode(message: _51.Tip, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.Tip;
+                fromJSON(object: any): _51.Tip;
+                toJSON(message: _51.Tip): unknown;
                 fromPartial(object: {
                     amount?: {
                         denom?: string;
                         amount?: string;
                     }[];
                     tipper?: string;
-                }): _49.Tip;
+                }): _51.Tip;
             };
             AuxSignerData: {
-                encode(message: _49.AuxSignerData, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _49.AuxSignerData;
-                fromJSON(object: any): _49.AuxSignerData;
-                toJSON(message: _49.AuxSignerData): unknown;
+                encode(message: _51.AuxSignerData, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.AuxSignerData;
+                fromJSON(object: any): _51.AuxSignerData;
+                toJSON(message: _51.AuxSignerData): unknown;
                 fromPartial(object: {
                     address?: string;
                     signDoc?: {
@@ -5276,21 +5366,21 @@ export declare namespace cosmos {
                             tipper?: string;
                         };
                     };
-                    mode?: _47.SignMode;
+                    mode?: _49.SignMode;
                     sig?: Uint8Array;
-                }): _49.AuxSignerData;
+                }): _51.AuxSignerData;
             };
-            orderByFromJSON(object: any): _48.OrderBy;
-            orderByToJSON(object: _48.OrderBy): string;
-            broadcastModeFromJSON(object: any): _48.BroadcastMode;
-            broadcastModeToJSON(object: _48.BroadcastMode): string;
-            OrderBy: typeof _48.OrderBy;
-            BroadcastMode: typeof _48.BroadcastMode;
+            orderByFromJSON(object: any): _50.OrderBy;
+            orderByToJSON(object: _50.OrderBy): string;
+            broadcastModeFromJSON(object: any): _50.BroadcastMode;
+            broadcastModeToJSON(object: _50.BroadcastMode): string;
+            OrderBy: typeof _50.OrderBy;
+            BroadcastMode: typeof _50.BroadcastMode;
             GetTxsEventRequest: {
-                encode(message: _48.GetTxsEventRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.GetTxsEventRequest;
-                fromJSON(object: any): _48.GetTxsEventRequest;
-                toJSON(message: _48.GetTxsEventRequest): unknown;
+                encode(message: _50.GetTxsEventRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.GetTxsEventRequest;
+                fromJSON(object: any): _50.GetTxsEventRequest;
+                toJSON(message: _50.GetTxsEventRequest): unknown;
                 fromPartial(object: {
                     events?: string[];
                     pagination?: {
@@ -5300,14 +5390,14 @@ export declare namespace cosmos {
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
-                    orderBy?: _48.OrderBy;
-                }): _48.GetTxsEventRequest;
+                    orderBy?: _50.OrderBy;
+                }): _50.GetTxsEventRequest;
             };
             GetTxsEventResponse: {
-                encode(message: _48.GetTxsEventResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.GetTxsEventResponse;
-                fromJSON(object: any): _48.GetTxsEventResponse;
-                toJSON(message: _48.GetTxsEventResponse): unknown;
+                encode(message: _50.GetTxsEventResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.GetTxsEventResponse;
+                fromJSON(object: any): _50.GetTxsEventResponse;
+                toJSON(message: _50.GetTxsEventResponse): unknown;
                 fromPartial(object: {
                     txs?: {
                         body?: {
@@ -5334,7 +5424,7 @@ export declare namespace cosmos {
                                 };
                                 modeInfo?: {
                                     single?: {
-                                        mode?: _47.SignMode;
+                                        mode?: _49.SignMode;
                                     };
                                     multi?: {
                                         bitarray?: {
@@ -5404,23 +5494,23 @@ export declare namespace cosmos {
                         nextKey?: Uint8Array;
                         total?: string | number | import("long");
                     };
-                }): _48.GetTxsEventResponse;
+                }): _50.GetTxsEventResponse;
             };
             BroadcastTxRequest: {
-                encode(message: _48.BroadcastTxRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.BroadcastTxRequest;
-                fromJSON(object: any): _48.BroadcastTxRequest;
-                toJSON(message: _48.BroadcastTxRequest): unknown;
+                encode(message: _50.BroadcastTxRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.BroadcastTxRequest;
+                fromJSON(object: any): _50.BroadcastTxRequest;
+                toJSON(message: _50.BroadcastTxRequest): unknown;
                 fromPartial(object: {
                     txBytes?: Uint8Array;
-                    mode?: _48.BroadcastMode;
-                }): _48.BroadcastTxRequest;
+                    mode?: _50.BroadcastMode;
+                }): _50.BroadcastTxRequest;
             };
             BroadcastTxResponse: {
-                encode(message: _48.BroadcastTxResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.BroadcastTxResponse;
-                fromJSON(object: any): _48.BroadcastTxResponse;
-                toJSON(message: _48.BroadcastTxResponse): unknown;
+                encode(message: _50.BroadcastTxResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.BroadcastTxResponse;
+                fromJSON(object: any): _50.BroadcastTxResponse;
+                toJSON(message: _50.BroadcastTxResponse): unknown;
                 fromPartial(object: {
                     txResponse?: {
                         height?: string | number | import("long");
@@ -5457,13 +5547,13 @@ export declare namespace cosmos {
                             }[];
                         }[];
                     };
-                }): _48.BroadcastTxResponse;
+                }): _50.BroadcastTxResponse;
             };
             SimulateRequest: {
-                encode(message: _48.SimulateRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.SimulateRequest;
-                fromJSON(object: any): _48.SimulateRequest;
-                toJSON(message: _48.SimulateRequest): unknown;
+                encode(message: _50.SimulateRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.SimulateRequest;
+                fromJSON(object: any): _50.SimulateRequest;
+                toJSON(message: _50.SimulateRequest): unknown;
                 fromPartial(object: {
                     tx?: {
                         body?: {
@@ -5490,7 +5580,7 @@ export declare namespace cosmos {
                                 };
                                 modeInfo?: {
                                     single?: {
-                                        mode?: _47.SignMode;
+                                        mode?: _49.SignMode;
                                     };
                                     multi?: {
                                         bitarray?: {
@@ -5522,13 +5612,13 @@ export declare namespace cosmos {
                         signatures?: Uint8Array[];
                     };
                     txBytes?: Uint8Array;
-                }): _48.SimulateRequest;
+                }): _50.SimulateRequest;
             };
             SimulateResponse: {
-                encode(message: _48.SimulateResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.SimulateResponse;
-                fromJSON(object: any): _48.SimulateResponse;
-                toJSON(message: _48.SimulateResponse): unknown;
+                encode(message: _50.SimulateResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.SimulateResponse;
+                fromJSON(object: any): _50.SimulateResponse;
+                toJSON(message: _50.SimulateResponse): unknown;
                 fromPartial(object: {
                     gasInfo?: {
                         gasWanted?: string | number | import("long");
@@ -5550,22 +5640,22 @@ export declare namespace cosmos {
                             value?: Uint8Array;
                         }[];
                     };
-                }): _48.SimulateResponse;
+                }): _50.SimulateResponse;
             };
             GetTxRequest: {
-                encode(message: _48.GetTxRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.GetTxRequest;
-                fromJSON(object: any): _48.GetTxRequest;
-                toJSON(message: _48.GetTxRequest): unknown;
+                encode(message: _50.GetTxRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.GetTxRequest;
+                fromJSON(object: any): _50.GetTxRequest;
+                toJSON(message: _50.GetTxRequest): unknown;
                 fromPartial(object: {
                     hash?: string;
-                }): _48.GetTxRequest;
+                }): _50.GetTxRequest;
             };
             GetTxResponse: {
-                encode(message: _48.GetTxResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.GetTxResponse;
-                fromJSON(object: any): _48.GetTxResponse;
-                toJSON(message: _48.GetTxResponse): unknown;
+                encode(message: _50.GetTxResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.GetTxResponse;
+                fromJSON(object: any): _50.GetTxResponse;
+                toJSON(message: _50.GetTxResponse): unknown;
                 fromPartial(object: {
                     tx?: {
                         body?: {
@@ -5592,7 +5682,7 @@ export declare namespace cosmos {
                                 };
                                 modeInfo?: {
                                     single?: {
-                                        mode?: _47.SignMode;
+                                        mode?: _49.SignMode;
                                     };
                                     multi?: {
                                         bitarray?: {
@@ -5658,13 +5748,13 @@ export declare namespace cosmos {
                             }[];
                         }[];
                     };
-                }): _48.GetTxResponse;
+                }): _50.GetTxResponse;
             };
             GetBlockWithTxsRequest: {
-                encode(message: _48.GetBlockWithTxsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.GetBlockWithTxsRequest;
-                fromJSON(object: any): _48.GetBlockWithTxsRequest;
-                toJSON(message: _48.GetBlockWithTxsRequest): unknown;
+                encode(message: _50.GetBlockWithTxsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.GetBlockWithTxsRequest;
+                fromJSON(object: any): _50.GetBlockWithTxsRequest;
+                toJSON(message: _50.GetBlockWithTxsRequest): unknown;
                 fromPartial(object: {
                     height?: string | number | import("long");
                     pagination?: {
@@ -5674,13 +5764,13 @@ export declare namespace cosmos {
                         countTotal?: boolean;
                         reverse?: boolean;
                     };
-                }): _48.GetBlockWithTxsRequest;
+                }): _50.GetBlockWithTxsRequest;
             };
             GetBlockWithTxsResponse: {
-                encode(message: _48.GetBlockWithTxsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _48.GetBlockWithTxsResponse;
-                fromJSON(object: any): _48.GetBlockWithTxsResponse;
-                toJSON(message: _48.GetBlockWithTxsResponse): unknown;
+                encode(message: _50.GetBlockWithTxsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.GetBlockWithTxsResponse;
+                fromJSON(object: any): _50.GetBlockWithTxsResponse;
+                toJSON(message: _50.GetBlockWithTxsResponse): unknown;
                 fromPartial(object: {
                     txs?: {
                         body?: {
@@ -5707,7 +5797,7 @@ export declare namespace cosmos {
                                 };
                                 modeInfo?: {
                                     single?: {
-                                        mode?: _47.SignMode;
+                                        mode?: _49.SignMode;
                                     };
                                     multi?: {
                                         bitarray?: {
@@ -5918,50 +6008,50 @@ export declare namespace cosmos {
                         nextKey?: Uint8Array;
                         total?: string | number | import("long");
                     };
-                }): _48.GetBlockWithTxsResponse;
+                }): _50.GetBlockWithTxsResponse;
             };
         };
     }
     namespace upgrade {
         const v1beta1: {
-            MsgClientImpl: typeof _131.MsgClientImpl;
-            QueryClientImpl: typeof _125.QueryClientImpl;
+            MsgClientImpl: typeof _134.MsgClientImpl;
+            QueryClientImpl: typeof _128.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
-                currentPlan(request?: _50.QueryCurrentPlanRequest): Promise<_50.QueryCurrentPlanResponse>;
-                appliedPlan(request: _50.QueryAppliedPlanRequest): Promise<_50.QueryAppliedPlanResponse>;
-                upgradedConsensusState(request: _50.QueryUpgradedConsensusStateRequest): Promise<_50.QueryUpgradedConsensusStateResponse>;
-                moduleVersions(request: _50.QueryModuleVersionsRequest): Promise<_50.QueryModuleVersionsResponse>;
-                authority(request?: _50.QueryAuthorityRequest): Promise<_50.QueryAuthorityResponse>;
+                currentPlan(request?: _52.QueryCurrentPlanRequest): Promise<_52.QueryCurrentPlanResponse>;
+                appliedPlan(request: _52.QueryAppliedPlanRequest): Promise<_52.QueryAppliedPlanResponse>;
+                upgradedConsensusState(request: _52.QueryUpgradedConsensusStateRequest): Promise<_52.QueryUpgradedConsensusStateResponse>;
+                moduleVersions(request: _52.QueryModuleVersionsRequest): Promise<_52.QueryModuleVersionsResponse>;
+                authority(request?: _52.QueryAuthorityRequest): Promise<_52.QueryAuthorityResponse>;
             };
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
             MessageComposer: {
                 encoded: {
-                    softwareUpgrade(value: _51.MsgSoftwareUpgrade): {
+                    softwareUpgrade(value: _53.MsgSoftwareUpgrade): {
                         typeUrl: string;
                         value: Uint8Array;
                     };
-                    cancelUpgrade(value: _51.MsgCancelUpgrade): {
+                    cancelUpgrade(value: _53.MsgCancelUpgrade): {
                         typeUrl: string;
                         value: Uint8Array;
                     };
                 };
                 withTypeUrl: {
-                    softwareUpgrade(value: _51.MsgSoftwareUpgrade): {
+                    softwareUpgrade(value: _53.MsgSoftwareUpgrade): {
                         typeUrl: string;
-                        value: _51.MsgSoftwareUpgrade;
+                        value: _53.MsgSoftwareUpgrade;
                     };
-                    cancelUpgrade(value: _51.MsgCancelUpgrade): {
+                    cancelUpgrade(value: _53.MsgCancelUpgrade): {
                         typeUrl: string;
-                        value: _51.MsgCancelUpgrade;
+                        value: _53.MsgCancelUpgrade;
                     };
                 };
                 toJSON: {
-                    softwareUpgrade(value: _51.MsgSoftwareUpgrade): {
+                    softwareUpgrade(value: _53.MsgSoftwareUpgrade): {
                         typeUrl: string;
                         value: unknown;
                     };
-                    cancelUpgrade(value: _51.MsgCancelUpgrade): {
+                    cancelUpgrade(value: _53.MsgCancelUpgrade): {
                         typeUrl: string;
                         value: unknown;
                     };
@@ -5969,28 +6059,28 @@ export declare namespace cosmos {
                 fromJSON: {
                     softwareUpgrade(value: any): {
                         typeUrl: string;
-                        value: _51.MsgSoftwareUpgrade;
+                        value: _53.MsgSoftwareUpgrade;
                     };
                     cancelUpgrade(value: any): {
                         typeUrl: string;
-                        value: _51.MsgCancelUpgrade;
+                        value: _53.MsgCancelUpgrade;
                     };
                 };
                 fromPartial: {
-                    softwareUpgrade(value: _51.MsgSoftwareUpgrade): {
+                    softwareUpgrade(value: _53.MsgSoftwareUpgrade): {
                         typeUrl: string;
-                        value: _51.MsgSoftwareUpgrade;
+                        value: _53.MsgSoftwareUpgrade;
                     };
-                    cancelUpgrade(value: _51.MsgCancelUpgrade): {
+                    cancelUpgrade(value: _53.MsgCancelUpgrade): {
                         typeUrl: string;
-                        value: _51.MsgCancelUpgrade;
+                        value: _53.MsgCancelUpgrade;
                     };
                 };
             };
             AminoConverter: {
                 "/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade": {
                     aminoType: string;
-                    toAmino: ({ authority, plan }: _51.MsgSoftwareUpgrade) => {
+                    toAmino: ({ authority, plan }: _53.MsgSoftwareUpgrade) => {
                         authority: string;
                         plan: {
                             name: string;
@@ -6021,23 +6111,23 @@ export declare namespace cosmos {
                                 value: Uint8Array;
                             };
                         };
-                    }) => _51.MsgSoftwareUpgrade;
+                    }) => _53.MsgSoftwareUpgrade;
                 };
                 "/cosmos.upgrade.v1beta1.MsgCancelUpgrade": {
                     aminoType: string;
-                    toAmino: ({ authority }: _51.MsgCancelUpgrade) => {
+                    toAmino: ({ authority }: _53.MsgCancelUpgrade) => {
                         authority: string;
                     };
                     fromAmino: ({ authority }: {
                         authority: string;
-                    }) => _51.MsgCancelUpgrade;
+                    }) => _53.MsgCancelUpgrade;
                 };
             };
             Plan: {
-                encode(message: _52.Plan, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _52.Plan;
-                fromJSON(object: any): _52.Plan;
-                toJSON(message: _52.Plan): unknown;
+                encode(message: _54.Plan, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _54.Plan;
+                fromJSON(object: any): _54.Plan;
+                toJSON(message: _54.Plan): unknown;
                 fromPartial(object: {
                     name?: string;
                     time?: Date;
@@ -6047,13 +6137,13 @@ export declare namespace cosmos {
                         typeUrl?: string;
                         value?: Uint8Array;
                     };
-                }): _52.Plan;
+                }): _54.Plan;
             };
             SoftwareUpgradeProposal: {
-                encode(message: _52.SoftwareUpgradeProposal, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _52.SoftwareUpgradeProposal;
-                fromJSON(object: any): _52.SoftwareUpgradeProposal;
-                toJSON(message: _52.SoftwareUpgradeProposal): unknown;
+                encode(message: _54.SoftwareUpgradeProposal, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _54.SoftwareUpgradeProposal;
+                fromJSON(object: any): _54.SoftwareUpgradeProposal;
+                toJSON(message: _54.SoftwareUpgradeProposal): unknown;
                 fromPartial(object: {
                     title?: string;
                     description?: string;
@@ -6067,33 +6157,33 @@ export declare namespace cosmos {
                             value?: Uint8Array;
                         };
                     };
-                }): _52.SoftwareUpgradeProposal;
+                }): _54.SoftwareUpgradeProposal;
             };
             CancelSoftwareUpgradeProposal: {
-                encode(message: _52.CancelSoftwareUpgradeProposal, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _52.CancelSoftwareUpgradeProposal;
-                fromJSON(object: any): _52.CancelSoftwareUpgradeProposal;
-                toJSON(message: _52.CancelSoftwareUpgradeProposal): unknown;
+                encode(message: _54.CancelSoftwareUpgradeProposal, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _54.CancelSoftwareUpgradeProposal;
+                fromJSON(object: any): _54.CancelSoftwareUpgradeProposal;
+                toJSON(message: _54.CancelSoftwareUpgradeProposal): unknown;
                 fromPartial(object: {
                     title?: string;
                     description?: string;
-                }): _52.CancelSoftwareUpgradeProposal;
+                }): _54.CancelSoftwareUpgradeProposal;
             };
             ModuleVersion: {
-                encode(message: _52.ModuleVersion, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _52.ModuleVersion;
-                fromJSON(object: any): _52.ModuleVersion;
-                toJSON(message: _52.ModuleVersion): unknown;
+                encode(message: _54.ModuleVersion, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _54.ModuleVersion;
+                fromJSON(object: any): _54.ModuleVersion;
+                toJSON(message: _54.ModuleVersion): unknown;
                 fromPartial(object: {
                     name?: string;
                     version?: string | number | import("long");
-                }): _52.ModuleVersion;
+                }): _54.ModuleVersion;
             };
             MsgSoftwareUpgrade: {
-                encode(message: _51.MsgSoftwareUpgrade, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.MsgSoftwareUpgrade;
-                fromJSON(object: any): _51.MsgSoftwareUpgrade;
-                toJSON(message: _51.MsgSoftwareUpgrade): unknown;
+                encode(message: _53.MsgSoftwareUpgrade, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.MsgSoftwareUpgrade;
+                fromJSON(object: any): _53.MsgSoftwareUpgrade;
+                toJSON(message: _53.MsgSoftwareUpgrade): unknown;
                 fromPartial(object: {
                     authority?: string;
                     plan?: {
@@ -6106,43 +6196,43 @@ export declare namespace cosmos {
                             value?: Uint8Array;
                         };
                     };
-                }): _51.MsgSoftwareUpgrade;
+                }): _53.MsgSoftwareUpgrade;
             };
             MsgSoftwareUpgradeResponse: {
-                encode(_: _51.MsgSoftwareUpgradeResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.MsgSoftwareUpgradeResponse;
-                fromJSON(_: any): _51.MsgSoftwareUpgradeResponse;
-                toJSON(_: _51.MsgSoftwareUpgradeResponse): unknown;
-                fromPartial(_: {}): _51.MsgSoftwareUpgradeResponse;
+                encode(_: _53.MsgSoftwareUpgradeResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.MsgSoftwareUpgradeResponse;
+                fromJSON(_: any): _53.MsgSoftwareUpgradeResponse;
+                toJSON(_: _53.MsgSoftwareUpgradeResponse): unknown;
+                fromPartial(_: {}): _53.MsgSoftwareUpgradeResponse;
             };
             MsgCancelUpgrade: {
-                encode(message: _51.MsgCancelUpgrade, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.MsgCancelUpgrade;
-                fromJSON(object: any): _51.MsgCancelUpgrade;
-                toJSON(message: _51.MsgCancelUpgrade): unknown;
+                encode(message: _53.MsgCancelUpgrade, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.MsgCancelUpgrade;
+                fromJSON(object: any): _53.MsgCancelUpgrade;
+                toJSON(message: _53.MsgCancelUpgrade): unknown;
                 fromPartial(object: {
                     authority?: string;
-                }): _51.MsgCancelUpgrade;
+                }): _53.MsgCancelUpgrade;
             };
             MsgCancelUpgradeResponse: {
-                encode(_: _51.MsgCancelUpgradeResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.MsgCancelUpgradeResponse;
-                fromJSON(_: any): _51.MsgCancelUpgradeResponse;
-                toJSON(_: _51.MsgCancelUpgradeResponse): unknown;
-                fromPartial(_: {}): _51.MsgCancelUpgradeResponse;
+                encode(_: _53.MsgCancelUpgradeResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.MsgCancelUpgradeResponse;
+                fromJSON(_: any): _53.MsgCancelUpgradeResponse;
+                toJSON(_: _53.MsgCancelUpgradeResponse): unknown;
+                fromPartial(_: {}): _53.MsgCancelUpgradeResponse;
             };
             QueryCurrentPlanRequest: {
-                encode(_: _50.QueryCurrentPlanRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.QueryCurrentPlanRequest;
-                fromJSON(_: any): _50.QueryCurrentPlanRequest;
-                toJSON(_: _50.QueryCurrentPlanRequest): unknown;
-                fromPartial(_: {}): _50.QueryCurrentPlanRequest;
+                encode(_: _52.QueryCurrentPlanRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _52.QueryCurrentPlanRequest;
+                fromJSON(_: any): _52.QueryCurrentPlanRequest;
+                toJSON(_: _52.QueryCurrentPlanRequest): unknown;
+                fromPartial(_: {}): _52.QueryCurrentPlanRequest;
             };
             QueryCurrentPlanResponse: {
-                encode(message: _50.QueryCurrentPlanResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.QueryCurrentPlanResponse;
-                fromJSON(object: any): _50.QueryCurrentPlanResponse;
-                toJSON(message: _50.QueryCurrentPlanResponse): unknown;
+                encode(message: _52.QueryCurrentPlanResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _52.QueryCurrentPlanResponse;
+                fromJSON(object: any): _52.QueryCurrentPlanResponse;
+                toJSON(message: _52.QueryCurrentPlanResponse): unknown;
                 fromPartial(object: {
                     plan?: {
                         name?: string;
@@ -6154,80 +6244,80 @@ export declare namespace cosmos {
                             value?: Uint8Array;
                         };
                     };
-                }): _50.QueryCurrentPlanResponse;
+                }): _52.QueryCurrentPlanResponse;
             };
             QueryAppliedPlanRequest: {
-                encode(message: _50.QueryAppliedPlanRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.QueryAppliedPlanRequest;
-                fromJSON(object: any): _50.QueryAppliedPlanRequest;
-                toJSON(message: _50.QueryAppliedPlanRequest): unknown;
+                encode(message: _52.QueryAppliedPlanRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _52.QueryAppliedPlanRequest;
+                fromJSON(object: any): _52.QueryAppliedPlanRequest;
+                toJSON(message: _52.QueryAppliedPlanRequest): unknown;
                 fromPartial(object: {
                     name?: string;
-                }): _50.QueryAppliedPlanRequest;
+                }): _52.QueryAppliedPlanRequest;
             };
             QueryAppliedPlanResponse: {
-                encode(message: _50.QueryAppliedPlanResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.QueryAppliedPlanResponse;
-                fromJSON(object: any): _50.QueryAppliedPlanResponse;
-                toJSON(message: _50.QueryAppliedPlanResponse): unknown;
+                encode(message: _52.QueryAppliedPlanResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _52.QueryAppliedPlanResponse;
+                fromJSON(object: any): _52.QueryAppliedPlanResponse;
+                toJSON(message: _52.QueryAppliedPlanResponse): unknown;
                 fromPartial(object: {
                     height?: string | number | import("long");
-                }): _50.QueryAppliedPlanResponse;
+                }): _52.QueryAppliedPlanResponse;
             };
             QueryUpgradedConsensusStateRequest: {
-                encode(message: _50.QueryUpgradedConsensusStateRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.QueryUpgradedConsensusStateRequest;
-                fromJSON(object: any): _50.QueryUpgradedConsensusStateRequest;
-                toJSON(message: _50.QueryUpgradedConsensusStateRequest): unknown;
+                encode(message: _52.QueryUpgradedConsensusStateRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _52.QueryUpgradedConsensusStateRequest;
+                fromJSON(object: any): _52.QueryUpgradedConsensusStateRequest;
+                toJSON(message: _52.QueryUpgradedConsensusStateRequest): unknown;
                 fromPartial(object: {
                     lastHeight?: string | number | import("long");
-                }): _50.QueryUpgradedConsensusStateRequest;
+                }): _52.QueryUpgradedConsensusStateRequest;
             };
             QueryUpgradedConsensusStateResponse: {
-                encode(message: _50.QueryUpgradedConsensusStateResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.QueryUpgradedConsensusStateResponse;
-                fromJSON(object: any): _50.QueryUpgradedConsensusStateResponse;
-                toJSON(message: _50.QueryUpgradedConsensusStateResponse): unknown;
+                encode(message: _52.QueryUpgradedConsensusStateResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _52.QueryUpgradedConsensusStateResponse;
+                fromJSON(object: any): _52.QueryUpgradedConsensusStateResponse;
+                toJSON(message: _52.QueryUpgradedConsensusStateResponse): unknown;
                 fromPartial(object: {
                     upgradedConsensusState?: Uint8Array;
-                }): _50.QueryUpgradedConsensusStateResponse;
+                }): _52.QueryUpgradedConsensusStateResponse;
             };
             QueryModuleVersionsRequest: {
-                encode(message: _50.QueryModuleVersionsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.QueryModuleVersionsRequest;
-                fromJSON(object: any): _50.QueryModuleVersionsRequest;
-                toJSON(message: _50.QueryModuleVersionsRequest): unknown;
+                encode(message: _52.QueryModuleVersionsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _52.QueryModuleVersionsRequest;
+                fromJSON(object: any): _52.QueryModuleVersionsRequest;
+                toJSON(message: _52.QueryModuleVersionsRequest): unknown;
                 fromPartial(object: {
                     moduleName?: string;
-                }): _50.QueryModuleVersionsRequest;
+                }): _52.QueryModuleVersionsRequest;
             };
             QueryModuleVersionsResponse: {
-                encode(message: _50.QueryModuleVersionsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.QueryModuleVersionsResponse;
-                fromJSON(object: any): _50.QueryModuleVersionsResponse;
-                toJSON(message: _50.QueryModuleVersionsResponse): unknown;
+                encode(message: _52.QueryModuleVersionsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _52.QueryModuleVersionsResponse;
+                fromJSON(object: any): _52.QueryModuleVersionsResponse;
+                toJSON(message: _52.QueryModuleVersionsResponse): unknown;
                 fromPartial(object: {
                     moduleVersions?: {
                         name?: string;
                         version?: string | number | import("long");
                     }[];
-                }): _50.QueryModuleVersionsResponse;
+                }): _52.QueryModuleVersionsResponse;
             };
             QueryAuthorityRequest: {
-                encode(_: _50.QueryAuthorityRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.QueryAuthorityRequest;
-                fromJSON(_: any): _50.QueryAuthorityRequest;
-                toJSON(_: _50.QueryAuthorityRequest): unknown;
-                fromPartial(_: {}): _50.QueryAuthorityRequest;
+                encode(_: _52.QueryAuthorityRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _52.QueryAuthorityRequest;
+                fromJSON(_: any): _52.QueryAuthorityRequest;
+                toJSON(_: _52.QueryAuthorityRequest): unknown;
+                fromPartial(_: {}): _52.QueryAuthorityRequest;
             };
             QueryAuthorityResponse: {
-                encode(message: _50.QueryAuthorityResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _50.QueryAuthorityResponse;
-                fromJSON(object: any): _50.QueryAuthorityResponse;
-                toJSON(message: _50.QueryAuthorityResponse): unknown;
+                encode(message: _52.QueryAuthorityResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _52.QueryAuthorityResponse;
+                fromJSON(object: any): _52.QueryAuthorityResponse;
+                toJSON(message: _52.QueryAuthorityResponse): unknown;
                 fromPartial(object: {
                     address?: string;
-                }): _50.QueryAuthorityResponse;
+                }): _52.QueryAuthorityResponse;
             };
         };
     }
@@ -6237,22 +6327,22 @@ export declare namespace cosmos {
         }) => Promise<{
             cosmos: {
                 authz: {
-                    v1beta1: _126.MsgClientImpl;
-                };
-                bank: {
-                    v1beta1: _127.MsgClientImpl;
-                };
-                distribution: {
-                    v1beta1: _128.MsgClientImpl;
-                };
-                gov: {
                     v1beta1: _129.MsgClientImpl;
                 };
-                staking: {
+                bank: {
                     v1beta1: _130.MsgClientImpl;
                 };
-                upgrade: {
+                distribution: {
                     v1beta1: _131.MsgClientImpl;
+                };
+                gov: {
+                    v1beta1: _132.MsgClientImpl;
+                };
+                staking: {
+                    v1beta1: _133.MsgClientImpl;
+                };
+                upgrade: {
+                    v1beta1: _134.MsgClientImpl;
                 };
             };
         }>;
@@ -6305,40 +6395,46 @@ export declare namespace cosmos {
                         tallyResult(request: _40.QueryTallyResultRequest): Promise<_40.QueryTallyResultResponse>;
                     };
                 };
+                params: {
+                    v1beta1: {
+                        params(request: _43.QueryParamsRequest): Promise<_43.QueryParamsResponse>;
+                        subspaces(request?: _43.QuerySubspacesRequest): Promise<_43.QuerySubspacesResponse>;
+                    };
+                };
                 staking: {
                     v1beta1: {
-                        validators(request: _44.QueryValidatorsRequest): Promise<_44.QueryValidatorsResponse>;
-                        validator(request: _44.QueryValidatorRequest): Promise<_44.QueryValidatorResponse>;
-                        validatorDelegations(request: _44.QueryValidatorDelegationsRequest): Promise<_44.QueryValidatorDelegationsResponse>;
-                        validatorUnbondingDelegations(request: _44.QueryValidatorUnbondingDelegationsRequest): Promise<_44.QueryValidatorUnbondingDelegationsResponse>;
-                        delegation(request: _44.QueryDelegationRequest): Promise<_44.QueryDelegationResponse>;
-                        unbondingDelegation(request: _44.QueryUnbondingDelegationRequest): Promise<_44.QueryUnbondingDelegationResponse>;
-                        delegatorDelegations(request: _44.QueryDelegatorDelegationsRequest): Promise<_44.QueryDelegatorDelegationsResponse>;
-                        delegatorUnbondingDelegations(request: _44.QueryDelegatorUnbondingDelegationsRequest): Promise<_44.QueryDelegatorUnbondingDelegationsResponse>;
-                        redelegations(request: _44.QueryRedelegationsRequest): Promise<_44.QueryRedelegationsResponse>;
-                        delegatorValidators(request: _44.QueryDelegatorValidatorsRequest): Promise<_44.QueryDelegatorValidatorsResponse>;
-                        delegatorValidator(request: _44.QueryDelegatorValidatorRequest): Promise<_44.QueryDelegatorValidatorResponse>;
-                        historicalInfo(request: _44.QueryHistoricalInfoRequest): Promise<_44.QueryHistoricalInfoResponse>;
-                        pool(request?: _44.QueryPoolRequest): Promise<_44.QueryPoolResponse>;
-                        params(request?: _44.QueryParamsRequest): Promise<_44.QueryParamsResponse>;
+                        validators(request: _46.QueryValidatorsRequest): Promise<_46.QueryValidatorsResponse>;
+                        validator(request: _46.QueryValidatorRequest): Promise<_46.QueryValidatorResponse>;
+                        validatorDelegations(request: _46.QueryValidatorDelegationsRequest): Promise<_46.QueryValidatorDelegationsResponse>;
+                        validatorUnbondingDelegations(request: _46.QueryValidatorUnbondingDelegationsRequest): Promise<_46.QueryValidatorUnbondingDelegationsResponse>;
+                        delegation(request: _46.QueryDelegationRequest): Promise<_46.QueryDelegationResponse>;
+                        unbondingDelegation(request: _46.QueryUnbondingDelegationRequest): Promise<_46.QueryUnbondingDelegationResponse>;
+                        delegatorDelegations(request: _46.QueryDelegatorDelegationsRequest): Promise<_46.QueryDelegatorDelegationsResponse>;
+                        delegatorUnbondingDelegations(request: _46.QueryDelegatorUnbondingDelegationsRequest): Promise<_46.QueryDelegatorUnbondingDelegationsResponse>;
+                        redelegations(request: _46.QueryRedelegationsRequest): Promise<_46.QueryRedelegationsResponse>;
+                        delegatorValidators(request: _46.QueryDelegatorValidatorsRequest): Promise<_46.QueryDelegatorValidatorsResponse>;
+                        delegatorValidator(request: _46.QueryDelegatorValidatorRequest): Promise<_46.QueryDelegatorValidatorResponse>;
+                        historicalInfo(request: _46.QueryHistoricalInfoRequest): Promise<_46.QueryHistoricalInfoResponse>;
+                        pool(request?: _46.QueryPoolRequest): Promise<_46.QueryPoolResponse>;
+                        params(request?: _46.QueryParamsRequest): Promise<_46.QueryParamsResponse>;
                     };
                 };
                 tx: {
                     v1beta1: {
-                        simulate(request: _48.SimulateRequest): Promise<_48.SimulateResponse>;
-                        getTx(request: _48.GetTxRequest): Promise<_48.GetTxResponse>;
-                        broadcastTx(request: _48.BroadcastTxRequest): Promise<_48.BroadcastTxResponse>;
-                        getTxsEvent(request: _48.GetTxsEventRequest): Promise<_48.GetTxsEventResponse>;
-                        getBlockWithTxs(request: _48.GetBlockWithTxsRequest): Promise<_48.GetBlockWithTxsResponse>;
+                        simulate(request: _50.SimulateRequest): Promise<_50.SimulateResponse>;
+                        getTx(request: _50.GetTxRequest): Promise<_50.GetTxResponse>;
+                        broadcastTx(request: _50.BroadcastTxRequest): Promise<_50.BroadcastTxResponse>;
+                        getTxsEvent(request: _50.GetTxsEventRequest): Promise<_50.GetTxsEventResponse>;
+                        getBlockWithTxs(request: _50.GetBlockWithTxsRequest): Promise<_50.GetBlockWithTxsResponse>;
                     };
                 };
                 upgrade: {
                     v1beta1: {
-                        currentPlan(request?: _50.QueryCurrentPlanRequest): Promise<_50.QueryCurrentPlanResponse>;
-                        appliedPlan(request: _50.QueryAppliedPlanRequest): Promise<_50.QueryAppliedPlanResponse>;
-                        upgradedConsensusState(request: _50.QueryUpgradedConsensusStateRequest): Promise<_50.QueryUpgradedConsensusStateResponse>;
-                        moduleVersions(request: _50.QueryModuleVersionsRequest): Promise<_50.QueryModuleVersionsResponse>;
-                        authority(request?: _50.QueryAuthorityRequest): Promise<_50.QueryAuthorityResponse>;
+                        currentPlan(request?: _52.QueryCurrentPlanRequest): Promise<_52.QueryCurrentPlanResponse>;
+                        appliedPlan(request: _52.QueryAppliedPlanRequest): Promise<_52.QueryAppliedPlanResponse>;
+                        upgradedConsensusState(request: _52.QueryUpgradedConsensusStateRequest): Promise<_52.QueryUpgradedConsensusStateResponse>;
+                        moduleVersions(request: _52.QueryModuleVersionsRequest): Promise<_52.QueryModuleVersionsResponse>;
+                        authority(request?: _52.QueryAuthorityRequest): Promise<_52.QueryAuthorityResponse>;
                     };
                 };
             };

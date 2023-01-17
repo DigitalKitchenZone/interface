@@ -3,7 +3,7 @@ import telescope from '@osmonauts/telescope';
 
 telescope({
   protoDirs: [join(__dirname, '../proto')],
-  outPath: join(__dirname, '../src/codegen'),
+  outPath: join(__dirname, '../src'),
   options: {
     prototypes: {
       includePackageVar: false,
