@@ -83,5 +83,5 @@
     "@cosmjs/tendermint-rpc": "0.29.5",
     "protobufjs": "^6.11.2"
   },
-  "gitHead": "86229bc469592ad9c20514f2904cc1cdc884cada"
+  "gitHead": "b5dd9d2d2eb4112e9b2b97608316ee1a2b370be2"
 }
