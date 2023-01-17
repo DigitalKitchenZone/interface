@@ -39,7 +39,6 @@ telescope({
           "cosmos.capability.v1beta1",
           "cosmos.orm.v1alpha1",
           "cosmos.orm.v1",
-          "cosmos.params.v1beta1",
           "cosmos.slashing.v1beta1",
           "cosmos.vesting.v1beta1",
           "google.api",

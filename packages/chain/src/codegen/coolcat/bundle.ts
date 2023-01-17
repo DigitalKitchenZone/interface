@@ -10,27 +10,27 @@ import * as _9 from "./catdrop/v1beta1/tx";
 import * as _10 from "./mint/v1beta1/genesis";
 import * as _11 from "./mint/v1beta1/mint";
 import * as _12 from "./mint/v1beta1/query";
-import * as _98 from "./alloc/v1beta1/tx.amino";
-import * as _99 from "./catdrop/v1beta1/tx.amino";
-import * as _100 from "./alloc/v1beta1/tx.registry";
-import * as _101 from "./catdrop/v1beta1/tx.registry";
-import * as _102 from "./alloc/v1beta1/query.rpc.Query";
-import * as _103 from "./catdrop/v1beta1/query.rpc.Query";
-import * as _104 from "./mint/v1beta1/query.rpc.Query";
-import * as _105 from "./alloc/v1beta1/tx.rpc.msg";
-import * as _106 from "./catdrop/v1beta1/tx.rpc.msg";
-import * as _152 from "./rpc.query";
-import * as _153 from "./rpc.tx";
+import * as _100 from "./alloc/v1beta1/tx.amino";
+import * as _101 from "./catdrop/v1beta1/tx.amino";
+import * as _102 from "./alloc/v1beta1/tx.registry";
+import * as _103 from "./catdrop/v1beta1/tx.registry";
+import * as _104 from "./alloc/v1beta1/query.rpc.Query";
+import * as _105 from "./catdrop/v1beta1/query.rpc.Query";
+import * as _106 from "./mint/v1beta1/query.rpc.Query";
+import * as _107 from "./alloc/v1beta1/tx.rpc.msg";
+import * as _108 from "./catdrop/v1beta1/tx.rpc.msg";
+import * as _155 from "./rpc.query";
+import * as _156 from "./rpc.tx";
 export namespace coolcat {
   export namespace alloc {
     export const v1beta1 = { ..._1,
       ..._2,
       ..._3,
       ..._4,
-      ..._98,
       ..._100,
       ..._102,
-      ..._105
+      ..._104,
+      ..._107
     };
   }
   export namespace catdrop {
@@ -39,20 +39,20 @@ export namespace coolcat {
       ..._7,
       ..._8,
       ..._9,
-      ..._99,
       ..._101,
       ..._103,
-      ..._106
+      ..._105,
+      ..._108
     };
   }
   export namespace mint {
     export const v1beta1 = { ..._10,
       ..._11,
       ..._12,
-      ..._104
+      ..._106
     };
   }
-  export const ClientFactory = { ..._152,
-    ..._153
+  export const ClientFactory = { ..._155,
+    ..._156
   };
 }
