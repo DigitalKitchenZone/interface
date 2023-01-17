@@ -9,7 +9,7 @@ export interface Query {
 export declare class QueryClientImpl implements Query {
     private readonly rpc;
     constructor(rpc: Rpc);
-    params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
+    params: (request?: QueryParamsRequest) => Promise<QueryParamsResponse>;
 }
 export declare const createRpcQueryExtension: (base: QueryClient) => {
     params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;

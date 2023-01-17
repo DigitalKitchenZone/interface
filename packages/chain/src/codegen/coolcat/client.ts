@@ -1,5 +1,6 @@
-import { OfflineSigner, GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { GeneratedType, Registry, OfflineSigner } from "@cosmjs/proto-signing";
 import { defaultRegistryTypes, AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
+import { HttpEndpoint } from "@cosmjs/tendermint-rpc";
 import * as coolcatAllocV1beta1TxRegistry from "./alloc/v1beta1/tx.registry";
 import * as coolcatCatdropV1beta1TxRegistry from "./catdrop/v1beta1/tx.registry";
 import * as coolcatAllocV1beta1TxAmino from "./alloc/v1beta1/tx.amino";
@@ -29,7 +30,7 @@ export const getSigningCoolcatClient = async ({
   signer,
   defaultTypes = defaultRegistryTypes
 }: {
-  rpcEndpoint: string;
+  rpcEndpoint: string | HttpEndpoint;
   signer: OfflineSigner;
   defaultTypes?: ReadonlyArray<[string, GeneratedType]>;
 }) => {

@@ -1,4 +1,4 @@
-import { Any, AnySDKType } from "../../../google/protobuf/any";
+import { Any } from "../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
 import { isSet, DeepPartial } from "../../../helpers";
 /**
@@ -10,16 +10,6 @@ import { isSet, DeepPartial } from "../../../helpers";
 export interface LegacyAminoPubKey {
   threshold: number;
   publicKeys: Any[];
-}
-/**
- * LegacyAminoPubKey specifies a public key type
- * which nests multiple public keys and a threshold,
- * it uses legacy amino address rules.
- */
-
-export interface LegacyAminoPubKeySDKType {
-  threshold: number;
-  public_keys: AnySDKType[];
 }
 
 function createBaseLegacyAminoPubKey(): LegacyAminoPubKey {

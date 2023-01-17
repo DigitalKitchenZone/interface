@@ -1,21 +1,13 @@
-import { Params, ParamsSDKType } from "./params";
+import { Params } from "./params";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "../../../helpers";
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {
 }
-/** QueryParamsRequest is the request type for the Query/Params RPC method. */
-export interface QueryParamsRequestSDKType {
-}
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
     /** params defines the parameters of the module. */
     params?: Params;
-}
-/** QueryParamsResponse is the response type for the Query/Params RPC method. */
-export interface QueryParamsResponseSDKType {
-    /** params defines the parameters of the module. */
-    params?: ParamsSDKType;
 }
 export declare const QueryParamsRequest: {
     encode(_: QueryParamsRequest, writer?: _m0.Writer): _m0.Writer;

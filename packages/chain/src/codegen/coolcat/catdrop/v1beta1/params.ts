@@ -1,21 +1,17 @@
-import { Action, ActionSDKType, actionFromJSON, actionToJSON } from "./claim_record";
-import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
+import { Action, actionFromJSON, actionToJSON } from "./claim_record";
+import { Timestamp } from "../../../google/protobuf/timestamp";
+import { Duration } from "../../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, fromJsonTimestamp, fromTimestamp } from "../../../helpers";
+import { isSet, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp } from "../../../helpers";
 export interface ClaimAuthorization {
   contractAddress: string;
   action: Action;
-}
-export interface ClaimAuthorizationSDKType {
-  contract_address: string;
-  action: ActionSDKType;
 }
 /** Params defines the claim module's parameters. */
 
 export interface Params {
   airdropEnabled: boolean;
-  airdropStartTime?: Timestamp;
+  airdropStartTime?: Date;
   durationUntilDecay?: Duration;
   durationOfDecay?: Duration;
   /** denom of claimable asset */
@@ -24,20 +20,6 @@ export interface Params {
   /** list of contracts and their allowed claim actions */
 
   allowedClaimers: ClaimAuthorization[];
-}
-/** Params defines the claim module's parameters. */
-
-export interface ParamsSDKType {
-  airdrop_enabled: boolean;
-  airdrop_start_time?: TimestampSDKType;
-  duration_until_decay?: DurationSDKType;
-  duration_of_decay?: DurationSDKType;
-  /** denom of claimable asset */
-
-  claim_denom: string;
-  /** list of contracts and their allowed claim actions */
-
-  allowed_claimers: ClaimAuthorizationSDKType[];
 }
 
 function createBaseClaimAuthorization(): ClaimAuthorization {
@@ -127,7 +109,7 @@ export const Params = {
     }
 
     if (message.airdropStartTime !== undefined) {
-      Timestamp.encode(message.airdropStartTime, writer.uint32(18).fork()).ldelim();
+      Timestamp.encode(toTimestamp(message.airdropStartTime), writer.uint32(18).fork()).ldelim();
     }
 
     if (message.durationUntilDecay !== undefined) {
@@ -163,7 +145,7 @@ export const Params = {
           break;
 
         case 2:
-          message.airdropStartTime = Timestamp.decode(reader, reader.uint32());
+          message.airdropStartTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           break;
 
         case 3:
@@ -205,7 +187,7 @@ export const Params = {
   toJSON(message: Params): unknown {
     const obj: any = {};
     message.airdropEnabled !== undefined && (obj.airdropEnabled = message.airdropEnabled);
-    message.airdropStartTime !== undefined && (obj.airdropStartTime = fromTimestamp(message.airdropStartTime).toISOString());
+    message.airdropStartTime !== undefined && (obj.airdropStartTime = message.airdropStartTime.toISOString());
     message.durationUntilDecay !== undefined && (obj.durationUntilDecay = message.durationUntilDecay ? Duration.toJSON(message.durationUntilDecay) : undefined);
     message.durationOfDecay !== undefined && (obj.durationOfDecay = message.durationOfDecay ? Duration.toJSON(message.durationOfDecay) : undefined);
     message.claimDenom !== undefined && (obj.claimDenom = message.claimDenom);
@@ -222,7 +204,7 @@ export const Params = {
   fromPartial(object: DeepPartial<Params>): Params {
     const message = createBaseParams();
     message.airdropEnabled = object.airdropEnabled ?? false;
-    message.airdropStartTime = object.airdropStartTime !== undefined && object.airdropStartTime !== null ? Timestamp.fromPartial(object.airdropStartTime) : undefined;
+    message.airdropStartTime = object.airdropStartTime ?? undefined;
     message.durationUntilDecay = object.durationUntilDecay !== undefined && object.durationUntilDecay !== null ? Duration.fromPartial(object.durationUntilDecay) : undefined;
     message.durationOfDecay = object.durationOfDecay !== undefined && object.durationOfDecay !== null ? Duration.fromPartial(object.durationOfDecay) : undefined;
     message.claimDenom = object.claimDenom ?? "";

@@ -2,7 +2,6 @@ import { join, resolve } from 'path';
 import codegen from '@cosmwasm/ts-codegen';
 
 const contractsDir = resolve(join(__dirname, '../contracts'));
-console.log(contractsDir)
 const contracts = [
   {
     name: 'CWAdminFactory',
@@ -53,19 +52,22 @@ codegen({
     bundle: {
       enabled: true,
       bundleFile: 'index.ts',
-      scope: 'contracts'
+      scope: 'contracts',
     },
     types: {
       enabled: true,
-      aliasExecuteMsg: true
+      aliasExecuteMsg: true,
     },
     client: {
       enabled: true,
       execExtendsQuery: true
     },
     messageComposer: {
-      enabled: true
+      enabled: true,
     },
+    bundle: {
+      enabled: true
+    }
   }
 }).then(() => {
   console.log('✨ all done!');

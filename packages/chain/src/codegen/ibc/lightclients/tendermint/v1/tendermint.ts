@@ -1,12 +1,12 @@
-import { Duration, DurationSDKType } from "../../../../google/protobuf/duration";
-import { Height, HeightSDKType } from "../../../core/client/v1/client";
-import { ProofSpec, ProofSpecSDKType } from "../../../../confio/proofs";
-import { Timestamp, TimestampSDKType } from "../../../../google/protobuf/timestamp";
-import { MerkleRoot, MerkleRootSDKType } from "../../../core/commitment/v1/commitment";
-import { SignedHeader, SignedHeaderSDKType } from "../../../../tendermint/types/types";
-import { ValidatorSet, ValidatorSetSDKType } from "../../../../tendermint/types/validator";
+import { Duration } from "../../../../google/protobuf/duration";
+import { Height } from "../../../core/client/v1/client";
+import { ProofSpec } from "../../../../confio/proofs";
+import { Timestamp } from "../../../../google/protobuf/timestamp";
+import { MerkleRoot } from "../../../core/commitment/v1/commitment";
+import { SignedHeader } from "../../../../tendermint/types/types";
+import { ValidatorSet } from "../../../../tendermint/types/validator";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, fromJsonTimestamp, bytesFromBase64, fromTimestamp, base64FromBytes, Long } from "../../../../helpers";
+import { isSet, DeepPartial, toTimestamp, fromTimestamp, fromJsonTimestamp, bytesFromBase64, base64FromBytes, Long } from "../../../../helpers";
 /**
  * ClientState from Tendermint tracks the current validator set, latest height,
  * and a possible frozen height.
@@ -60,59 +60,6 @@ export interface ClientState {
 
   allowUpdateAfterMisbehaviour: boolean;
 }
-/**
- * ClientState from Tendermint tracks the current validator set, latest height,
- * and a possible frozen height.
- */
-
-export interface ClientStateSDKType {
-  chain_id: string;
-  trust_level?: FractionSDKType;
-  /**
-   * duration of the period since the LastestTimestamp during which the
-   * submitted headers are valid for upgrade
-   */
-
-  trusting_period?: DurationSDKType;
-  /** duration of the staking unbonding period */
-
-  unbonding_period?: DurationSDKType;
-  /** defines how much new (untrusted) header's Time can drift into the future. */
-
-  max_clock_drift?: DurationSDKType;
-  /** Block height when the client was frozen due to a misbehaviour */
-
-  frozen_height?: HeightSDKType;
-  /** Latest height the client was updated to */
-
-  latest_height?: HeightSDKType;
-  /** Proof specifications used in verifying counterparty state */
-
-  proof_specs: ProofSpecSDKType[];
-  /**
-   * Path at which next upgraded client will be committed.
-   * Each element corresponds to the key for a single CommitmentProof in the
-   * chained proof. NOTE: ClientState must stored under
-   * `{upgradePath}/{upgradeHeight}/clientState` ConsensusState must be stored
-   * under `{upgradepath}/{upgradeHeight}/consensusState` For SDK chains using
-   * the default upgrade module, upgrade_path should be []string{"upgrade",
-   * "upgradedIBCState"}`
-   */
-
-  upgrade_path: string[];
-  /**
-   * This flag, when set to true, will allow governance to recover a client
-   * which has expired
-   */
-
-  allow_update_after_expiry: boolean;
-  /**
-   * This flag, when set to true, will allow governance to unfreeze a client
-   * whose chain has experienced a misbehaviour event
-   */
-
-  allow_update_after_misbehaviour: boolean;
-}
 /** ConsensusState defines the consensus state from Tendermint. */
 
 export interface ConsensusState {
@@ -120,24 +67,11 @@ export interface ConsensusState {
    * timestamp that corresponds to the block height in which the ConsensusState
    * was stored.
    */
-  timestamp?: Timestamp;
+  timestamp?: Date;
   /** commitment root (i.e app hash) */
 
   root?: MerkleRoot;
   nextValidatorsHash: Uint8Array;
-}
-/** ConsensusState defines the consensus state from Tendermint. */
-
-export interface ConsensusStateSDKType {
-  /**
-   * timestamp that corresponds to the block height in which the ConsensusState
-   * was stored.
-   */
-  timestamp?: TimestampSDKType;
-  /** commitment root (i.e app hash) */
-
-  root?: MerkleRootSDKType;
-  next_validators_hash: Uint8Array;
 }
 /**
  * Misbehaviour is a wrapper over two conflicting Headers
@@ -148,16 +82,6 @@ export interface Misbehaviour {
   clientId: string;
   header1?: Header;
   header2?: Header;
-}
-/**
- * Misbehaviour is a wrapper over two conflicting Headers
- * that implements Misbehaviour interface expected by ICS-02
- */
-
-export interface MisbehaviourSDKType {
-  client_id: string;
-  header_1?: HeaderSDKType;
-  header_2?: HeaderSDKType;
 }
 /**
  * Header defines the Tendermint client consensus Header.
@@ -181,41 +105,11 @@ export interface Header {
   trustedValidators?: ValidatorSet;
 }
 /**
- * Header defines the Tendermint client consensus Header.
- * It encapsulates all the information necessary to update from a trusted
- * Tendermint ConsensusState. The inclusion of TrustedHeight and
- * TrustedValidators allows this update to process correctly, so long as the
- * ConsensusState for the TrustedHeight exists, this removes race conditions
- * among relayers The SignedHeader and ValidatorSet are the new untrusted update
- * fields for the client. The TrustedHeight is the height of a stored
- * ConsensusState on the client that will be used to verify the new untrusted
- * header. The Trusted ConsensusState must be within the unbonding period of
- * current time in order to correctly verify, and the TrustedValidators must
- * hash to TrustedConsensusState.NextValidatorsHash since that is the last
- * trusted validator set at the TrustedHeight.
- */
-
-export interface HeaderSDKType {
-  signed_header?: SignedHeaderSDKType;
-  validator_set?: ValidatorSetSDKType;
-  trusted_height?: HeightSDKType;
-  trusted_validators?: ValidatorSetSDKType;
-}
-/**
  * Fraction defines the protobuf message type for tmmath.Fraction that only
  * supports positive values.
  */
 
 export interface Fraction {
-  numerator: Long;
-  denominator: Long;
-}
-/**
- * Fraction defines the protobuf message type for tmmath.Fraction that only
- * supports positive values.
- */
-
-export interface FractionSDKType {
   numerator: Long;
   denominator: Long;
 }
@@ -419,7 +313,7 @@ function createBaseConsensusState(): ConsensusState {
 export const ConsensusState = {
   encode(message: ConsensusState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.timestamp !== undefined) {
-      Timestamp.encode(message.timestamp, writer.uint32(10).fork()).ldelim();
+      Timestamp.encode(toTimestamp(message.timestamp), writer.uint32(10).fork()).ldelim();
     }
 
     if (message.root !== undefined) {
@@ -443,7 +337,7 @@ export const ConsensusState = {
 
       switch (tag >>> 3) {
         case 1:
-          message.timestamp = Timestamp.decode(reader, reader.uint32());
+          message.timestamp = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           break;
 
         case 2:
@@ -473,7 +367,7 @@ export const ConsensusState = {
 
   toJSON(message: ConsensusState): unknown {
     const obj: any = {};
-    message.timestamp !== undefined && (obj.timestamp = fromTimestamp(message.timestamp).toISOString());
+    message.timestamp !== undefined && (obj.timestamp = message.timestamp.toISOString());
     message.root !== undefined && (obj.root = message.root ? MerkleRoot.toJSON(message.root) : undefined);
     message.nextValidatorsHash !== undefined && (obj.nextValidatorsHash = base64FromBytes(message.nextValidatorsHash !== undefined ? message.nextValidatorsHash : new Uint8Array()));
     return obj;
@@ -481,7 +375,7 @@ export const ConsensusState = {
 
   fromPartial(object: DeepPartial<ConsensusState>): ConsensusState {
     const message = createBaseConsensusState();
-    message.timestamp = object.timestamp !== undefined && object.timestamp !== null ? Timestamp.fromPartial(object.timestamp) : undefined;
+    message.timestamp = object.timestamp ?? undefined;
     message.root = object.root !== undefined && object.root !== null ? MerkleRoot.fromPartial(object.root) : undefined;
     message.nextValidatorsHash = object.nextValidatorsHash ?? new Uint8Array();
     return message;

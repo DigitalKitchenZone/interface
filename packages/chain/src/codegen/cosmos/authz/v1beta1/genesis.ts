@@ -1,15 +1,10 @@
-import { GrantAuthorization, GrantAuthorizationSDKType } from "./authz";
+import { GrantAuthorization } from "./authz";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "../../../helpers";
 /** GenesisState defines the authz module's genesis state. */
 
 export interface GenesisState {
   authorization: GrantAuthorization[];
-}
-/** GenesisState defines the authz module's genesis state. */
-
-export interface GenesisStateSDKType {
-  authorization: GrantAuthorizationSDKType[];
 }
 
 function createBaseGenesisState(): GenesisState {

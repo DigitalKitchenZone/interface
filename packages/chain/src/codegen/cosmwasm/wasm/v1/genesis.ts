@@ -1,5 +1,5 @@
-import { MsgStoreCode, MsgStoreCodeSDKType, MsgInstantiateContract, MsgInstantiateContractSDKType, MsgExecuteContract, MsgExecuteContractSDKType } from "./tx";
-import { Params, ParamsSDKType, CodeInfo, CodeInfoSDKType, ContractInfo, ContractInfoSDKType, Model, ModelSDKType } from "./types";
+import { MsgStoreCode, MsgInstantiateContract, MsgExecuteContract } from "./tx";
+import { Params, CodeInfo, ContractInfo, Model } from "./types";
 import * as _m0 from "protobufjs/minimal";
 import { isSet, DeepPartial, Long, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /** GenesisState - genesis state of x/wasm */
@@ -11,15 +11,6 @@ export interface GenesisState {
   sequences: Sequence[];
   genMsgs: GenesisState_GenMsgs[];
 }
-/** GenesisState - genesis state of x/wasm */
-
-export interface GenesisStateSDKType {
-  params?: ParamsSDKType;
-  codes: CodeSDKType[];
-  contracts: ContractSDKType[];
-  sequences: SequenceSDKType[];
-  gen_msgs: GenesisState_GenMsgsSDKType[];
-}
 /**
  * GenMsgs define the messages that can be executed during genesis phase in
  * order. The intention is to have more human readable data that is auditable.
@@ -29,16 +20,6 @@ export interface GenesisState_GenMsgs {
   storeCode?: MsgStoreCode;
   instantiateContract?: MsgInstantiateContract;
   executeContract?: MsgExecuteContract;
-}
-/**
- * GenMsgs define the messages that can be executed during genesis phase in
- * order. The intention is to have more human readable data that is auditable.
- */
-
-export interface GenesisState_GenMsgsSDKType {
-  store_code?: MsgStoreCodeSDKType;
-  instantiate_contract?: MsgInstantiateContractSDKType;
-  execute_contract?: MsgExecuteContractSDKType;
 }
 /** Code struct encompasses CodeInfo and CodeBytes */
 
@@ -50,16 +31,6 @@ export interface Code {
 
   pinned: boolean;
 }
-/** Code struct encompasses CodeInfo and CodeBytes */
-
-export interface CodeSDKType {
-  code_id: Long;
-  code_info?: CodeInfoSDKType;
-  code_bytes: Uint8Array;
-  /** Pinned to wasmvm cache */
-
-  pinned: boolean;
-}
 /** Contract struct encompasses ContractAddress, ContractInfo, and ContractState */
 
 export interface Contract {
@@ -67,23 +38,10 @@ export interface Contract {
   contractInfo?: ContractInfo;
   contractState: Model[];
 }
-/** Contract struct encompasses ContractAddress, ContractInfo, and ContractState */
-
-export interface ContractSDKType {
-  contract_address: string;
-  contract_info?: ContractInfoSDKType;
-  contract_state: ModelSDKType[];
-}
 /** Sequence key and value of an id generation counter */
 
 export interface Sequence {
   idKey: Uint8Array;
-  value: Long;
-}
-/** Sequence key and value of an id generation counter */
-
-export interface SequenceSDKType {
-  id_key: Uint8Array;
   value: Long;
 }
 

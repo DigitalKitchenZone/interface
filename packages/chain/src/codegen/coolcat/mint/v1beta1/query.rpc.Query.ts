@@ -19,29 +19,29 @@ export class QueryClientImpl implements Query {
 
   constructor(rpc: Rpc) {
     this.rpc = rpc;
-    this.params = this.params.bind(this);
-    this.inflation = this.inflation.bind(this);
-    this.annualProvisions = this.annualProvisions.bind(this);
   }
+  /* Params returns the total set of minting parameters. */
 
-  params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
+
+  params = async (request: QueryParamsRequest = {}): Promise<QueryParamsResponse> => {
     const data = QueryParamsRequest.encode(request).finish();
     const promise = this.rpc.request("coolcat.mint.v1beta1.Query", "Params", data);
     return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
-  }
+  };
+  /* Inflation returns the current minting inflation value. */
 
-  inflation(request: QueryInflationRequest = {}): Promise<QueryInflationResponse> {
+  inflation = async (request: QueryInflationRequest = {}): Promise<QueryInflationResponse> => {
     const data = QueryInflationRequest.encode(request).finish();
     const promise = this.rpc.request("coolcat.mint.v1beta1.Query", "Inflation", data);
     return promise.then(data => QueryInflationResponse.decode(new _m0.Reader(data)));
-  }
+  };
+  /* AnnualProvisions current minting annual provisions value. */
 
-  annualProvisions(request: QueryAnnualProvisionsRequest = {}): Promise<QueryAnnualProvisionsResponse> {
+  annualProvisions = async (request: QueryAnnualProvisionsRequest = {}): Promise<QueryAnnualProvisionsResponse> => {
     const data = QueryAnnualProvisionsRequest.encode(request).finish();
     const promise = this.rpc.request("coolcat.mint.v1beta1.Query", "AnnualProvisions", data);
     return promise.then(data => QueryAnnualProvisionsResponse.decode(new _m0.Reader(data)));
-  }
-
+  };
 }
 export const createRpcQueryExtension = (base: QueryClient) => {
   const rpc = createProtobufRpcClient(base);

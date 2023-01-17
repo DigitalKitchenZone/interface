@@ -1,4 +1,4 @@
-import { Any, AnySDKType } from "../../../../google/protobuf/any";
+import { Any } from "../../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
 import { isSet, DeepPartial, bytesFromBase64, base64FromBytes } from "../../../../helpers";
 /** MsgCreateClient defines a message to create an IBC client */
@@ -16,27 +16,9 @@ export interface MsgCreateClient {
 
   signer: string;
 }
-/** MsgCreateClient defines a message to create an IBC client */
-
-export interface MsgCreateClientSDKType {
-  /** light client state */
-  client_state?: AnySDKType;
-  /**
-   * consensus state associated with the client that corresponds to a given
-   * height.
-   */
-
-  consensus_state?: AnySDKType;
-  /** signer address */
-
-  signer: string;
-}
 /** MsgCreateClientResponse defines the Msg/CreateClient response type. */
 
 export interface MsgCreateClientResponse {}
-/** MsgCreateClientResponse defines the Msg/CreateClient response type. */
-
-export interface MsgCreateClientResponseSDKType {}
 /**
  * MsgUpdateClient defines an sdk.Msg to update a IBC client state using
  * the given header.
@@ -52,27 +34,9 @@ export interface MsgUpdateClient {
 
   signer: string;
 }
-/**
- * MsgUpdateClient defines an sdk.Msg to update a IBC client state using
- * the given header.
- */
-
-export interface MsgUpdateClientSDKType {
-  /** client unique identifier */
-  client_id: string;
-  /** header to update the light client */
-
-  header?: AnySDKType;
-  /** signer address */
-
-  signer: string;
-}
 /** MsgUpdateClientResponse defines the Msg/UpdateClient response type. */
 
 export interface MsgUpdateClientResponse {}
-/** MsgUpdateClientResponse defines the Msg/UpdateClient response type. */
-
-export interface MsgUpdateClientResponseSDKType {}
 /**
  * MsgUpgradeClient defines an sdk.Msg to upgrade an IBC client to a new client
  * state
@@ -100,39 +64,9 @@ export interface MsgUpgradeClient {
 
   signer: string;
 }
-/**
- * MsgUpgradeClient defines an sdk.Msg to upgrade an IBC client to a new client
- * state
- */
-
-export interface MsgUpgradeClientSDKType {
-  /** client unique identifier */
-  client_id: string;
-  /** upgraded client state */
-
-  client_state?: AnySDKType;
-  /**
-   * upgraded consensus state, only contains enough information to serve as a
-   * basis of trust in update logic
-   */
-
-  consensus_state?: AnySDKType;
-  /** proof that old chain committed to new client */
-
-  proof_upgrade_client: Uint8Array;
-  /** proof that old chain committed to new consensus state */
-
-  proof_upgrade_consensus_state: Uint8Array;
-  /** signer address */
-
-  signer: string;
-}
 /** MsgUpgradeClientResponse defines the Msg/UpgradeClient response type. */
 
 export interface MsgUpgradeClientResponse {}
-/** MsgUpgradeClientResponse defines the Msg/UpgradeClient response type. */
-
-export interface MsgUpgradeClientResponseSDKType {}
 /**
  * MsgSubmitMisbehaviour defines an sdk.Msg type that submits Evidence for
  * light client misbehaviour.
@@ -149,32 +83,11 @@ export interface MsgSubmitMisbehaviour {
   signer: string;
 }
 /**
- * MsgSubmitMisbehaviour defines an sdk.Msg type that submits Evidence for
- * light client misbehaviour.
- */
-
-export interface MsgSubmitMisbehaviourSDKType {
-  /** client unique identifier */
-  client_id: string;
-  /** misbehaviour used for freezing the light client */
-
-  misbehaviour?: AnySDKType;
-  /** signer address */
-
-  signer: string;
-}
-/**
  * MsgSubmitMisbehaviourResponse defines the Msg/SubmitMisbehaviour response
  * type.
  */
 
 export interface MsgSubmitMisbehaviourResponse {}
-/**
- * MsgSubmitMisbehaviourResponse defines the Msg/SubmitMisbehaviour response
- * type.
- */
-
-export interface MsgSubmitMisbehaviourResponseSDKType {}
 
 function createBaseMsgCreateClient(): MsgCreateClient {
   return {

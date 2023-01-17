@@ -12,13 +12,13 @@ export class MsgClientImpl implements Msg {
 
   constructor(rpc: Rpc) {
     this.rpc = rpc;
-    this.claimFor = this.claimFor.bind(this);
   }
+  /* this line is used by starport scaffolding # proto/tx/rpc */
 
-  claimFor(request: MsgClaimFor): Promise<MsgClaimForResponse> {
+
+  claimFor = async (request: MsgClaimFor): Promise<MsgClaimForResponse> => {
     const data = MsgClaimFor.encode(request).finish();
     const promise = this.rpc.request("coolcat.catdrop.v1beta1.Msg", "ClaimFor", data);
     return promise.then(data => MsgClaimForResponse.decode(new _m0.Reader(data)));
-  }
-
+  };
 }

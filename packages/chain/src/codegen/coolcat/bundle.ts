@@ -10,27 +10,27 @@ import * as _9 from "./catdrop/v1beta1/tx";
 import * as _10 from "./mint/v1beta1/genesis";
 import * as _11 from "./mint/v1beta1/mint";
 import * as _12 from "./mint/v1beta1/query";
-import * as _155 from "./alloc/v1beta1/tx.amino";
-import * as _156 from "./catdrop/v1beta1/tx.amino";
-import * as _157 from "./alloc/v1beta1/tx.registry";
-import * as _158 from "./catdrop/v1beta1/tx.registry";
-import * as _159 from "./alloc/v1beta1/query.rpc.Query";
-import * as _160 from "./catdrop/v1beta1/query.rpc.Query";
-import * as _161 from "./mint/v1beta1/query.rpc.Query";
-import * as _162 from "./alloc/v1beta1/tx.rpc.msg";
-import * as _163 from "./catdrop/v1beta1/tx.rpc.msg";
-import * as _245 from "./rpc.query";
-import * as _246 from "./rpc.tx";
+import * as _98 from "./alloc/v1beta1/tx.amino";
+import * as _99 from "./catdrop/v1beta1/tx.amino";
+import * as _100 from "./alloc/v1beta1/tx.registry";
+import * as _101 from "./catdrop/v1beta1/tx.registry";
+import * as _102 from "./alloc/v1beta1/query.rpc.Query";
+import * as _103 from "./catdrop/v1beta1/query.rpc.Query";
+import * as _104 from "./mint/v1beta1/query.rpc.Query";
+import * as _105 from "./alloc/v1beta1/tx.rpc.msg";
+import * as _106 from "./catdrop/v1beta1/tx.rpc.msg";
+import * as _152 from "./rpc.query";
+import * as _153 from "./rpc.tx";
 export namespace coolcat {
   export namespace alloc {
     export const v1beta1 = { ..._1,
       ..._2,
       ..._3,
       ..._4,
-      ..._155,
-      ..._157,
-      ..._159,
-      ..._162
+      ..._98,
+      ..._100,
+      ..._102,
+      ..._105
     };
   }
   export namespace catdrop {
@@ -39,20 +39,20 @@ export namespace coolcat {
       ..._7,
       ..._8,
       ..._9,
-      ..._156,
-      ..._158,
-      ..._160,
-      ..._163
+      ..._99,
+      ..._101,
+      ..._103,
+      ..._106
     };
   }
   export namespace mint {
     export const v1beta1 = { ..._10,
       ..._11,
       ..._12,
-      ..._161
+      ..._104
     };
   }
-  export const ClientFactory = { ..._245,
-    ..._246
+  export const ClientFactory = { ..._152,
+    ..._153
   };
 }

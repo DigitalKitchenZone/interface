@@ -1,10 +1,6 @@
-import * as _m0 from "protobufjs/minimal";
 import { Long, DeepPartial } from "../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface BitArray {
-    bits: Long;
-    elems: Long[];
-}
-export interface BitArraySDKType {
     bits: Long;
     elems: Long[];
 }

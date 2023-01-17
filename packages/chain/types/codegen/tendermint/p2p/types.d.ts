@@ -1,12 +1,6 @@
-import { Timestamp, TimestampSDKType } from "../../google/protobuf/timestamp";
-import * as _m0 from "protobufjs/minimal";
 import { Long, DeepPartial } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface ProtocolVersion {
-    p2p: Long;
-    block: Long;
-    app: Long;
-}
-export interface ProtocolVersionSDKType {
     p2p: Long;
     block: Long;
     app: Long;
@@ -21,45 +15,20 @@ export interface NodeInfo {
     moniker: string;
     other?: NodeInfoOther;
 }
-export interface NodeInfoSDKType {
-    protocol_version?: ProtocolVersionSDKType;
-    node_id: string;
-    listen_addr: string;
-    network: string;
-    version: string;
-    channels: Uint8Array;
-    moniker: string;
-    other?: NodeInfoOtherSDKType;
-}
 export interface NodeInfoOther {
     txIndex: string;
     rpcAddress: string;
 }
-export interface NodeInfoOtherSDKType {
-    tx_index: string;
-    rpc_address: string;
-}
 export interface PeerInfo {
     id: string;
     addressInfo: PeerAddressInfo[];
-    lastConnected?: Timestamp;
-}
-export interface PeerInfoSDKType {
-    id: string;
-    address_info: PeerAddressInfoSDKType[];
-    last_connected?: TimestampSDKType;
+    lastConnected?: Date;
 }
 export interface PeerAddressInfo {
     address: string;
-    lastDialSuccess?: Timestamp;
-    lastDialFailure?: Timestamp;
+    lastDialSuccess?: Date;
+    lastDialFailure?: Date;
     dialFailures: number;
-}
-export interface PeerAddressInfoSDKType {
-    address: string;
-    last_dial_success?: TimestampSDKType;
-    last_dial_failure?: TimestampSDKType;
-    dial_failures: number;
 }
 export declare const ProtocolVersion: {
     encode(message: ProtocolVersion, writer?: _m0.Writer): _m0.Writer;

@@ -1,15 +1,10 @@
-import { PublicKey, PublicKeySDKType } from "../crypto/keys";
-import * as _m0 from "protobufjs/minimal";
+import { PublicKey } from "../crypto/keys";
 import { Long, DeepPartial } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 export interface ValidatorSet {
     validators: Validator[];
     proposer?: Validator;
     totalVotingPower: Long;
-}
-export interface ValidatorSetSDKType {
-    validators: ValidatorSDKType[];
-    proposer?: ValidatorSDKType;
-    total_voting_power: Long;
 }
 export interface Validator {
     address: Uint8Array;
@@ -17,19 +12,9 @@ export interface Validator {
     votingPower: Long;
     proposerPriority: Long;
 }
-export interface ValidatorSDKType {
-    address: Uint8Array;
-    pub_key?: PublicKeySDKType;
-    voting_power: Long;
-    proposer_priority: Long;
-}
 export interface SimpleValidator {
     pubKey?: PublicKey;
     votingPower: Long;
-}
-export interface SimpleValidatorSDKType {
-    pub_key?: PublicKeySDKType;
-    voting_power: Long;
 }
 export declare const ValidatorSet: {
     encode(message: ValidatorSet, writer?: _m0.Writer): _m0.Writer;

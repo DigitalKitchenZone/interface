@@ -17,7 +17,7 @@ const chain: Chain = {
     compatible_versions: ['v2.0.0'],
     genesis: {
       genesis_url:
-        'https://raw.githubusercontent.com/DigitalKitchenLabs/testnets/main/kitten-02/genesis.json'
+        'https://raw.githubusercontent.com/DigitalKitchenLabs/testnets/main/kitten-04/genesis.json'
     }
   },
   peers: {

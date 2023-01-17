@@ -13,9 +13,9 @@ export interface Query {
 export declare class QueryClientImpl implements Query {
     private readonly rpc;
     constructor(rpc: Rpc);
-    params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
-    inflation(request?: QueryInflationRequest): Promise<QueryInflationResponse>;
-    annualProvisions(request?: QueryAnnualProvisionsRequest): Promise<QueryAnnualProvisionsResponse>;
+    params: (request?: QueryParamsRequest) => Promise<QueryParamsResponse>;
+    inflation: (request?: QueryInflationRequest) => Promise<QueryInflationResponse>;
+    annualProvisions: (request?: QueryAnnualProvisionsRequest) => Promise<QueryAnnualProvisionsResponse>;
 }
 export declare const createRpcQueryExtension: (base: QueryClient) => {
     params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;

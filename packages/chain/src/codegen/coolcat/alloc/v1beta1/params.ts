@@ -3,16 +3,9 @@ import { isSet, DeepPartial } from "../../../helpers";
 export interface DistributionProportions {
   communityPool: string;
 }
-export interface DistributionProportionsSDKType {
-  community_pool: string;
-}
 export interface Params {
   /** distribution_proportions defines the proportion of the minted denom */
   distributionProportions?: DistributionProportions;
-}
-export interface ParamsSDKType {
-  /** distribution_proportions defines the proportion of the minted denom */
-  distribution_proportions?: DistributionProportionsSDKType;
 }
 
 function createBaseDistributionProportions(): DistributionProportions {

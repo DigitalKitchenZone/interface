@@ -1,6 +1,6 @@
-import { IdentifiedClientState, IdentifiedClientStateSDKType, ClientConsensusStates, ClientConsensusStatesSDKType, Params, ParamsSDKType } from "./client";
-import * as _m0 from "protobufjs/minimal";
+import { IdentifiedClientState, ClientConsensusStates, Params } from "./client";
 import { Long, DeepPartial } from "../../../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** GenesisState defines the ibc client submodule's genesis state. */
 export interface GenesisState {
     /** client states with their corresponding identifiers */
@@ -15,35 +15,11 @@ export interface GenesisState {
     /** the sequence for the next generated client identifier */
     nextClientSequence: Long;
 }
-/** GenesisState defines the ibc client submodule's genesis state. */
-export interface GenesisStateSDKType {
-    /** client states with their corresponding identifiers */
-    clients: IdentifiedClientStateSDKType[];
-    /** consensus states from each client */
-    clients_consensus: ClientConsensusStatesSDKType[];
-    /** metadata from each client */
-    clients_metadata: IdentifiedGenesisMetadataSDKType[];
-    params?: ParamsSDKType;
-    /** create localhost on initialization */
-    create_localhost: boolean;
-    /** the sequence for the next generated client identifier */
-    next_client_sequence: Long;
-}
 /**
  * GenesisMetadata defines the genesis type for metadata that clients may return
  * with ExportMetadata
  */
 export interface GenesisMetadata {
-    /** store key of metadata without clientID-prefix */
-    key: Uint8Array;
-    /** metadata value */
-    value: Uint8Array;
-}
-/**
- * GenesisMetadata defines the genesis type for metadata that clients may return
- * with ExportMetadata
- */
-export interface GenesisMetadataSDKType {
     /** store key of metadata without clientID-prefix */
     key: Uint8Array;
     /** metadata value */
@@ -56,14 +32,6 @@ export interface GenesisMetadataSDKType {
 export interface IdentifiedGenesisMetadata {
     clientId: string;
     clientMetadata: GenesisMetadata[];
-}
-/**
- * IdentifiedGenesisMetadata has the client metadata with the corresponding
- * client id.
- */
-export interface IdentifiedGenesisMetadataSDKType {
-    client_id: string;
-    client_metadata: GenesisMetadataSDKType[];
 }
 export declare const GenesisState: {
     encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;

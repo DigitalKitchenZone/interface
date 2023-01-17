@@ -13,15 +13,15 @@ export class QueryClientImpl implements Query {
 
   constructor(rpc: Rpc) {
     this.rpc = rpc;
-    this.params = this.params.bind(this);
   }
+  /* this line is used by starport scaffolding # 2 */
 
-  params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
+
+  params = async (request: QueryParamsRequest = {}): Promise<QueryParamsResponse> => {
     const data = QueryParamsRequest.encode(request).finish();
     const promise = this.rpc.request("coolcat.alloc.v1beta1.Query", "Params", data);
     return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
-  }
-
+  };
 }
 export const createRpcQueryExtension = (base: QueryClient) => {
   const rpc = createProtobufRpcClient(base);

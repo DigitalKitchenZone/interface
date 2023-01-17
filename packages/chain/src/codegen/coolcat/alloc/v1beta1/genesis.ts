@@ -1,4 +1,4 @@
-import { Params, ParamsSDKType } from "./params";
+import { Params } from "./params";
 import * as _m0 from "protobufjs/minimal";
 import { isSet, DeepPartial } from "../../../helpers";
 /** GenesisState defines the alloc module's genesis state. */
@@ -6,12 +6,6 @@ import { isSet, DeepPartial } from "../../../helpers";
 export interface GenesisState {
   /** GenesisState defines the alloc module's genesis state. */
   params?: Params;
-}
-/** GenesisState defines the alloc module's genesis state. */
-
-export interface GenesisStateSDKType {
-  /** GenesisState defines the alloc module's genesis state. */
-  params?: ParamsSDKType;
 }
 
 function createBaseGenesisState(): GenesisState {

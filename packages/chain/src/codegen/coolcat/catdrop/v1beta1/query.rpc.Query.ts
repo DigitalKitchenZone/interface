@@ -17,43 +17,43 @@ export class QueryClientImpl implements Query {
 
   constructor(rpc: Rpc) {
     this.rpc = rpc;
-    this.moduleAccountBalance = this.moduleAccountBalance.bind(this);
-    this.params = this.params.bind(this);
-    this.claimRecord = this.claimRecord.bind(this);
-    this.claimableForAction = this.claimableForAction.bind(this);
-    this.totalClaimable = this.totalClaimable.bind(this);
   }
+  /* this line is used by starport scaffolding # 2 */
 
-  moduleAccountBalance(request: QueryModuleAccountBalanceRequest = {}): Promise<QueryModuleAccountBalanceResponse> {
+
+  moduleAccountBalance = async (request: QueryModuleAccountBalanceRequest = {}): Promise<QueryModuleAccountBalanceResponse> => {
     const data = QueryModuleAccountBalanceRequest.encode(request).finish();
     const promise = this.rpc.request("coolcat.catdrop.v1beta1.Query", "ModuleAccountBalance", data);
     return promise.then(data => QueryModuleAccountBalanceResponse.decode(new _m0.Reader(data)));
-  }
+  };
+  /* Params */
 
-  params(request: QueryParamsRequest = {}): Promise<QueryParamsResponse> {
+  params = async (request: QueryParamsRequest = {}): Promise<QueryParamsResponse> => {
     const data = QueryParamsRequest.encode(request).finish();
     const promise = this.rpc.request("coolcat.catdrop.v1beta1.Query", "Params", data);
     return promise.then(data => QueryParamsResponse.decode(new _m0.Reader(data)));
-  }
+  };
+  /* ClaimRecord */
 
-  claimRecord(request: QueryClaimRecordRequest): Promise<QueryClaimRecordResponse> {
+  claimRecord = async (request: QueryClaimRecordRequest): Promise<QueryClaimRecordResponse> => {
     const data = QueryClaimRecordRequest.encode(request).finish();
     const promise = this.rpc.request("coolcat.catdrop.v1beta1.Query", "ClaimRecord", data);
     return promise.then(data => QueryClaimRecordResponse.decode(new _m0.Reader(data)));
-  }
+  };
+  /* ClaimableForAction */
 
-  claimableForAction(request: QueryClaimableForActionRequest): Promise<QueryClaimableForActionResponse> {
+  claimableForAction = async (request: QueryClaimableForActionRequest): Promise<QueryClaimableForActionResponse> => {
     const data = QueryClaimableForActionRequest.encode(request).finish();
     const promise = this.rpc.request("coolcat.catdrop.v1beta1.Query", "ClaimableForAction", data);
     return promise.then(data => QueryClaimableForActionResponse.decode(new _m0.Reader(data)));
-  }
+  };
+  /* TotalClaimable */
 
-  totalClaimable(request: QueryTotalClaimableRequest): Promise<QueryTotalClaimableResponse> {
+  totalClaimable = async (request: QueryTotalClaimableRequest): Promise<QueryTotalClaimableResponse> => {
     const data = QueryTotalClaimableRequest.encode(request).finish();
     const promise = this.rpc.request("coolcat.catdrop.v1beta1.Query", "TotalClaimable", data);
     return promise.then(data => QueryTotalClaimableResponse.decode(new _m0.Reader(data)));
-  }
-
+  };
 }
 export const createRpcQueryExtension = (base: QueryClient) => {
   const rpc = createProtobufRpcClient(base);

@@ -1,7 +1,7 @@
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../../cosmos/base/query/v1beta1/pagination";
-import { Channel, ChannelSDKType, IdentifiedChannel, IdentifiedChannelSDKType, PacketState, PacketStateSDKType } from "./channel";
-import { Height, HeightSDKType, IdentifiedClientState, IdentifiedClientStateSDKType } from "../../client/v1/client";
-import { Any, AnySDKType } from "../../../../google/protobuf/any";
+import { PageRequest, PageResponse } from "../../../../cosmos/base/query/v1beta1/pagination";
+import { Channel, IdentifiedChannel, PacketState } from "./channel";
+import { Height, IdentifiedClientState } from "../../client/v1/client";
+import { Any } from "../../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
 import { isSet, DeepPartial, bytesFromBase64, base64FromBytes, Long } from "../../../../helpers";
 /** QueryChannelRequest is the request type for the Query/Channel RPC method */
@@ -12,15 +12,6 @@ export interface QueryChannelRequest {
   /** channel unique identifier */
 
   channelId: string;
-}
-/** QueryChannelRequest is the request type for the Query/Channel RPC method */
-
-export interface QueryChannelRequestSDKType {
-  /** port unique identifier */
-  port_id: string;
-  /** channel unique identifier */
-
-  channel_id: string;
 }
 /**
  * QueryChannelResponse is the response type for the Query/Channel RPC method.
@@ -38,33 +29,11 @@ export interface QueryChannelResponse {
 
   proofHeight?: Height;
 }
-/**
- * QueryChannelResponse is the response type for the Query/Channel RPC method.
- * Besides the Channel end, it includes a proof and the height from which the
- * proof was retrieved.
- */
-
-export interface QueryChannelResponseSDKType {
-  /** channel associated with the request identifiers */
-  channel?: ChannelSDKType;
-  /** merkle proof of existence */
-
-  proof: Uint8Array;
-  /** height at which the proof was retrieved */
-
-  proof_height?: HeightSDKType;
-}
 /** QueryChannelsRequest is the request type for the Query/Channels RPC method */
 
 export interface QueryChannelsRequest {
   /** pagination request */
   pagination?: PageRequest;
-}
-/** QueryChannelsRequest is the request type for the Query/Channels RPC method */
-
-export interface QueryChannelsRequestSDKType {
-  /** pagination request */
-  pagination?: PageRequestSDKType;
 }
 /** QueryChannelsResponse is the response type for the Query/Channels RPC method. */
 
@@ -78,18 +47,6 @@ export interface QueryChannelsResponse {
 
   height?: Height;
 }
-/** QueryChannelsResponse is the response type for the Query/Channels RPC method. */
-
-export interface QueryChannelsResponseSDKType {
-  /** list of stored channels of the chain. */
-  channels: IdentifiedChannelSDKType[];
-  /** pagination response */
-
-  pagination?: PageResponseSDKType;
-  /** query block height */
-
-  height?: HeightSDKType;
-}
 /**
  * QueryConnectionChannelsRequest is the request type for the
  * Query/QueryConnectionChannels RPC method
@@ -101,18 +58,6 @@ export interface QueryConnectionChannelsRequest {
   /** pagination request */
 
   pagination?: PageRequest;
-}
-/**
- * QueryConnectionChannelsRequest is the request type for the
- * Query/QueryConnectionChannels RPC method
- */
-
-export interface QueryConnectionChannelsRequestSDKType {
-  /** connection unique identifier */
-  connection: string;
-  /** pagination request */
-
-  pagination?: PageRequestSDKType;
 }
 /**
  * QueryConnectionChannelsResponse is the Response type for the
@@ -130,21 +75,6 @@ export interface QueryConnectionChannelsResponse {
   height?: Height;
 }
 /**
- * QueryConnectionChannelsResponse is the Response type for the
- * Query/QueryConnectionChannels RPC method
- */
-
-export interface QueryConnectionChannelsResponseSDKType {
-  /** list of channels associated with a connection. */
-  channels: IdentifiedChannelSDKType[];
-  /** pagination response */
-
-  pagination?: PageResponseSDKType;
-  /** query block height */
-
-  height?: HeightSDKType;
-}
-/**
  * QueryChannelClientStateRequest is the request type for the Query/ClientState
  * RPC method
  */
@@ -155,18 +85,6 @@ export interface QueryChannelClientStateRequest {
   /** channel unique identifier */
 
   channelId: string;
-}
-/**
- * QueryChannelClientStateRequest is the request type for the Query/ClientState
- * RPC method
- */
-
-export interface QueryChannelClientStateRequestSDKType {
-  /** port unique identifier */
-  port_id: string;
-  /** channel unique identifier */
-
-  channel_id: string;
 }
 /**
  * QueryChannelClientStateResponse is the Response type for the
@@ -182,21 +100,6 @@ export interface QueryChannelClientStateResponse {
   /** height at which the proof was retrieved */
 
   proofHeight?: Height;
-}
-/**
- * QueryChannelClientStateResponse is the Response type for the
- * Query/QueryChannelClientState RPC method
- */
-
-export interface QueryChannelClientStateResponseSDKType {
-  /** client state associated with the channel */
-  identified_client_state?: IdentifiedClientStateSDKType;
-  /** merkle proof of existence */
-
-  proof: Uint8Array;
-  /** height at which the proof was retrieved */
-
-  proof_height?: HeightSDKType;
 }
 /**
  * QueryChannelConsensusStateRequest is the request type for the
@@ -217,24 +120,6 @@ export interface QueryChannelConsensusStateRequest {
   revisionHeight: Long;
 }
 /**
- * QueryChannelConsensusStateRequest is the request type for the
- * Query/ConsensusState RPC method
- */
-
-export interface QueryChannelConsensusStateRequestSDKType {
-  /** port unique identifier */
-  port_id: string;
-  /** channel unique identifier */
-
-  channel_id: string;
-  /** revision number of the consensus state */
-
-  revision_number: Long;
-  /** revision height of the consensus state */
-
-  revision_height: Long;
-}
-/**
  * QueryChannelClientStateResponse is the Response type for the
  * Query/QueryChannelClientState RPC method
  */
@@ -253,24 +138,6 @@ export interface QueryChannelConsensusStateResponse {
   proofHeight?: Height;
 }
 /**
- * QueryChannelClientStateResponse is the Response type for the
- * Query/QueryChannelClientState RPC method
- */
-
-export interface QueryChannelConsensusStateResponseSDKType {
-  /** consensus state associated with the channel */
-  consensus_state?: AnySDKType;
-  /** client ID associated with the consensus state */
-
-  client_id: string;
-  /** merkle proof of existence */
-
-  proof: Uint8Array;
-  /** height at which the proof was retrieved */
-
-  proof_height?: HeightSDKType;
-}
-/**
  * QueryPacketCommitmentRequest is the request type for the
  * Query/PacketCommitment RPC method
  */
@@ -281,21 +148,6 @@ export interface QueryPacketCommitmentRequest {
   /** channel unique identifier */
 
   channelId: string;
-  /** packet sequence */
-
-  sequence: Long;
-}
-/**
- * QueryPacketCommitmentRequest is the request type for the
- * Query/PacketCommitment RPC method
- */
-
-export interface QueryPacketCommitmentRequestSDKType {
-  /** port unique identifier */
-  port_id: string;
-  /** channel unique identifier */
-
-  channel_id: string;
   /** packet sequence */
 
   sequence: Long;
@@ -317,22 +169,6 @@ export interface QueryPacketCommitmentResponse {
   proofHeight?: Height;
 }
 /**
- * QueryPacketCommitmentResponse defines the client query response for a packet
- * which also includes a proof and the height from which the proof was
- * retrieved
- */
-
-export interface QueryPacketCommitmentResponseSDKType {
-  /** packet associated with the request fields */
-  commitment: Uint8Array;
-  /** merkle proof of existence */
-
-  proof: Uint8Array;
-  /** height at which the proof was retrieved */
-
-  proof_height?: HeightSDKType;
-}
-/**
  * QueryPacketCommitmentsRequest is the request type for the
  * Query/QueryPacketCommitments RPC method
  */
@@ -346,21 +182,6 @@ export interface QueryPacketCommitmentsRequest {
   /** pagination request */
 
   pagination?: PageRequest;
-}
-/**
- * QueryPacketCommitmentsRequest is the request type for the
- * Query/QueryPacketCommitments RPC method
- */
-
-export interface QueryPacketCommitmentsRequestSDKType {
-  /** port unique identifier */
-  port_id: string;
-  /** channel unique identifier */
-
-  channel_id: string;
-  /** pagination request */
-
-  pagination?: PageRequestSDKType;
 }
 /**
  * QueryPacketCommitmentsResponse is the request type for the
@@ -377,20 +198,6 @@ export interface QueryPacketCommitmentsResponse {
   height?: Height;
 }
 /**
- * QueryPacketCommitmentsResponse is the request type for the
- * Query/QueryPacketCommitments RPC method
- */
-
-export interface QueryPacketCommitmentsResponseSDKType {
-  commitments: PacketStateSDKType[];
-  /** pagination response */
-
-  pagination?: PageResponseSDKType;
-  /** query block height */
-
-  height?: HeightSDKType;
-}
-/**
  * QueryPacketReceiptRequest is the request type for the
  * Query/PacketReceipt RPC method
  */
@@ -401,21 +208,6 @@ export interface QueryPacketReceiptRequest {
   /** channel unique identifier */
 
   channelId: string;
-  /** packet sequence */
-
-  sequence: Long;
-}
-/**
- * QueryPacketReceiptRequest is the request type for the
- * Query/PacketReceipt RPC method
- */
-
-export interface QueryPacketReceiptRequestSDKType {
-  /** port unique identifier */
-  port_id: string;
-  /** channel unique identifier */
-
-  channel_id: string;
   /** packet sequence */
 
   sequence: Long;
@@ -437,22 +229,6 @@ export interface QueryPacketReceiptResponse {
   proofHeight?: Height;
 }
 /**
- * QueryPacketReceiptResponse defines the client query response for a packet
- * receipt which also includes a proof, and the height from which the proof was
- * retrieved
- */
-
-export interface QueryPacketReceiptResponseSDKType {
-  /** success flag for if receipt exists */
-  received: boolean;
-  /** merkle proof of existence */
-
-  proof: Uint8Array;
-  /** height at which the proof was retrieved */
-
-  proof_height?: HeightSDKType;
-}
-/**
  * QueryPacketAcknowledgementRequest is the request type for the
  * Query/PacketAcknowledgement RPC method
  */
@@ -463,21 +239,6 @@ export interface QueryPacketAcknowledgementRequest {
   /** channel unique identifier */
 
   channelId: string;
-  /** packet sequence */
-
-  sequence: Long;
-}
-/**
- * QueryPacketAcknowledgementRequest is the request type for the
- * Query/PacketAcknowledgement RPC method
- */
-
-export interface QueryPacketAcknowledgementRequestSDKType {
-  /** port unique identifier */
-  port_id: string;
-  /** channel unique identifier */
-
-  channel_id: string;
   /** packet sequence */
 
   sequence: Long;
@@ -499,22 +260,6 @@ export interface QueryPacketAcknowledgementResponse {
   proofHeight?: Height;
 }
 /**
- * QueryPacketAcknowledgementResponse defines the client query response for a
- * packet which also includes a proof and the height from which the
- * proof was retrieved
- */
-
-export interface QueryPacketAcknowledgementResponseSDKType {
-  /** packet associated with the request fields */
-  acknowledgement: Uint8Array;
-  /** merkle proof of existence */
-
-  proof: Uint8Array;
-  /** height at which the proof was retrieved */
-
-  proof_height?: HeightSDKType;
-}
-/**
  * QueryPacketAcknowledgementsRequest is the request type for the
  * Query/QueryPacketCommitments RPC method
  */
@@ -533,24 +278,6 @@ export interface QueryPacketAcknowledgementsRequest {
   packetCommitmentSequences: Long[];
 }
 /**
- * QueryPacketAcknowledgementsRequest is the request type for the
- * Query/QueryPacketCommitments RPC method
- */
-
-export interface QueryPacketAcknowledgementsRequestSDKType {
-  /** port unique identifier */
-  port_id: string;
-  /** channel unique identifier */
-
-  channel_id: string;
-  /** pagination request */
-
-  pagination?: PageRequestSDKType;
-  /** list of packet sequences */
-
-  packet_commitment_sequences: Long[];
-}
-/**
  * QueryPacketAcknowledgemetsResponse is the request type for the
  * Query/QueryPacketAcknowledgements RPC method
  */
@@ -563,20 +290,6 @@ export interface QueryPacketAcknowledgementsResponse {
   /** query block height */
 
   height?: Height;
-}
-/**
- * QueryPacketAcknowledgemetsResponse is the request type for the
- * Query/QueryPacketAcknowledgements RPC method
- */
-
-export interface QueryPacketAcknowledgementsResponseSDKType {
-  acknowledgements: PacketStateSDKType[];
-  /** pagination response */
-
-  pagination?: PageResponseSDKType;
-  /** query block height */
-
-  height?: HeightSDKType;
 }
 /**
  * QueryUnreceivedPacketsRequest is the request type for the
@@ -594,21 +307,6 @@ export interface QueryUnreceivedPacketsRequest {
   packetCommitmentSequences: Long[];
 }
 /**
- * QueryUnreceivedPacketsRequest is the request type for the
- * Query/UnreceivedPackets RPC method
- */
-
-export interface QueryUnreceivedPacketsRequestSDKType {
-  /** port unique identifier */
-  port_id: string;
-  /** channel unique identifier */
-
-  channel_id: string;
-  /** list of packet sequences */
-
-  packet_commitment_sequences: Long[];
-}
-/**
  * QueryUnreceivedPacketsResponse is the response type for the
  * Query/UnreceivedPacketCommitments RPC method
  */
@@ -619,18 +317,6 @@ export interface QueryUnreceivedPacketsResponse {
   /** query block height */
 
   height?: Height;
-}
-/**
- * QueryUnreceivedPacketsResponse is the response type for the
- * Query/UnreceivedPacketCommitments RPC method
- */
-
-export interface QueryUnreceivedPacketsResponseSDKType {
-  /** list of unreceived packet sequences */
-  sequences: Long[];
-  /** query block height */
-
-  height?: HeightSDKType;
 }
 /**
  * QueryUnreceivedAcks is the request type for the
@@ -648,21 +334,6 @@ export interface QueryUnreceivedAcksRequest {
   packetAckSequences: Long[];
 }
 /**
- * QueryUnreceivedAcks is the request type for the
- * Query/UnreceivedAcks RPC method
- */
-
-export interface QueryUnreceivedAcksRequestSDKType {
-  /** port unique identifier */
-  port_id: string;
-  /** channel unique identifier */
-
-  channel_id: string;
-  /** list of acknowledgement sequences */
-
-  packet_ack_sequences: Long[];
-}
-/**
  * QueryUnreceivedAcksResponse is the response type for the
  * Query/UnreceivedAcks RPC method
  */
@@ -675,18 +346,6 @@ export interface QueryUnreceivedAcksResponse {
   height?: Height;
 }
 /**
- * QueryUnreceivedAcksResponse is the response type for the
- * Query/UnreceivedAcks RPC method
- */
-
-export interface QueryUnreceivedAcksResponseSDKType {
-  /** list of unreceived acknowledgement sequences */
-  sequences: Long[];
-  /** query block height */
-
-  height?: HeightSDKType;
-}
-/**
  * QueryNextSequenceReceiveRequest is the request type for the
  * Query/QueryNextSequenceReceiveRequest RPC method
  */
@@ -697,18 +356,6 @@ export interface QueryNextSequenceReceiveRequest {
   /** channel unique identifier */
 
   channelId: string;
-}
-/**
- * QueryNextSequenceReceiveRequest is the request type for the
- * Query/QueryNextSequenceReceiveRequest RPC method
- */
-
-export interface QueryNextSequenceReceiveRequestSDKType {
-  /** port unique identifier */
-  port_id: string;
-  /** channel unique identifier */
-
-  channel_id: string;
 }
 /**
  * QuerySequenceResponse is the request type for the
@@ -724,21 +371,6 @@ export interface QueryNextSequenceReceiveResponse {
   /** height at which the proof was retrieved */
 
   proofHeight?: Height;
-}
-/**
- * QuerySequenceResponse is the request type for the
- * Query/QueryNextSequenceReceiveResponse RPC method
- */
-
-export interface QueryNextSequenceReceiveResponseSDKType {
-  /** next sequence receive number */
-  next_sequence_receive: Long;
-  /** merkle proof of existence */
-
-  proof: Uint8Array;
-  /** height at which the proof was retrieved */
-
-  proof_height?: HeightSDKType;
 }
 
 function createBaseQueryChannelRequest(): QueryChannelRequest {

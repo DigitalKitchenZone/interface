@@ -1,14 +1,7 @@
-import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
+import { Coin } from "../../../cosmos/base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "../../../helpers";
 export declare enum Action {
-    ActionVote = 0,
-    ActionDelegateStake = 1,
-    ActionCreateProfile = 2,
-    ActionUseClowder = 3,
-    UNRECOGNIZED = -1
-}
-export declare enum ActionSDKType {
     ActionVote = 0,
     ActionDelegateStake = 1,
     ActionCreateProfile = 2,
@@ -27,17 +20,6 @@ export interface ClaimRecord {
      * index of bool in array refers to action enum #
      */
     actionCompleted: boolean[];
-}
-export interface ClaimRecordSDKType {
-    /** address of claim user */
-    address: string;
-    /** total initial claimable amount for the user */
-    initial_claimable_amount: CoinSDKType[];
-    /**
-     * true if action is completed
-     * index of bool in array refers to action enum #
-     */
-    action_completed: boolean[];
 }
 export declare const ClaimRecord: {
     encode(message: ClaimRecord, writer?: _m0.Writer): _m0.Writer;

@@ -1,8 +1,7 @@
-//@ts-nocheck
 import { actionFromJSON } from "./claim_record";
 import { AminoMsg } from "@cosmjs/amino";
 import { MsgClaimFor } from "./tx";
-export interface AminoMsgClaimFor extends AminoMsg {
+export interface MsgClaimForAminoType extends AminoMsg {
   type: "/coolcat.catdrop.v1beta1.MsgClaimFor";
   value: {
     sender: string;
@@ -17,7 +16,7 @@ export const AminoConverter = {
       sender,
       address,
       action
-    }: MsgClaimFor): AminoMsgClaimFor["value"] => {
+    }: MsgClaimFor): MsgClaimForAminoType["value"] => {
       return {
         sender,
         address,
@@ -28,7 +27,7 @@ export const AminoConverter = {
       sender,
       address,
       action
-    }: AminoMsgClaimFor["value"]): MsgClaimFor => {
+    }: MsgClaimForAminoType["value"]): MsgClaimFor => {
       return {
         sender,
         address,

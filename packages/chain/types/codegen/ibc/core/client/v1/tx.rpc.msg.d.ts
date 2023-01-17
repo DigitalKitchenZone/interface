@@ -14,8 +14,8 @@ export interface Msg {
 export declare class MsgClientImpl implements Msg {
     private readonly rpc;
     constructor(rpc: Rpc);
-    createClient(request: MsgCreateClient): Promise<MsgCreateClientResponse>;
-    updateClient(request: MsgUpdateClient): Promise<MsgUpdateClientResponse>;
-    upgradeClient(request: MsgUpgradeClient): Promise<MsgUpgradeClientResponse>;
-    submitMisbehaviour(request: MsgSubmitMisbehaviour): Promise<MsgSubmitMisbehaviourResponse>;
+    createClient: (request: MsgCreateClient) => Promise<MsgCreateClientResponse>;
+    updateClient: (request: MsgUpdateClient) => Promise<MsgUpdateClientResponse>;
+    upgradeClient: (request: MsgUpgradeClient) => Promise<MsgUpgradeClientResponse>;
+    submitMisbehaviour: (request: MsgSubmitMisbehaviour) => Promise<MsgSubmitMisbehaviourResponse>;
 }

@@ -1,5 +1,5 @@
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../../cosmos/base/query/v1beta1/pagination";
-import { DenomTrace, DenomTraceSDKType, Params, ParamsSDKType } from "./transfer";
+import { PageRequest, PageResponse } from "../../../../cosmos/base/query/v1beta1/pagination";
+import { DenomTrace, Params } from "./transfer";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "../../../../helpers";
 /**
@@ -7,14 +7,6 @@ import { DeepPartial } from "../../../../helpers";
  * method
  */
 export interface QueryDenomTraceRequest {
-    /** hash (in hex format) of the denomination trace information. */
-    hash: string;
-}
-/**
- * QueryDenomTraceRequest is the request type for the Query/DenomTrace RPC
- * method
- */
-export interface QueryDenomTraceRequestSDKType {
     /** hash (in hex format) of the denomination trace information. */
     hash: string;
 }
@@ -27,28 +19,12 @@ export interface QueryDenomTraceResponse {
     denomTrace?: DenomTrace;
 }
 /**
- * QueryDenomTraceResponse is the response type for the Query/DenomTrace RPC
- * method.
- */
-export interface QueryDenomTraceResponseSDKType {
-    /** denom_trace returns the requested denomination trace information. */
-    denom_trace?: DenomTraceSDKType;
-}
-/**
  * QueryConnectionsRequest is the request type for the Query/DenomTraces RPC
  * method
  */
 export interface QueryDenomTracesRequest {
     /** pagination defines an optional pagination for the request. */
     pagination?: PageRequest;
-}
-/**
- * QueryConnectionsRequest is the request type for the Query/DenomTraces RPC
- * method
- */
-export interface QueryDenomTracesRequestSDKType {
-    /** pagination defines an optional pagination for the request. */
-    pagination?: PageRequestSDKType;
 }
 /**
  * QueryConnectionsResponse is the response type for the Query/DenomTraces RPC
@@ -60,31 +36,13 @@ export interface QueryDenomTracesResponse {
     /** pagination defines the pagination in the response. */
     pagination?: PageResponse;
 }
-/**
- * QueryConnectionsResponse is the response type for the Query/DenomTraces RPC
- * method.
- */
-export interface QueryDenomTracesResponseSDKType {
-    /** denom_traces returns all denominations trace information. */
-    denom_traces: DenomTraceSDKType[];
-    /** pagination defines the pagination in the response. */
-    pagination?: PageResponseSDKType;
-}
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {
-}
-/** QueryParamsRequest is the request type for the Query/Params RPC method. */
-export interface QueryParamsRequestSDKType {
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
     /** params defines the parameters of the module. */
     params?: Params;
-}
-/** QueryParamsResponse is the response type for the Query/Params RPC method. */
-export interface QueryParamsResponseSDKType {
-    /** params defines the parameters of the module. */
-    params?: ParamsSDKType;
 }
 export declare const QueryDenomTraceRequest: {
     encode(message: QueryDenomTraceRequest, writer?: _m0.Writer): _m0.Writer;

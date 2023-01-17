@@ -1,7 +1,7 @@
-import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../../cosmos/base/query/v1beta1/pagination";
-import { ConnectionEnd, ConnectionEndSDKType, IdentifiedConnection, IdentifiedConnectionSDKType } from "./connection";
-import { Height, HeightSDKType, IdentifiedClientState, IdentifiedClientStateSDKType } from "../../client/v1/client";
-import { Any, AnySDKType } from "../../../../google/protobuf/any";
+import { PageRequest, PageResponse } from "../../../../cosmos/base/query/v1beta1/pagination";
+import { ConnectionEnd, IdentifiedConnection } from "./connection";
+import { Height, IdentifiedClientState } from "../../client/v1/client";
+import { Any } from "../../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial, Long } from "../../../../helpers";
 /**
@@ -11,14 +11,6 @@ import { DeepPartial, Long } from "../../../../helpers";
 export interface QueryConnectionRequest {
     /** connection unique identifier */
     connectionId: string;
-}
-/**
- * QueryConnectionRequest is the request type for the Query/Connection RPC
- * method
- */
-export interface QueryConnectionRequestSDKType {
-    /** connection unique identifier */
-    connection_id: string;
 }
 /**
  * QueryConnectionResponse is the response type for the Query/Connection RPC
@@ -34,31 +26,11 @@ export interface QueryConnectionResponse {
     proofHeight?: Height;
 }
 /**
- * QueryConnectionResponse is the response type for the Query/Connection RPC
- * method. Besides the connection end, it includes a proof and the height from
- * which the proof was retrieved.
- */
-export interface QueryConnectionResponseSDKType {
-    /** connection associated with the request identifier */
-    connection?: ConnectionEndSDKType;
-    /** merkle proof of existence */
-    proof: Uint8Array;
-    /** height at which the proof was retrieved */
-    proof_height?: HeightSDKType;
-}
-/**
  * QueryConnectionsRequest is the request type for the Query/Connections RPC
  * method
  */
 export interface QueryConnectionsRequest {
     pagination?: PageRequest;
-}
-/**
- * QueryConnectionsRequest is the request type for the Query/Connections RPC
- * method
- */
-export interface QueryConnectionsRequestSDKType {
-    pagination?: PageRequestSDKType;
 }
 /**
  * QueryConnectionsResponse is the response type for the Query/Connections RPC
@@ -73,32 +45,12 @@ export interface QueryConnectionsResponse {
     height?: Height;
 }
 /**
- * QueryConnectionsResponse is the response type for the Query/Connections RPC
- * method.
- */
-export interface QueryConnectionsResponseSDKType {
-    /** list of stored connections of the chain. */
-    connections: IdentifiedConnectionSDKType[];
-    /** pagination response */
-    pagination?: PageResponseSDKType;
-    /** query block height */
-    height?: HeightSDKType;
-}
-/**
  * QueryClientConnectionsRequest is the request type for the
  * Query/ClientConnections RPC method
  */
 export interface QueryClientConnectionsRequest {
     /** client identifier associated with a connection */
     clientId: string;
-}
-/**
- * QueryClientConnectionsRequest is the request type for the
- * Query/ClientConnections RPC method
- */
-export interface QueryClientConnectionsRequestSDKType {
-    /** client identifier associated with a connection */
-    client_id: string;
 }
 /**
  * QueryClientConnectionsResponse is the response type for the
@@ -113,32 +65,12 @@ export interface QueryClientConnectionsResponse {
     proofHeight?: Height;
 }
 /**
- * QueryClientConnectionsResponse is the response type for the
- * Query/ClientConnections RPC method
- */
-export interface QueryClientConnectionsResponseSDKType {
-    /** slice of all the connection paths associated with a client. */
-    connection_paths: string[];
-    /** merkle proof of existence */
-    proof: Uint8Array;
-    /** height at which the proof was generated */
-    proof_height?: HeightSDKType;
-}
-/**
  * QueryConnectionClientStateRequest is the request type for the
  * Query/ConnectionClientState RPC method
  */
 export interface QueryConnectionClientStateRequest {
     /** connection identifier */
     connectionId: string;
-}
-/**
- * QueryConnectionClientStateRequest is the request type for the
- * Query/ConnectionClientState RPC method
- */
-export interface QueryConnectionClientStateRequestSDKType {
-    /** connection identifier */
-    connection_id: string;
 }
 /**
  * QueryConnectionClientStateResponse is the response type for the
@@ -153,18 +85,6 @@ export interface QueryConnectionClientStateResponse {
     proofHeight?: Height;
 }
 /**
- * QueryConnectionClientStateResponse is the response type for the
- * Query/ConnectionClientState RPC method
- */
-export interface QueryConnectionClientStateResponseSDKType {
-    /** client state associated with the channel */
-    identified_client_state?: IdentifiedClientStateSDKType;
-    /** merkle proof of existence */
-    proof: Uint8Array;
-    /** height at which the proof was retrieved */
-    proof_height?: HeightSDKType;
-}
-/**
  * QueryConnectionConsensusStateRequest is the request type for the
  * Query/ConnectionConsensusState RPC method
  */
@@ -173,16 +93,6 @@ export interface QueryConnectionConsensusStateRequest {
     connectionId: string;
     revisionNumber: Long;
     revisionHeight: Long;
-}
-/**
- * QueryConnectionConsensusStateRequest is the request type for the
- * Query/ConnectionConsensusState RPC method
- */
-export interface QueryConnectionConsensusStateRequestSDKType {
-    /** connection identifier */
-    connection_id: string;
-    revision_number: Long;
-    revision_height: Long;
 }
 /**
  * QueryConnectionConsensusStateResponse is the response type for the
@@ -197,20 +107,6 @@ export interface QueryConnectionConsensusStateResponse {
     proof: Uint8Array;
     /** height at which the proof was retrieved */
     proofHeight?: Height;
-}
-/**
- * QueryConnectionConsensusStateResponse is the response type for the
- * Query/ConnectionConsensusState RPC method
- */
-export interface QueryConnectionConsensusStateResponseSDKType {
-    /** consensus state associated with the channel */
-    consensus_state?: AnySDKType;
-    /** client ID associated with the consensus state */
-    client_id: string;
-    /** merkle proof of existence */
-    proof: Uint8Array;
-    /** height at which the proof was retrieved */
-    proof_height?: HeightSDKType;
 }
 export declare const QueryConnectionRequest: {
     encode(message: QueryConnectionRequest, writer?: _m0.Writer): _m0.Writer;

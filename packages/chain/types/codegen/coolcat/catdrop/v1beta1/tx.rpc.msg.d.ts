@@ -8,5 +8,5 @@ export interface Msg {
 export declare class MsgClientImpl implements Msg {
     private readonly rpc;
     constructor(rpc: Rpc);
-    claimFor(request: MsgClaimFor): Promise<MsgClaimForResponse>;
+    claimFor: (request: MsgClaimFor) => Promise<MsgClaimForResponse>;
 }

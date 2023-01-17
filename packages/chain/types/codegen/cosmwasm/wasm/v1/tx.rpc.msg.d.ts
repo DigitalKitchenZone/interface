@@ -18,10 +18,10 @@ export interface Msg {
 export declare class MsgClientImpl implements Msg {
     private readonly rpc;
     constructor(rpc: Rpc);
-    storeCode(request: MsgStoreCode): Promise<MsgStoreCodeResponse>;
-    instantiateContract(request: MsgInstantiateContract): Promise<MsgInstantiateContractResponse>;
-    executeContract(request: MsgExecuteContract): Promise<MsgExecuteContractResponse>;
-    migrateContract(request: MsgMigrateContract): Promise<MsgMigrateContractResponse>;
-    updateAdmin(request: MsgUpdateAdmin): Promise<MsgUpdateAdminResponse>;
-    clearAdmin(request: MsgClearAdmin): Promise<MsgClearAdminResponse>;
+    storeCode: (request: MsgStoreCode) => Promise<MsgStoreCodeResponse>;
+    instantiateContract: (request: MsgInstantiateContract) => Promise<MsgInstantiateContractResponse>;
+    executeContract: (request: MsgExecuteContract) => Promise<MsgExecuteContractResponse>;
+    migrateContract: (request: MsgMigrateContract) => Promise<MsgMigrateContractResponse>;
+    updateAdmin: (request: MsgUpdateAdmin) => Promise<MsgUpdateAdminResponse>;
+    clearAdmin: (request: MsgClearAdmin) => Promise<MsgClearAdminResponse>;
 }

@@ -1,5 +1,5 @@
-import { Header, HeaderSDKType, Data, DataSDKType, Commit, CommitSDKType } from "./types";
-import { EvidenceList, EvidenceListSDKType } from "./evidence";
+import { Header, Data, Commit } from "./types";
+import { EvidenceList } from "./evidence";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "../../helpers";
 export interface Block {
@@ -7,12 +7,6 @@ export interface Block {
     data?: Data;
     evidence?: EvidenceList;
     lastCommit?: Commit;
-}
-export interface BlockSDKType {
-    header?: HeaderSDKType;
-    data?: DataSDKType;
-    evidence?: EvidenceListSDKType;
-    last_commit?: CommitSDKType;
 }
 export declare const Block: {
     encode(message: Block, writer?: _m0.Writer): _m0.Writer;

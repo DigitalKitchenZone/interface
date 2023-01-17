@@ -34,15 +34,15 @@ export interface Query {
 export declare class QueryClientImpl implements Query {
     private readonly rpc;
     constructor(rpc: Rpc);
-    balance(request: QueryBalanceRequest): Promise<QueryBalanceResponse>;
-    allBalances(request: QueryAllBalancesRequest): Promise<QueryAllBalancesResponse>;
-    spendableBalances(request: QuerySpendableBalancesRequest): Promise<QuerySpendableBalancesResponse>;
-    totalSupply(request?: QueryTotalSupplyRequest): Promise<QueryTotalSupplyResponse>;
-    supplyOf(request: QuerySupplyOfRequest): Promise<QuerySupplyOfResponse>;
-    params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
-    denomMetadata(request: QueryDenomMetadataRequest): Promise<QueryDenomMetadataResponse>;
-    denomsMetadata(request?: QueryDenomsMetadataRequest): Promise<QueryDenomsMetadataResponse>;
-    denomOwners(request: QueryDenomOwnersRequest): Promise<QueryDenomOwnersResponse>;
+    balance: (request: QueryBalanceRequest) => Promise<QueryBalanceResponse>;
+    allBalances: (request: QueryAllBalancesRequest) => Promise<QueryAllBalancesResponse>;
+    spendableBalances: (request: QuerySpendableBalancesRequest) => Promise<QuerySpendableBalancesResponse>;
+    totalSupply: (request?: QueryTotalSupplyRequest) => Promise<QueryTotalSupplyResponse>;
+    supplyOf: (request: QuerySupplyOfRequest) => Promise<QuerySupplyOfResponse>;
+    params: (request?: QueryParamsRequest) => Promise<QueryParamsResponse>;
+    denomMetadata: (request: QueryDenomMetadataRequest) => Promise<QueryDenomMetadataResponse>;
+    denomsMetadata: (request?: QueryDenomsMetadataRequest) => Promise<QueryDenomsMetadataResponse>;
+    denomOwners: (request: QueryDenomOwnersRequest) => Promise<QueryDenomOwnersResponse>;
 }
 export declare const createRpcQueryExtension: (base: QueryClient) => {
     balance(request: QueryBalanceRequest): Promise<QueryBalanceResponse>;

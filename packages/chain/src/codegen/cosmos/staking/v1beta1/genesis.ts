@@ -1,4 +1,4 @@
-import { Params, ParamsSDKType, Validator, ValidatorSDKType, Delegation, DelegationSDKType, UnbondingDelegation, UnbondingDelegationSDKType, Redelegation, RedelegationSDKType } from "./staking";
+import { Params, Validator, Delegation, UnbondingDelegation, Redelegation } from "./staking";
 import * as _m0 from "protobufjs/minimal";
 import { isSet, bytesFromBase64, base64FromBytes, DeepPartial, Long } from "../../../helpers";
 /** GenesisState defines the staking module's genesis state. */
@@ -32,49 +32,9 @@ export interface GenesisState {
   redelegations: Redelegation[];
   exported: boolean;
 }
-/** GenesisState defines the staking module's genesis state. */
-
-export interface GenesisStateSDKType {
-  /** params defines all the paramaters of related to deposit. */
-  params?: ParamsSDKType;
-  /**
-   * last_total_power tracks the total amounts of bonded tokens recorded during
-   * the previous end block.
-   */
-
-  last_total_power: Uint8Array;
-  /**
-   * last_validator_powers is a special index that provides a historical list
-   * of the last-block's bonded validators.
-   */
-
-  last_validator_powers: LastValidatorPowerSDKType[];
-  /** delegations defines the validator set at genesis. */
-
-  validators: ValidatorSDKType[];
-  /** delegations defines the delegations active at genesis. */
-
-  delegations: DelegationSDKType[];
-  /** unbonding_delegations defines the unbonding delegations active at genesis. */
-
-  unbonding_delegations: UnbondingDelegationSDKType[];
-  /** redelegations defines the redelegations active at genesis. */
-
-  redelegations: RedelegationSDKType[];
-  exported: boolean;
-}
 /** LastValidatorPower required for validator set update logic. */
 
 export interface LastValidatorPower {
-  /** address is the address of the validator. */
-  address: string;
-  /** power defines the power of the validator. */
-
-  power: Long;
-}
-/** LastValidatorPower required for validator set update logic. */
-
-export interface LastValidatorPowerSDKType {
   /** address is the address of the validator. */
   address: string;
   /** power defines the power of the validator. */

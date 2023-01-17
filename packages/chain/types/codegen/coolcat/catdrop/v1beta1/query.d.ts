@@ -1,77 +1,42 @@
-import { Action, ActionSDKType, ClaimRecord, ClaimRecordSDKType } from "./claim_record";
-import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
-import { Params, ParamsSDKType } from "./params";
+import { Action, ClaimRecord } from "./claim_record";
+import { Coin } from "../../../cosmos/base/v1beta1/coin";
+import { Params } from "./params";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "../../../helpers";
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 export interface QueryModuleAccountBalanceRequest {
-}
-/** QueryParamsRequest is the request type for the Query/Params RPC method. */
-export interface QueryModuleAccountBalanceRequestSDKType {
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryModuleAccountBalanceResponse {
     /** params defines the parameters of the module. */
     moduleAccountBalance: Coin[];
 }
-/** QueryParamsResponse is the response type for the Query/Params RPC method. */
-export interface QueryModuleAccountBalanceResponseSDKType {
-    /** params defines the parameters of the module. */
-    moduleAccountBalance: CoinSDKType[];
-}
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {
-}
-/** QueryParamsRequest is the request type for the Query/Params RPC method. */
-export interface QueryParamsRequestSDKType {
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
     /** params defines the parameters of the module. */
     params?: Params;
 }
-/** QueryParamsResponse is the response type for the Query/Params RPC method. */
-export interface QueryParamsResponseSDKType {
-    /** params defines the parameters of the module. */
-    params?: ParamsSDKType;
-}
 export interface QueryClaimRecordRequest {
-    address: string;
-}
-export interface QueryClaimRecordRequestSDKType {
     address: string;
 }
 export interface QueryClaimRecordResponse {
     claimRecord?: ClaimRecord;
 }
-export interface QueryClaimRecordResponseSDKType {
-    claim_record?: ClaimRecordSDKType;
-}
 export interface QueryClaimableForActionRequest {
     address: string;
     action: Action;
 }
-export interface QueryClaimableForActionRequestSDKType {
-    address: string;
-    action: ActionSDKType;
-}
 export interface QueryClaimableForActionResponse {
     coins: Coin[];
-}
-export interface QueryClaimableForActionResponseSDKType {
-    coins: CoinSDKType[];
 }
 export interface QueryTotalClaimableRequest {
     address: string;
 }
-export interface QueryTotalClaimableRequestSDKType {
-    address: string;
-}
 export interface QueryTotalClaimableResponse {
     coins: Coin[];
-}
-export interface QueryTotalClaimableResponseSDKType {
-    coins: CoinSDKType[];
 }
 export declare const QueryModuleAccountBalanceRequest: {
     encode(_: QueryModuleAccountBalanceRequest, writer?: _m0.Writer): _m0.Writer;

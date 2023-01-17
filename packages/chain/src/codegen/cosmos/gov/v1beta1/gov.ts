@@ -1,31 +1,12 @@
-import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
-import { Any, AnySDKType } from "../../../google/protobuf/any";
-import { Timestamp, TimestampSDKType } from "../../../google/protobuf/timestamp";
-import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
+import { Coin } from "../../base/v1beta1/coin";
+import { Any } from "../../../google/protobuf/any";
+import { Timestamp } from "../../../google/protobuf/timestamp";
+import { Duration } from "../../../google/protobuf/duration";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, Long, fromJsonTimestamp, fromTimestamp, bytesFromBase64, base64FromBytes } from "../../../helpers";
+import { isSet, DeepPartial, Long, toTimestamp, fromTimestamp, fromJsonTimestamp, bytesFromBase64, base64FromBytes } from "../../../helpers";
 /** VoteOption enumerates the valid vote options for a given governance proposal. */
 
 export enum VoteOption {
-  /** VOTE_OPTION_UNSPECIFIED - VOTE_OPTION_UNSPECIFIED defines a no-op vote option. */
-  VOTE_OPTION_UNSPECIFIED = 0,
-
-  /** VOTE_OPTION_YES - VOTE_OPTION_YES defines a yes vote option. */
-  VOTE_OPTION_YES = 1,
-
-  /** VOTE_OPTION_ABSTAIN - VOTE_OPTION_ABSTAIN defines an abstain vote option. */
-  VOTE_OPTION_ABSTAIN = 2,
-
-  /** VOTE_OPTION_NO - VOTE_OPTION_NO defines a no vote option. */
-  VOTE_OPTION_NO = 3,
-
-  /** VOTE_OPTION_NO_WITH_VETO - VOTE_OPTION_NO_WITH_VETO defines a no with veto vote option. */
-  VOTE_OPTION_NO_WITH_VETO = 4,
-  UNRECOGNIZED = -1,
-}
-/** VoteOption enumerates the valid vote options for a given governance proposal. */
-
-export enum VoteOptionSDKType {
   /** VOTE_OPTION_UNSPECIFIED - VOTE_OPTION_UNSPECIFIED defines a no-op vote option. */
   VOTE_OPTION_UNSPECIFIED = 0,
 
@@ -129,43 +110,6 @@ export enum ProposalStatus {
   PROPOSAL_STATUS_FAILED = 5,
   UNRECOGNIZED = -1,
 }
-/** ProposalStatus enumerates the valid statuses of a proposal. */
-
-export enum ProposalStatusSDKType {
-  /** PROPOSAL_STATUS_UNSPECIFIED - PROPOSAL_STATUS_UNSPECIFIED defines the default propopsal status. */
-  PROPOSAL_STATUS_UNSPECIFIED = 0,
-
-  /**
-   * PROPOSAL_STATUS_DEPOSIT_PERIOD - PROPOSAL_STATUS_DEPOSIT_PERIOD defines a proposal status during the deposit
-   * period.
-   */
-  PROPOSAL_STATUS_DEPOSIT_PERIOD = 1,
-
-  /**
-   * PROPOSAL_STATUS_VOTING_PERIOD - PROPOSAL_STATUS_VOTING_PERIOD defines a proposal status during the voting
-   * period.
-   */
-  PROPOSAL_STATUS_VOTING_PERIOD = 2,
-
-  /**
-   * PROPOSAL_STATUS_PASSED - PROPOSAL_STATUS_PASSED defines a proposal status of a proposal that has
-   * passed.
-   */
-  PROPOSAL_STATUS_PASSED = 3,
-
-  /**
-   * PROPOSAL_STATUS_REJECTED - PROPOSAL_STATUS_REJECTED defines a proposal status of a proposal that has
-   * been rejected.
-   */
-  PROPOSAL_STATUS_REJECTED = 4,
-
-  /**
-   * PROPOSAL_STATUS_FAILED - PROPOSAL_STATUS_FAILED defines a proposal status of a proposal that has
-   * failed.
-   */
-  PROPOSAL_STATUS_FAILED = 5,
-  UNRECOGNIZED = -1,
-}
 export function proposalStatusFromJSON(object: any): ProposalStatus {
   switch (object) {
     case 0:
@@ -234,30 +178,11 @@ export interface WeightedVoteOption {
   weight: string;
 }
 /**
- * WeightedVoteOption defines a unit of vote for vote split.
- * 
- * Since: cosmos-sdk 0.43
- */
-
-export interface WeightedVoteOptionSDKType {
-  option: VoteOptionSDKType;
-  weight: string;
-}
-/**
  * TextProposal defines a standard text proposal whose changes need to be
  * manually updated in case of approval.
  */
 
 export interface TextProposal {
-  title: string;
-  description: string;
-}
-/**
- * TextProposal defines a standard text proposal whose changes need to be
- * manually updated in case of approval.
- */
-
-export interface TextProposalSDKType {
   title: string;
   description: string;
 }
@@ -270,16 +195,6 @@ export interface Deposit {
   proposalId: Long;
   depositor: string;
   amount: Coin[];
-}
-/**
- * Deposit defines an amount deposited by an account address to an active
- * proposal.
- */
-
-export interface DepositSDKType {
-  proposal_id: Long;
-  depositor: string;
-  amount: CoinSDKType[];
 }
 /** Proposal defines the core field members of a governance proposal. */
 
@@ -294,30 +209,11 @@ export interface Proposal {
    */
 
   finalTallyResult?: TallyResult;
-  submitTime?: Timestamp;
-  depositEndTime?: Timestamp;
+  submitTime?: Date;
+  depositEndTime?: Date;
   totalDeposit: Coin[];
-  votingStartTime?: Timestamp;
-  votingEndTime?: Timestamp;
-}
-/** Proposal defines the core field members of a governance proposal. */
-
-export interface ProposalSDKType {
-  proposal_id: Long;
-  content?: AnySDKType;
-  status: ProposalStatusSDKType;
-  /**
-   * final_tally_result is the final tally result of the proposal. When
-   * querying a proposal via gRPC, this field is not populated until the
-   * proposal's voting period has ended.
-   */
-
-  final_tally_result?: TallyResultSDKType;
-  submit_time?: TimestampSDKType;
-  deposit_end_time?: TimestampSDKType;
-  total_deposit: CoinSDKType[];
-  voting_start_time?: TimestampSDKType;
-  voting_end_time?: TimestampSDKType;
+  votingStartTime?: Date;
+  votingEndTime?: Date;
 }
 /** TallyResult defines a standard tally for a governance proposal. */
 
@@ -326,14 +222,6 @@ export interface TallyResult {
   abstain: string;
   no: string;
   noWithVeto: string;
-}
-/** TallyResult defines a standard tally for a governance proposal. */
-
-export interface TallyResultSDKType {
-  yes: string;
-  abstain: string;
-  no: string;
-  no_with_veto: string;
 }
 /**
  * Vote defines a vote on a governance proposal.
@@ -356,27 +244,6 @@ export interface Vote {
 
   options: WeightedVoteOption[];
 }
-/**
- * Vote defines a vote on a governance proposal.
- * A Vote consists of a proposal ID, the voter, and the vote option.
- */
-
-export interface VoteSDKType {
-  proposal_id: Long;
-  voter: string;
-  /**
-   * Deprecated: Prefer to use `options` instead. This field is set in queries
-   * if and only if `len(options) == 1` and that option has weight 1. In all
-   * other cases, this field will default to VOTE_OPTION_UNSPECIFIED.
-   */
-
-  /** @deprecated */
-
-  option: VoteOptionSDKType;
-  /** Since: cosmos-sdk 0.43 */
-
-  options: WeightedVoteOptionSDKType[];
-}
 /** DepositParams defines the params for deposits on governance proposals. */
 
 export interface DepositParams {
@@ -389,29 +256,11 @@ export interface DepositParams {
 
   maxDepositPeriod?: Duration;
 }
-/** DepositParams defines the params for deposits on governance proposals. */
-
-export interface DepositParamsSDKType {
-  /** Minimum deposit for a proposal to enter voting period. */
-  min_deposit: CoinSDKType[];
-  /**
-   * Maximum period for Atom holders to deposit on a proposal. Initial value: 2
-   *  months.
-   */
-
-  max_deposit_period?: DurationSDKType;
-}
 /** VotingParams defines the params for voting on governance proposals. */
 
 export interface VotingParams {
   /** Length of the voting period. */
   votingPeriod?: Duration;
-}
-/** VotingParams defines the params for voting on governance proposals. */
-
-export interface VotingParamsSDKType {
-  /** Length of the voting period. */
-  voting_period?: DurationSDKType;
 }
 /** TallyParams defines the params for tallying votes on governance proposals. */
 
@@ -430,24 +279,6 @@ export interface TallyParams {
    */
 
   vetoThreshold: Uint8Array;
-}
-/** TallyParams defines the params for tallying votes on governance proposals. */
-
-export interface TallyParamsSDKType {
-  /**
-   * Minimum percentage of total stake needed to vote for a result to be
-   *  considered valid.
-   */
-  quorum: Uint8Array;
-  /** Minimum proportion of Yes votes for proposal to pass. Default value: 0.5. */
-
-  threshold: Uint8Array;
-  /**
-   * Minimum value of Veto votes to Total votes ratio for proposal to be
-   *  vetoed. Default value: 1/3.
-   */
-
-  veto_threshold: Uint8Array;
 }
 
 function createBaseWeightedVoteOption(): WeightedVoteOption {
@@ -708,11 +539,11 @@ export const Proposal = {
     }
 
     if (message.submitTime !== undefined) {
-      Timestamp.encode(message.submitTime, writer.uint32(42).fork()).ldelim();
+      Timestamp.encode(toTimestamp(message.submitTime), writer.uint32(42).fork()).ldelim();
     }
 
     if (message.depositEndTime !== undefined) {
-      Timestamp.encode(message.depositEndTime, writer.uint32(50).fork()).ldelim();
+      Timestamp.encode(toTimestamp(message.depositEndTime), writer.uint32(50).fork()).ldelim();
     }
 
     for (const v of message.totalDeposit) {
@@ -720,11 +551,11 @@ export const Proposal = {
     }
 
     if (message.votingStartTime !== undefined) {
-      Timestamp.encode(message.votingStartTime, writer.uint32(66).fork()).ldelim();
+      Timestamp.encode(toTimestamp(message.votingStartTime), writer.uint32(66).fork()).ldelim();
     }
 
     if (message.votingEndTime !== undefined) {
-      Timestamp.encode(message.votingEndTime, writer.uint32(74).fork()).ldelim();
+      Timestamp.encode(toTimestamp(message.votingEndTime), writer.uint32(74).fork()).ldelim();
     }
 
     return writer;
@@ -756,11 +587,11 @@ export const Proposal = {
           break;
 
         case 5:
-          message.submitTime = Timestamp.decode(reader, reader.uint32());
+          message.submitTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           break;
 
         case 6:
-          message.depositEndTime = Timestamp.decode(reader, reader.uint32());
+          message.depositEndTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           break;
 
         case 7:
@@ -768,11 +599,11 @@ export const Proposal = {
           break;
 
         case 8:
-          message.votingStartTime = Timestamp.decode(reader, reader.uint32());
+          message.votingStartTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           break;
 
         case 9:
-          message.votingEndTime = Timestamp.decode(reader, reader.uint32());
+          message.votingEndTime = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           break;
 
         default:
@@ -804,8 +635,8 @@ export const Proposal = {
     message.content !== undefined && (obj.content = message.content ? Any.toJSON(message.content) : undefined);
     message.status !== undefined && (obj.status = proposalStatusToJSON(message.status));
     message.finalTallyResult !== undefined && (obj.finalTallyResult = message.finalTallyResult ? TallyResult.toJSON(message.finalTallyResult) : undefined);
-    message.submitTime !== undefined && (obj.submitTime = fromTimestamp(message.submitTime).toISOString());
-    message.depositEndTime !== undefined && (obj.depositEndTime = fromTimestamp(message.depositEndTime).toISOString());
+    message.submitTime !== undefined && (obj.submitTime = message.submitTime.toISOString());
+    message.depositEndTime !== undefined && (obj.depositEndTime = message.depositEndTime.toISOString());
 
     if (message.totalDeposit) {
       obj.totalDeposit = message.totalDeposit.map(e => e ? Coin.toJSON(e) : undefined);
@@ -813,8 +644,8 @@ export const Proposal = {
       obj.totalDeposit = [];
     }
 
-    message.votingStartTime !== undefined && (obj.votingStartTime = fromTimestamp(message.votingStartTime).toISOString());
-    message.votingEndTime !== undefined && (obj.votingEndTime = fromTimestamp(message.votingEndTime).toISOString());
+    message.votingStartTime !== undefined && (obj.votingStartTime = message.votingStartTime.toISOString());
+    message.votingEndTime !== undefined && (obj.votingEndTime = message.votingEndTime.toISOString());
     return obj;
   },
 
@@ -824,11 +655,11 @@ export const Proposal = {
     message.content = object.content !== undefined && object.content !== null ? Any.fromPartial(object.content) : undefined;
     message.status = object.status ?? 0;
     message.finalTallyResult = object.finalTallyResult !== undefined && object.finalTallyResult !== null ? TallyResult.fromPartial(object.finalTallyResult) : undefined;
-    message.submitTime = object.submitTime !== undefined && object.submitTime !== null ? Timestamp.fromPartial(object.submitTime) : undefined;
-    message.depositEndTime = object.depositEndTime !== undefined && object.depositEndTime !== null ? Timestamp.fromPartial(object.depositEndTime) : undefined;
+    message.submitTime = object.submitTime ?? undefined;
+    message.depositEndTime = object.depositEndTime ?? undefined;
     message.totalDeposit = object.totalDeposit?.map(e => Coin.fromPartial(e)) || [];
-    message.votingStartTime = object.votingStartTime !== undefined && object.votingStartTime !== null ? Timestamp.fromPartial(object.votingStartTime) : undefined;
-    message.votingEndTime = object.votingEndTime !== undefined && object.votingEndTime !== null ? Timestamp.fromPartial(object.votingEndTime) : undefined;
+    message.votingStartTime = object.votingStartTime ?? undefined;
+    message.votingEndTime = object.votingEndTime ?? undefined;
     return message;
   }
 
