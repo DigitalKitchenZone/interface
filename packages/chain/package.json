@@ -77,10 +77,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.19.4",
-    "@cosmjs/amino": "0.29.5",
-    "@cosmjs/proto-signing": "0.29.5",
-    "@cosmjs/stargate": "0.29.5",
-    "@cosmjs/tendermint-rpc": "0.29.5",
+    "@cosmjs/amino": "0.30.1",
+    "@cosmjs/proto-signing": "0.30.1",
+    "@cosmjs/stargate": "0.30.1",
+    "@cosmjs/tendermint-rpc": "0.30.1",
     "protobufjs": "^6.11.2"
   },
   "gitHead": "b5dd9d2d2eb4112e9b2b97608316ee1a2b370be2"
