@@ -78,5 +78,5 @@
     "@cosmjs/stargate": "0.30.1",
     "cosmwasm": "1.1.1"
   },
-  "gitHead": "50cea6731fae9af440664eede6e882ae7848d9dc"
+  "gitHead": "72fd401f953394dce5add2ca527970a9479e2ba1"
 }
